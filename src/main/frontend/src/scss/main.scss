@@ -1,0 +1,12 @@
+@use "/src/scss/resetScss.scss";
+@use "/src/scss/_mixins.scss";
+@use "/src/scss/_colors.scss";
+
+
+body{
+    font-family: "flexo";
+}
+
+.bold{
+    font-weight: bold;
+}
