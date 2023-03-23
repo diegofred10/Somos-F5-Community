@@ -57,6 +57,7 @@ export default {
         </v-sheet>
     </div>
 </template>
+
 <style lang="scss">
 .logIn {
     display: flex;
