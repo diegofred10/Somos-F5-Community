@@ -12,7 +12,7 @@
         width: 100vw;
         height: 15vh;
         #headerLogo{
-            width: 20vw;
+            width: 15vw;
             height: 10vh;
         }
     }

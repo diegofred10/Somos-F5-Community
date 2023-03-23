@@ -1,16 +1,20 @@
-<script>
-    import HeaderSigIn from '../components/HeaderSigIn.vue'
+<script setup>
+import HeaderSigIn from '../components/HeaderSigIn.vue'
+import LogInComp from '../components/LogInComp.vue'
+
 </script>
+
 <template>
-    <HeaderSigIn/>
-    <div id="logInPage">
-        <h2>login</h2>
-    </div>
+    <main id="main">
+        <HeaderSigIn />
+        <LogInComp />
+    </main>
 </template>
+
 <style scoped lang="scss">
-    #logInPage{
-        background-color: #FF4700;
-        width: 100vw;
-        height: 100vh;
-    }
+#main {
+    background-color: #FF4700;
+    width: 100vw;
+    height: 100vh;
+}
 </style>
