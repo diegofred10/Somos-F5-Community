@@ -2,6 +2,7 @@ package com.somosf5community.models;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,7 +26,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "users")
 public class User {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_user")
@@ -33,7 +34,8 @@ public class User {
     private String email;
     private String password;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "profile_id")
     private Profile profile;
 
     @ManyToMany(fetch = FetchType.EAGER)
