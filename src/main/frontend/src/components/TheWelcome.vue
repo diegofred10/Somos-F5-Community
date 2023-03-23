@@ -1,7 +1,9 @@
 <script setup>
+import HeaderLogin from './HeaderLogin.vue';
+
 
 </script>
 
 <template>
- <h1>HOLA</h1>
+<HeaderLogin></HeaderLogin>
 </template>
