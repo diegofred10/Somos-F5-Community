@@ -1,12 +1,12 @@
 <script setup>
-import HeaderSigIn from '../components/HeaderSigIn.vue'
+import HeaderLogIn from '../components/HeaderLogIn.vue'
 import LogInComp from '../components/LogInComp.vue'
 
 </script>
 
 <template>
     <main id="main">
-        <HeaderSigIn />
+        <HeaderLogIn />
         <LogInComp />
     </main>
 </template>
