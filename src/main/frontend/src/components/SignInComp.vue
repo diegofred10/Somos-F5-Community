@@ -54,12 +54,9 @@ export default {
                     required></v-text-field>
                 <v-text-field v-model="password" :counter="10" :rules="nameRules" label="Codigo de verificacion"
                     required></v-text-field>
-
-                <a class="passwordLink" href="">¿Has olvidado tu contraseña?</a>
-
                 <div class="d-flex flex-column">
                     <v-btn class="mt-4" block @click="validate">
-                        Enviar
+                        Registrarse
                     </v-btn>
                 </div>
             </v-form>
@@ -107,7 +104,7 @@ export default {
 
                 .v-btn {
                     color: white;
-                    background-color: black;
+                    background-color: #33C8CD;
                 }
             }
         }

@@ -4,14 +4,14 @@ import SignInComp from '../components/SignInComp.vue';
 </script>
 
 <template>
-    <main id="main">
+    <main class="main">
         <HeaderLogIn />
         <SignInComp/>
     </main>
 </template>
 
 <style scoped lang="scss">
-#main {
+.main {
     background-color: #FF4700;
     width: 100vw;
     height: 140vh;

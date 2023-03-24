@@ -5,14 +5,14 @@ import LogInComp from '../components/LogInComp.vue'
 </script>
 
 <template>
-    <main id="main">
+    <main class="main">
         <HeaderLogIn />
         <LogInComp />
     </main>
 </template>
 
 <style scoped lang="scss">
-#main {
+.main {
     background-color: #FF4700;
     width: 100vw;
     height: 120vh;
