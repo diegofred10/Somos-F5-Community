@@ -26,20 +26,20 @@ public class UserRepositoryTest {
     public void findById(){
         User user =  repository.findById(1L).orElseThrow();
        assertThat(user.getId()).isEqualTo(1L);
-       assertThat(user.getEmail()).isEqualTo("hola@jaja.xd");
+       assertThat(user.getUsername()).isEqualTo("hola@jaja.xd");
     }
 
     @Test
     public void findByName(){
-        User user = repository.findByEmail("hola@jaja.xd").orElseThrow();
+        User user = repository.findByUsername("hola@jaja.xd").orElseThrow();
         assertThat(user.getId()).isEqualTo(1L);
-        assertThat(user.getEmail()).isEqualTo("hola@jaja.xd");
+        assertThat(user.getUsername()).isEqualTo("hola@jaja.xd");
     }
      
     @Test
     public void saveuser(){
         User user = new User();
-        user.setEmail("user3");
+        user.setUsername("user3");
         repository.save(user);
         assertThat(user.getId()).isNotNull();
     }
@@ -54,9 +54,9 @@ public class UserRepositoryTest {
     @Test
     public void updateuser(){
         User user = repository.findById(1L).orElseThrow();
-        user.setEmail("user1Updated");
+        user.setUsername("user1Updated");
         repository.save(user);
-        assertThat(user.getEmail()).isEqualTo("user1Updated");
+        assertThat(user.getUsername()).isEqualTo("user1Updated");
     }
 
 }

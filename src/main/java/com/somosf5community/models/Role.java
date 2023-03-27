@@ -1,10 +1,9 @@
 package com.somosf5community.models;
 
-import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,17 +18,15 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "roles")
+@Entity( name = "roles")
 public class Role {
-    @Id 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_role")
     private Long id;
 
-    @Column(name= "name")
-    String roleName;
-    
+    private String roleName;
+
     @JsonIgnore
     @ManyToMany(mappedBy = "roles")
-    List <User> users;
+    Set<User> users;
 }

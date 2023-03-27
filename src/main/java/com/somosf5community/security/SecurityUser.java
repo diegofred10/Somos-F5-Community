@@ -9,13 +9,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.somosf5community.models.Role;
 import com.somosf5community.models.User;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class SecurityUser implements UserDetails {
 
     private final User user;
-
-    public SecurityUser(User user) {
-        this.user = user;
-    }
 
     @Override
     public String getPassword() {
@@ -24,7 +23,7 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return user.getUsername();
     }
 
     @Override
