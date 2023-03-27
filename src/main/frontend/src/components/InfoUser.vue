@@ -27,9 +27,9 @@ import colors from '../scss/_colors.scss'
         </div>   
     </div>
     <div class="design">       
-        <img class="arrow" src="../assets/images/imagesSomosF5/flecha2 2.png" alt="">
-        <img class="triangle" src="../assets/images/imagesSomosF5/trianguloCeleste 1.png" alt="">       
-        <img class="semicircle" src="../assets/images/imagesSomosF5/semiCirculo 2.png" alt="">
+        <img class="arrow" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/632a9e30dd20f538a3049cc4_shape-13.svg" alt="">
+        <img class="triangle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bbaf7322b42359abe7_shape-5.svg" alt="">       
+        <img class="semicircle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/63c7aad88f903d7f30ff4eff_emp-shape-05.svg" alt="">
     </div>
 </div>
 </template>
@@ -90,19 +90,26 @@ align-items: center;
         height: 85%;
 
         .arrow{
-            width: 18%;          
+            width: 15%;          
             z-index: 2;
-            right: 30vw;
+            right: 35vw;
+            top: 10%;
             margin-top: -2%;
-            position: absolute;
+            position: absolute;    
+            rotate: -20deg;
         }
         .triangle{
-            width: 25%;
-            right: 15vw;
+            width: 10%;
+            right: 27vw;
+            top: -10%;
             position: absolute;
+            rotate: 270deg;
         }
         .semicircle{
-            width: 5%;
+            right: 10%;
+            rotate: 180deg;
+            width: 15%;
+            top: -2%;
             position: absolute;
         }
     }
