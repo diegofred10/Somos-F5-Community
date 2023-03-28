@@ -1,4 +1,6 @@
-<script></script>
+<script>
+import { Slide } from "vue3-burger-menu";
+</script>
 <template>
   <div class="header">
       <a href="/" aria-current="page" class="headerLogo"></a>
@@ -8,32 +10,29 @@
         class="menuNav"
         style="transform: translateY(0px) translateX(0px)"
       >
-        <a
-          href="/misPublicaciones"
-          aria-current="page"
-          class="menuNavLink w--current"
-          >Mis Publicaciones</a
-        >
-        <a href="/elMuro" class="menuNavLink">El Muro</a>
-        <a href="/logOut" class="menuNavLink">logOut</a>
+      <router-link to="/mispublicaciones" class="nav__link" href="">Mis Publicaciones</router-link>
+      <router-link to="/elmuro" class="nav__link" href="">El Muro</router-link>
+      <router-link to="/"  href="">LogOut</router-link>
       </nav>
-
       <div
-        class="menuMobile"
-        style="-webkit-user-select: text"
-        aria-label="manu"
-        role="button"
-        tabindex="0"
-        aria-haspopup="menu"
-        aria-expanded="true"
+      class="menuMobile"
+      style="-webkit-user-select: text"
+      aria-label="manu"
+      role="button"
+      tabindex="0"
+      aria-haspopup="menu"
+      aria-expanded="true"
       >
-        <div class="menuIcon">
-          <div class="menuIconLine"></div>
-          <div class="menuIconLine"></div>
-        </div>
+      <div class="menuIcon">
+        <div class="menuIconLine"></div>
+        <div class="menuIconLine"></div>
       </div>
     </div>
   </div>
+</div>
+<div>
+  <img src="../assets/images/imagen-responsive-pantalla-completa.png" alt="">
+</div>
 </template>
 <style lang="scss">
 @use "@/scss/colors" as c;
@@ -49,7 +48,6 @@
   height: 5rem;
   -webkit-box-pack: center;
   justify-content: center;
-  // -webkit-box-align: center;
   background-color: map-get(c.$colors, "light-orange");
 
   .headerLogo {
@@ -67,7 +65,7 @@
     -webkit-box-pack: justify;
     justify-content: space-between;
     -webkit-box-align: center;
-    flex: 1;
+    
 
 
     .menuNav {
@@ -75,18 +73,15 @@
       -webkit-box-align: center;
       align-items: center;
       grid-column-gap: 2rem;
-      box-sizing: border-box;
+      font-family: "Open Sans";
 
-      .menuNavLink {
-        padding: 0.05rem 0px;
-        font-family: "Open Sans";
-
-        .menuNavLink w--current {
+      
+        .nav__link {
           border-bottom: 4px solid map-get(c.$colors, "orange");
           font-weight: 700;
         }
       }
-    }
+    
   }
 
   .menuMobile {
