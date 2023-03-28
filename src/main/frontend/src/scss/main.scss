@@ -1,10 +1,11 @@
 @use "/src/scss/resetScss.scss";
 @use "/src/scss/_mixins.scss";
 @use "/src/scss/_colors.scss";
+@use "/src/scss/_fonts.scss";
 
 
 body{
-    font-family: "flexo";
+    font-family: "openSans";
 }
 
 .bold{
