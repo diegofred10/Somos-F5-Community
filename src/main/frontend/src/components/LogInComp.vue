@@ -48,7 +48,7 @@ export default {
             <v-form ref="form">
                 <v-text-field v-model="mail" :counter="10" :rules="mailRules" label="Correo Electronico"
                     required></v-text-field>
-                <v-text-field v-model="password" :counter="10" :rules="nameRules" label="Contraseña"
+                <v-text-field class="passwordBox" v-model="password" :counter="10" :rules="nameRules" label="Contraseña"
                     required></v-text-field>
 
                 <a class="passwordLink" href="">¿Has olvidado tu contraseña?</a>
@@ -61,11 +61,11 @@ export default {
             </v-form>
         </v-sheet>
         <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png">
-        <img class="blueTriangle1" src="../assets/images/imagesSomosF5/trianguloAzul 1.png">
-        <img class="littleStar" src="../assets/images/imagesSomosF5/estrellaLila 2.png">
-        <img class="brightTriangle" src="../assets/images/imagesSomosF5/trianguloSalmon 2.png">
-        <img class="greenTriangle" src="../assets/images/imagesSomosF5/trianguloVerde 3.png">
-        <img class="blueSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png">
+        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg">
+        <img class="littleStar" src="../assets/images/svgPics/littleStar.svg">
+        <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg">
+        <img class="greenTriangle" src="../assets/images/svgPics/greenTriangle.svg">
+        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg">
     </div>
 </template>
 
@@ -74,10 +74,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15vh;
+    margin-top: 7vh;
 
     .headerForm {
-        font-size: 10vh;
+        font-size: 7vh;
         color: white;
     }
 
@@ -89,6 +89,7 @@ export default {
 
             .v-input__control {
                 background-color: white;
+                border-radius: 5px;
             }
 
             .passwordLink {
@@ -108,18 +109,23 @@ export default {
             }
         }
     }
+
+    // img{
+    //     width: fit-content;
+    // }
+
     .stringsPic{
         position: absolute;
-        right: 17vw;
+        right: 29vw;
         top: 17vh;
-        height: 15vh;
-        width: 15vw;
+        height: 7vh;
+        width: 7vw;
     }
 
-    .blueTriangle1 {
+    .blueTriangle {
         position: absolute;
         right: 1vw;
-        top: 65vh;
+        bottom: 0;
         height: 55vh;
         width: 25vw;
     }
@@ -127,31 +133,33 @@ export default {
     .littleStar {
         position: absolute;
         right: 17vw;
-        top: 70vh;
-        height: 17vh;
-        width: 11vw;
+        bottom: 35vh;
+        height: 20vh;
+        width: 12vw;
     }
 
-    .brightTriangle {
+    .pinkTriangle {
         position: absolute;
-        right: 21vw;
-        top: 90vh;
-        height: 30vh;
-        width: 35vw;
+        transform: rotate(90deg);
+        right: 30vw;
+        top: 47.5vh;
+        height: 80vh;
+        width: 12vw;
     }
 
     .greenTriangle {
         position: absolute;
-        right: 51vw;
-        top: 90vh;
-        height: 30vh;
-        width: 28vw;
+        transform: rotate(-90deg);
+        right: 55vw;
+        top: 51.5vh;
+        height: 70vh;
+        width: 13vw;
         z-index: 1;
     }
     .blueSplash{
         position: absolute;
         left: 0vw;
-        top: 80vh;
+        bottom: 0;
         height: 40vh;
         width: 22vw;
     }

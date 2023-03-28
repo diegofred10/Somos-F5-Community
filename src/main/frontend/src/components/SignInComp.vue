@@ -62,11 +62,11 @@ export default {
             </v-form>
         </v-sheet>
         <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png">
-        <img class="blueTriangle1" src="../assets/images/imagesSomosF5/trianguloAzul 1.png">
-        <img class="littleStar" src="../assets/images/imagesSomosF5/estrellaLila 2.png">
-        <img class="brightTriangle" src="../assets/images/imagesSomosF5/trianguloSalmon 2.png">
-        <img class="greenTriangle" src="../assets/images/imagesSomosF5/trianguloVerde 3.png">
-        <img class="blueSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png">
+        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg">
+        <img class="littleStar" src="../assets/images/svgPics/littleStar.svg">
+        <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg">
+        <img class="greenTriangle" src="../assets/images/svgPics/greenTriangle.svg">
+        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg">
     </div>
 </template>
 
@@ -75,10 +75,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15vh;
+    margin-top: 7vh;
 
     .headerForm {
-        font-size: 10vh;
+        font-size: 7vh;
         color: white;
     }
 
@@ -90,6 +90,7 @@ export default {
 
             .v-input__control {
                 background-color: white;
+                border-radius: 5px;
             }
 
             .passwordLink {
@@ -104,23 +105,24 @@ export default {
 
                 .v-btn {
                     color: white;
-                    background-color: #33C8CD;
+                    background-color: black;
                 }
             }
         }
     }
+
     .stringsPic{
         position: absolute;
-        right: 17vw;
+        right: 29vw;
         top: 17vh;
-        height: 15vh;
-        width: 15vw;
+        height: 7vh;
+        width: 7vw;
     }
 
-    .blueTriangle1 {
+    .blueTriangle {
         position: absolute;
         right: 1vw;
-        top: 85vh;
+        top: 70vh;
         height: 55vh;
         width: 25vw;
     }
@@ -128,31 +130,33 @@ export default {
     .littleStar {
         position: absolute;
         right: 17vw;
-        top: 90vh;
-        height: 17vh;
-        width: 11vw;
+        bottom: 8vh;
+        height: 20vh;
+        width: 12vw;
     }
 
-    .brightTriangle {
+    .pinkTriangle {
         position: absolute;
-        right: 21vw;
-        top: 110vh;
-        height: 30vh;
-        width: 35vw;
+        transform: rotate(90deg);
+        right: 30vw;
+        top: 72.5vh;
+        height: 80vh;
+        width: 12vw;
     }
 
     .greenTriangle {
         position: absolute;
-        right: 51vw;
-        top: 110vh;
-        height: 30vh;
-        width: 28vw;
+        transform: rotate(-90deg);
+        right: 55vw;
+        top: 76.5vh;
+        height: 70vh;
+        width: 13vw;
         z-index: 1;
     }
     .blueSplash{
         position: absolute;
         left: 0vw;
-        top: 100vh;
+        top: 85vh;
         height: 40vh;
         width: 22vw;
     }

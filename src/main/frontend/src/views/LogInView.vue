@@ -15,6 +15,6 @@ import LogInComp from '../components/LogInComp.vue'
 .main {
     background-color: #FF4700;
     width: 100vw;
-    height: 120vh;
+    height: 100vh;
 }
 </style>
