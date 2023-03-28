@@ -30,6 +30,8 @@ import ButtonsProfile from './ButtonsProfile.vue';
 .card{
 width: 90vw;
 display: flex;
+align-items: center;
+margin-top: 2vw;
     .info{
  display: flex;
  justify-content: center;
@@ -40,7 +42,7 @@ display: flex;
             justify-content: space-between;
             align-items: center;
             .titleHeader{
-                font-size: 2.5vw;
+                font-size: 2vw;
                 color: map-get(c.$colors,"black");
                 font-family: 'Open Sans', sans-serif ;
                 font-weight: bold;
@@ -53,15 +55,20 @@ display: flex;
         }
         .publication{
             background-color: map-get(c.$colors,"white");
-            border-color: map-get(c.$colors,"grey");
+            border: 3px solid map-get(c.$colors,"grey");
+            height: 20vh;
             .titlePubli{
-                font-size: 1.8vw;
+                font-size: 1.5vw;
                 color: map-get(c.$colors,"black");
                 font-family: 'Open Sans', sans-serif ;
                 font-weight: 600;
+                margin-left: 2%;
+                margin-top: 1%;
             }
             .textPubli{
                 font-family: 'Open Sans', sans-serif ;
+                margin-left: 2%;
+                margin-top: 1%;
             }
 
         }

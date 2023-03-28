@@ -1,5 +1,6 @@
 <script setup>
 import InfoUser from '../components/InfoUser.vue';
+import AddPublication from '../components/AddPublication.vue';
 import CardProfile from '../components/CardProfile.vue';
 </script>
 
@@ -11,13 +12,14 @@ import CardProfile from '../components/CardProfile.vue';
     </div>
     <img class="star" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bcb276576e8a46f894_shape-2.svg" alt="">
 </div>
+<AddPublication/>
 <CardProfile/>
 </template>
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
 
-.infor{
+.info{
     display: flex;
     justify-content: center;
     align-self: center;
@@ -26,6 +28,9 @@ import CardProfile from '../components/CardProfile.vue';
 .title{
     width: 50vw;
     display: flex;
+    align-items: center;
+    margin-left: 3vw;
+    margin-top: 2%;
     
     .text{
         font-size: 4vw;
@@ -35,8 +40,10 @@ import CardProfile from '../components/CardProfile.vue';
         z-index: 1;
     }
     .star{
-        width: 5vw;
-        right: 5%;
+        position: relative;
+        width: 7vw;
+        right: 9%;
     }
 }
+
 </style>

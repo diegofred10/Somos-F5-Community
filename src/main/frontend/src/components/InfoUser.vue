@@ -43,6 +43,7 @@ height: 30vh;
 width: 90vw;
 display: flex;
 align-items: center;
+margin-top: 2vw;
 
     .photoUser{
         width: 25vh;
@@ -101,15 +102,15 @@ align-items: center;
         .triangle{
             width: 10%;
             right: 27vw;
-            top: -10%;
+            top: -13%;
             position: absolute;
             rotate: 270deg;
         }
         .semicircle{
-            right: 10%;
+            right: 12%;
             rotate: 180deg;
-            width: 15%;
-            top: -2%;
+            width: 13%;
+            top: 2%;
             position: absolute;
         }
     }
