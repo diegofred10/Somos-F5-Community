@@ -2,20 +2,39 @@
 export default {
     data: () => ({
         valid: true,
-        mail: '',
-        mailRules: [
-            v => !!v || 'Name is required',
-            v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-        ],
-        select: null,
 
-        valid: true,
-        password: '',
-        passwordRules: [
-            v => !!v || 'Password is required',
-            v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-        ],
-        select: null,
+
+
+        // email: '',
+        // emailRules: [
+        //     value => {
+        //         if (value) return true
+
+        //         return 'E-mail is requred.'
+        //     },
+        //     value => {
+        //         if (/.+@.+\..+/.test(value)) return true
+
+        //         return 'E-mail must be valid.'
+        //     },
+        // ],
+
+        // valid: true,
+        // mail: '',
+        // mailRules: [
+        //     v => !!v || 'Name is required',
+        //     v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        // ],
+        // select: null,
+
+        // valid: true,
+        // password: '',
+        // passwordRules: [
+        //     v => !!v || 'Password is required',
+        //     v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        // ],
+        // select: null,
+
         // items: [
         //     'Item 1',
         //     'Item 2',
@@ -24,6 +43,46 @@ export default {
         // ],
         // checkbox: false,
     }),
+
+    data() {
+        return {
+            email: '',
+            emailRules: [
+                v => !!v || 'E-mail is required',
+                v => /.+@.+/.test(v) || 'E-mail must be valid',
+            ],
+
+            password: "",
+            passwordRules: [
+                v => !!v || "Password required",
+                v => v.length >= 8 || 'Min 8 characters',
+            ],
+
+            confirmPassword: "",
+            confirmPasswordRules: [
+                v => !!v || "Confirm password",
+                v => v === this.password || "Passwords do not match"
+            ],
+
+            checkCode: "",
+            checkCodeRules: [
+                v => v === "bienvenido a la secta" || "Alerta, intruso!"
+            ]
+
+            // show1: false,
+            // show2: true,
+            // password: '',
+            // rules: {
+            //     required: value => !!value || 'Required.',
+            //     min: v => v.length >= 8 || 'Min 8 characters',
+            //     emailMatch: () => (`The email and password you entered don't match`),
+            // },
+        }
+    },
+
+
+
+
 
     methods: {
         async validate() {
@@ -45,17 +104,22 @@ export default {
     <div class="logIn">
         <h1 class="headerForm">Bienvenido a SomosF5</h1>
         <v-sheet class="mx-auto">
-            <v-form ref="form">
-                <v-text-field v-model="mail" :counter="10" :rules="mailRules" label="Correo Electronico"
-                    required></v-text-field>
-                <v-text-field v-model="password" :counter="10" :rules="nameRules" label="Contraseña"
-                    required></v-text-field>
-                <v-text-field v-model="password" :counter="10" :rules="nameRules" label="Repetir contraseña"
-                    required></v-text-field>
-                <v-text-field v-model="password" :counter="10" :rules="nameRules" label="Codigo de verificacion"
-                    required></v-text-field>
+            <v-form v-model="valid" ref="form">
+                <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required></v-text-field>
+
+                <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'"
+                    name="input-10-1" label="Contraseña">
+                </v-text-field>
+
+                <v-text-field v-model="confirmPassword" :rules="confirmPasswordRules" :type="show1 ? 'text' : 'password'"
+                    name="input-10-1" label="Repetir contraseña">
+                </v-text-field>
+
+                <v-text-field v-model="checkCode" :rules="checkCodeRules" label="Codigo de verificacion" required>
+                </v-text-field>
+
                 <div class="d-flex flex-column">
-                    <v-btn class="mt-4" block @click="validate">
+                    <v-btn type="submit" class="mt-4" block @click="validate">
                         Registrarse
                     </v-btn>
                 </div>
@@ -111,7 +175,7 @@ export default {
         }
     }
 
-    .stringsPic{
+    .stringsPic {
         position: absolute;
         right: 29vw;
         top: 17vh;
@@ -148,12 +212,13 @@ export default {
         position: absolute;
         transform: rotate(-90deg);
         right: 55vw;
-        top: 76.5vh;
+        top: 79.5vh;
         height: 70vh;
-        width: 13vw;
+        width: 10vw;
         z-index: 1;
     }
-    .blueSplash{
+
+    .blueSplash {
         position: absolute;
         left: 0vw;
         top: 85vh;
