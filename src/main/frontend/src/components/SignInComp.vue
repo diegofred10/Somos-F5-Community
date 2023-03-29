@@ -1,49 +1,5 @@
 <script>
 export default {
-    data: () => ({
-        valid: true,
-
-
-
-        // email: '',
-        // emailRules: [
-        //     value => {
-        //         if (value) return true
-
-        //         return 'E-mail is requred.'
-        //     },
-        //     value => {
-        //         if (/.+@.+\..+/.test(value)) return true
-
-        //         return 'E-mail must be valid.'
-        //     },
-        // ],
-
-        // valid: true,
-        // mail: '',
-        // mailRules: [
-        //     v => !!v || 'Name is required',
-        //     v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-        // ],
-        // select: null,
-
-        // valid: true,
-        // password: '',
-        // passwordRules: [
-        //     v => !!v || 'Password is required',
-        //     v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-        // ],
-        // select: null,
-
-        // items: [
-        //     'Item 1',
-        //     'Item 2',
-        //     'Item 3',
-        //     'Item 4',
-        // ],
-        // checkbox: false,
-    }),
-
     data() {
         return {
             email: '',
@@ -68,33 +24,14 @@ export default {
             checkCodeRules: [
                 v => v === "bienvenido a la secta" || "Alerta, intruso!"
             ]
-
-            // show1: false,
-            // show2: true,
-            // password: '',
-            // rules: {
-            //     required: value => !!value || 'Required.',
-            //     min: v => v.length >= 8 || 'Min 8 characters',
-            //     emailMatch: () => (`The email and password you entered don't match`),
-            // },
         }
     },
-
-
-
-
-
+    
     methods: {
         async validate() {
             const { valid } = await this.$refs.form.validate()
 
             if (valid) alert('Form is valid')
-        },
-        reset() {
-            this.$refs.form.reset()
-        },
-        resetValidation() {
-            this.$refs.form.resetValidation()
         },
     },
 }
