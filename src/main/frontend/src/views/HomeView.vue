@@ -1,9 +1,15 @@
 <script setup>
-	import TheWelcome from "../components/TheWelcome.vue";
+import PostComp from '../components/PostComponent.vue'
+
 </script>
 
 <template>
-	<main>
-		<TheWelcome />
-	</main>
+  
+<PostComp/>
+  
 </template>
+
+<style >
+
+
+</style>
