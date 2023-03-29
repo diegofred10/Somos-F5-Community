@@ -1,10 +1,14 @@
 package com.somosf5community.models;
 
-import jakarta.persistence.Column;
+import java.util.List;
+
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -21,7 +25,6 @@ public class Profile {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name = "id_profile")
     private Long id;
     private String name;
     private String surname;
@@ -29,4 +32,6 @@ public class Profile {
     private String github;
     private String linkedin;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile")
+    private List<Post> posts; 
 }
