@@ -1,40 +1,33 @@
-<script>
+<script setup>
 import { Slide } from "vue3-burger-menu";
 </script>
 <template>
   <div class="header">
-      <a href="/" aria-current="page" class="headerLogo"></a>
+
+    <a href="/" aria-current="page" class="headerLogo"></a>
+
     <div class="menuContainer">
-      <nav
-        role="navigation"
-        class="menuNav"
-        style="transform: translateY(0px) translateX(0px)"
-      >
-      <router-link to="/mispublicaciones" class="nav__link" href="">Mis Publicaciones</router-link>
-      <router-link to="/elmuro" class="nav__link" href="">El Muro</router-link>
-      <router-link to="/"  href="">LogOut</router-link>
+
+      <nav role="navigation" class="menuNav">
+        <router-link to="/mispublicaciones" class="nav__link" href=""
+          >Mis Publicaciones</router-link >
+        <router-link to="/elmuro" class="nav__link" href=""
+          >El Muro</router-link>
+        <router-link to="/" href="">LogOut</router-link>
       </nav>
-      <div
-      class="menuMobile"
-      style="-webkit-user-select: text"
-      aria-label="manu"
-      role="button"
-      tabindex="0"
-      aria-haspopup="menu"
-      aria-expanded="true"
-      >
-      <div class="menuIcon">
-        <div class="menuIconLine"></div>
-        <div class="menuIconLine"></div>
-      </div>
+
+      <Slide width="250" right class="slide">
+        <a href="#" class="nav-bar__link">Mis Publicaiones</a>
+        <a href="#" class="nav-bar__link">El Muro</a>
+        <a href="#" class="nav-bar__link">LogOut</a>
+      </Slide>
+
     </div>
+
   </div>
-</div>
-<div>
-  <img src="../assets/images/imagen-responsive-pantalla-completa.png" alt="">
-</div>
+ 
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@/scss/colors" as c;
 @use "@/scss/mixins" as m;
 
@@ -65,8 +58,6 @@ import { Slide } from "vue3-burger-menu";
     -webkit-box-pack: justify;
     justify-content: space-between;
     -webkit-box-align: center;
-    
-
 
     .menuNav {
       display: flex;
@@ -74,36 +65,29 @@ import { Slide } from "vue3-burger-menu";
       align-items: center;
       grid-column-gap: 2rem;
       font-family: "Open Sans";
+      margin-right: 1em;
 
-      
-        .nav__link {
-          border-bottom: 4px solid map-get(c.$colors, "orange");
-          font-weight: 700;
-        }
+      .nav__link {
+        border-bottom: 4px solid map-get(c.$colors, "orange");
+        font-weight: 700;
       }
-    
-  }
-
-  .menuMobile {
-    position: relative float right;
-    padding: 18px;
-    font-size: 24px;
-    cursor: pointer;
+      @include m.mv(800px) {
+        display: none;
+      }
+    }
   }
 }
+.slide {
+  display: none;
+  @include m.mv(800px) {
+    display: block;
+    position: relative;
+    // right: 5%;
+    top: 5em;
 
-// @media screen and (max-width: 991px)
-// .menuContainer{
-//     padding-right:1.5rem;
-//     padding-left: 1.5rem;
-
-// }
-// .menuNavLink[data-collapse="medium"] .menuMobile{
-//     display: block;
-//         position: relative
-//         float right;
-//         padding: 18px;
-//         font-size: 24px;
-//         cursor: pointer;
-// }
+    .bm-burger-bars {
+      background-color: white;
+    }
+  }
+}
 </style>
