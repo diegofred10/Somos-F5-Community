@@ -87,12 +87,15 @@ export default {
             }
 
             .d-flex.flex-column {
-                width: 10vw;
+                width: fit-content;
                 margin: auto;
 
                 .v-btn {
                     color: white;
                     background-color: black;
+                }
+                .v-btn--size-default{
+                    min-width: 25vw;
                 }
             }
         }
@@ -135,9 +138,9 @@ export default {
         position: absolute;
         transform: rotate(-90deg);
         right: 55vw;
-        top: 51.5vh;
+        top: 53.5vh;
         height: 70vh;
-        width: 13vw;
+        width: 11vw;
         z-index: 1;
     }
 

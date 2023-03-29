@@ -1,6 +1,7 @@
 <script>
 export default {
     data() {
+        let checkCodeVar = "bienvenidos a la secta";
         return {
             email: '',
             emailRules: [
@@ -22,11 +23,11 @@ export default {
 
             checkCode: "",
             checkCodeRules: [
-                v => v === "bienvenido a la secta" || "Alerta, intruso!"
+                v => v === checkCodeVar || "Alerta, intruso!"
             ]
         }
     },
-    
+
     methods: {
         async validate() {
             const { valid } = await this.$refs.form.validate()
@@ -101,12 +102,15 @@ export default {
             }
 
             .d-flex.flex-column {
-                width: 10vw;
+                width: fit-content;
                 margin: auto;
 
                 .v-btn {
                     color: white;
                     background-color: black;
+                }
+                .v-btn--size-default{
+                    min-width: 25vw;
                 }
             }
         }
