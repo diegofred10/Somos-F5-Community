@@ -31,7 +31,7 @@ public class UserService implements BaseService<User> {
     @Transactional
     public User findByUsername(String username){
         return userRepository.findByUsername(username)
-                         .orElseThrow(() -> new UserNotFoundException("User not found with username: " + username));
+                        .orElseThrow(() -> new UserNotFoundException("User not found with username: " + username));
     }
 
     @Override
@@ -82,10 +82,10 @@ public class UserService implements BaseService<User> {
     }
 
     @Transactional
-    public User updateUser(Long id, User UserDetails) {
+    public User updateUser(Long id, User userDetails) {
         User user = findById(id);
-        user.setUsername(UserDetails.getUsername());
-        user.setPassword(UserDetails.getPassword());
+        user.setUsername(userDetails.getUsername());
+        user.setPassword(userDetails.getPassword());
         return save(user);
     }
 
