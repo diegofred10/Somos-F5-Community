@@ -43,7 +43,7 @@ const submitData = async () => {
   <div class="logIn">
     <h1 class="headerForm">Bienvenido a SomosF5</h1>
     <v-sheet class="mx-auto">
-      <v-form @submit.prevent="submitData">
+      <v-form id="loginForm" @submit.prevent="submitData">
         <v-text-field
           v-model="email"
           :rules="emailRules"
