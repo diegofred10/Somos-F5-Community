@@ -1,9 +1,11 @@
 <script setup>
 import InfoUser from '../components/InfoUser.vue';
+import AddNewPostPopUp from '../components/AddNewPostPopUp.vue';
 </script>
 
 <template>
 <InfoUser class="info"/>
+<AddNewPostPopUp />
 </template>
 
 <style lang="scss" scoped>
