@@ -1,5 +1,5 @@
 <script setup>
-import { Slide } from "vue3-burger-menu";
+
 </script>
 <template>
   <div class="header">
