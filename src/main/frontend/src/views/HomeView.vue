@@ -1,26 +1,14 @@
 <script setup>
-<<<<<<< HEAD
+import Header from '../components/Header.vue'
 import PostComp from '../components/PostComponent.vue'
 
 </script>
 
 <template>
-  
-<PostComp/>
-  
-=======
-import TheWelcome from '../components/TheWelcome.vue'
-import Header from '../components/Header.vue'
-</script>
-
-<template>
   <main>
     <Header/>
+    <PostComp/>
   </main>
->>>>>>> staticHeader
+
 </template>
 
-<style >
-
-
-</style>
