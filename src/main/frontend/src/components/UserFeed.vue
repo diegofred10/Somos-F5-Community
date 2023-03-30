@@ -29,10 +29,11 @@
 
 .info{
 background-color: map-get(c.$colors,"orange");
-height: 20vh;
-width: 90vw;
+height: 22vh;
+width: 93vw;
 display: flex;
 justify-content: space-between;
+justify-content: center;
 align-items: center;
 margin-top: 2vw;
     .design{
@@ -44,12 +45,12 @@ margin-top: 2vw;
         margin-left: 2vw;
         }
         .title{
-        font-size: 5vw;
+        font-size: 4vw;
         color: map-get(c.$colors,"white");
         font-family: 'Open Sans', sans-serif ;
         font-weight: bold;
         z-index: 2;
-        right: 2vw;
+        right: 4vw;
         position: relative;
         }
         .circle{

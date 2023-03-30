@@ -1,49 +1,46 @@
 <script setup>
-//  export default {
-//     data () {
-//       return {
-//         search: '',
-//         headers: [
-//           {
-//             align: 'start',
-//             key: 'name',
-//             sortable: false,
-//             title: 'Dessert (100g serving)',
-//           },
-//           { key: 'calories', title: 'Calories' },
-//           { key: 'fat', title: 'Fat (g)' },
-//           { key: 'carbs', title: 'Carbs (g)' },
-//           { key: 'protein', title: 'Protein (g)' },
-//           { key: 'iron', title: 'Iron (%)' },
-//         ],
-//     }
-//  }
-// }
+
 </script>
 
 <template>
-
-  <!-- <v-card>
-    <v-card-title>
-      Nutrition
+  <v-card class="card">
+    <v-card-title class="text">
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
+        append-icon=""
+        label="Buscar"
         single-line
         hide-details
-      ></v-text-field>
+       >
+        <!--<img class="search" src="../assets/images/imagesSomosF5/search.png" alt=""> -->
+    </v-text-field>
     </v-card-title>
     <v-data-table
       :headers="headers"
       :items="desserts"
       :search="search"
     ></v-data-table>
-  </v-card> -->
+  </v-card>
+ 
 </template>
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
+
+.card{
+  background-color: map-get(c.$colors,"light-purple");
+  margin: 2vw;
+  width: 90vw;
+  .text{
+    width: 40vw;
+
+
+  }
+  img{
+    width: 3vw;
+  }
+}
+
 
 </style>
