@@ -30,7 +30,7 @@
 .info{
 background-color: map-get(c.$colors,"orange");
 height: 22vh;
-width: 93vw;
+width: 94vw;
 display: flex;
 justify-content: space-between;
 justify-content: center;

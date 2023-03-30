@@ -32,10 +32,9 @@
   background-color: map-get(c.$colors,"light-purple");
   margin: 2vw;
   width: 90vw;
+  height: 10vh;
   .text{
     width: 40vw;
-
-
   }
   img{
     width: 3vw;
