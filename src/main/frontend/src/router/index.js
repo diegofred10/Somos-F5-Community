@@ -11,7 +11,6 @@ const router = createRouter({
       component: HomeView
     },
     {
-<<<<<<< HEAD
       path: '/login',
       name: 'login',
       component: () => import('../views/LogInView.vue')
@@ -33,7 +32,6 @@ const router = createRouter({
       // // this generates a separate chunk (About.[hash].js) for this route
       // // which is lazy-loaded when the route is visited.
       // component: () => import('../views/AboutView.vue')
-=======
       path: '/mispublicaciones',
       name: 'mispublicaciones',
       // route level code-splitting
@@ -48,7 +46,6 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ElMuroView.vue')
->>>>>>> staticHeader
     }
   ]
 })

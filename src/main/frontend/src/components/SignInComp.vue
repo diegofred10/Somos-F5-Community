@@ -32,7 +32,7 @@ export default {
         async validate() {
             const { valid } = await this.$refs.form.validate()
 
-            if (valid) alert('Form is valid')
+            if (valid) this.$router.push('/login')
         },
     },
 }
