@@ -8,11 +8,17 @@
         <h1>¡Añade una nueva publicación!</h1>
         <form id="formAddNewPost">  
             <input type="text" id="postTitle" placeholder="¡Añade un título a tu publicación!"><br>
-            <input type="text" id="description" placeholder="Descripción..."><br>
-            <input type="file" id="inputFile" placeholder="Subir archivo..."><br>
+            <v-container fluid>
+                <v-textarea
+                    clearable
+                    placeholder="Descripción..."
+                ></v-textarea>
+  </v-container>
+            <v-file-input label="Subir archivo..."></v-file-input>
+            <v-btn>Button</v-btn><br>
             <div id="buttonsForm">
-                <button type="button" id="buttonCancel">Cancelar</button>
-                <button type="btn2" id="buttonPost">Publicar</button>
+                <v-button type="button" id="buttonCancel">Cancelar</v-button>
+                <v-button type="btn2" id="buttonPost">Publicar</v-button>
             </div>
         </form>
     </div>
