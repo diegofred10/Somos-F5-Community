@@ -1,14 +1,8 @@
 <script setup>
-import Header from '../components/Header.vue'
-import PostComp from '../components/PostComponent.vue'
-
+import FeedbackView from './FeedbackView.vue';
 </script>
 
 <template>
-  <main>
-    <Header/>
-    <PostComp/>
-  </main>
-
+<FeedbackView/>
 </template>
 

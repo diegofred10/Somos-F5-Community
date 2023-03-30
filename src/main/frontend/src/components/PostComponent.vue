@@ -5,65 +5,96 @@
 
 <template>
     <div class="post">
+      <div class="info">
         <div class="nameContainer">
             <h1 class="nameUser">Saúl Aguinaga backend God</h1>
             <h3 class="date">24-03-2023</h3>
         </div>
         <div class="postContainer">
             <h2 class="postTitle">Como hacer un buen CRUD en condiciones con Java</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            <p class="textPubli">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
                 electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
                 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
                 Aldus PageMaker including versions of Lorem Ipsum</p>
             </div>
-            <div id="separator">
-                <img :src="image" alt="separador">
-            </div>   
-    </div>
+         </div>
+    
+
+</div>
+    <div class="separator" id="separator">
+        <img class="stripe" :src="image" alt="separador">
+    </div> 
+
 </template>
 
 <style scoped lang="scss">
 @use "@/scss/colors" as c;
-.post {
-    
+.post {  
     background-color: map-get(c.$colors, "light-orange");
-    width: 70%;
-
-    .nameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vw;
+    .info{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        flex-direction: column;
+        .nameContainer {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            align-items: center;
 
-        .nameUser {
-            font-size: larger;
-            font-weight: bold;
-            
+            .nameUser {
+                font-size: 2vw;
+                color: map-get(c.$colors,"black");
+                font-family: 'Open Sans', sans-serif ;
+                font-weight: bold;
+            }
+
+            .date {
+                color: map-get(c.$colors,"grey");
+                font-family: 'Open Sans', sans-serif ;
+                font-size: 2vw;
+            }
         }
 
-        .date {
-            font-size: medium;
-            color: map-get(c.$colors, "grey");
-            align-self: flex-end;
-        }
-    }
+        .postContainer {
+            background-color: map-get(c.$colors,"white");
+            border: 3px solid map-get(c.$colors,"grey");
+            width: 90vw;
 
-    .postContainer {
-        border: solid map-get(c.$colors, "grey-blue");
-        background-color: map-get(c.$colors, "white");
-        font-weight: 400;
-
-        .postTitle {
-            font-size: large;
-            font-weight: 600;
+            .postTitle {
+                font-size: 1.5vw;
+                color: map-get(c.$colors,"black");
+                font-family: 'Open Sans', sans-serif ;
+                font-weight: 600;
+                margin-left: 2%;
+                margin-top: 1%;
+            }
+            .textPubli{
+                font-family: 'Open Sans', sans-serif ;
+                margin-left: 2%;
+                margin-top: 1%;
+            }
         }
-    }
-    #separator img{
-        margin-top: 2%;
-        width: 100%;
-        height: 3vh;
+
     }
 }
+    .separator{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin: 2vw;
+
+    .stripe{
+    width: 90vw; 
+    height: 5vh;
+        }
+    }
+
 </style>
 
 
