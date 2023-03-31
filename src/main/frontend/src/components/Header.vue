@@ -9,18 +9,12 @@
     <div class="menuContainer">
 
       <nav role="navigation" class="menuNav">
-        <router-link to="/mispublicaciones" class="nav__link" href=""
+        <router-link to="/mispublicaciones" class="navLink" href=""
           >Mis Publicaciones</router-link >
-        <router-link to="/elmuro" class="nav__link" href=""
+        <router-link to="/elmuro" class="navLink" href=""
           >El Muro</router-link>
         <router-link to="/" href="">LogOut</router-link>
       </nav>
-
-      <Slide width="250" right class="slide">
-        <a href="#" class="nav-bar__link">Mis Publicaiones</a>
-        <a href="#" class="nav-bar__link">El Muro</a>
-        <a href="#" class="nav-bar__link">LogOut</a>
-      </Slide>
 
     </div>
 
@@ -67,7 +61,7 @@
       font-family: "Open Sans";
       margin-right: 1em;
 
-      .nav__link {
+      .navLink {
         border-bottom: 4px solid map-get(c.$colors, "orange");
         font-weight: 700;
       }
@@ -77,17 +71,5 @@
     }
   }
 }
-.slide {
-  display: none;
-  @include m.mv(800px) {
-    display: block;
-    position: relative;
-    // right: 5%;
-    top: 5em;
 
-    .bm-burger-bars {
-      background-color: white;
-    }
-  }
-}
 </style>
