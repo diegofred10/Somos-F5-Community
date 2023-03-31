@@ -1,46 +1,32 @@
-<script setup>
-
-</script>
+<script setup></script>
 <template>
   <div class="header">
-
     <a href="/" aria-current="page" class="headerLogo"></a>
 
     <div class="menuContainer">
-
       <nav role="navigation" class="menuNav">
-        <router-link to="/mispublicaciones" class="nav__link" href=""
-          >Mis Publicaciones</router-link >
-        <router-link to="/elmuro" class="nav__link" href=""
-          >El Muro</router-link>
+        <router-link to="/mispublicaciones" class="navLink" href=""
+          >Mis Publicaciones</router-link
+        >
+        <router-link to="/elmuro" class="navLink" href="">El Muro</router-link>
         <router-link to="/" href="">LogOut</router-link>
       </nav>
 
-     
-
+      <nav class="menuMobile">
+        <input type="checkbox" id="menu" />
+        <label for="menu"> ☰ </label>
+        <ul>
+          <router-link to="/mispublicaciones" class="navLink" href=""
+            >Mis Publicaciones</router-link
+          >
+          <router-link to="/elmuro" class="navLink" href=""
+            >El Muro</router-link
+          >
+          <router-link to="/" href="">LogOut</router-link>
+        </ul>
+      </nav>
     </div>
-
   </div>
- 
-  <div class="addPost">
-  <h1>¡Añade una nueva publicación!</h1>
-        <form id="formAddNewPost">  
-            <input type="text" id="postTitle" placeholder="¡Añade un título a tu publicación!"><br>
-            <v-container fluid>
-                <v-textarea
-                    clearable
-                    placeholder="Descripción..."
-                ></v-textarea>
-  </v-container>
-            <v-file-input label="Subir archivo..."></v-file-input>
-            <v-btn>Button</v-btn><br>
-            <div id="buttonsForm">
-                <v-button type="button" id="buttonCancel">Cancelar</v-button>
-                <v-button type="btn2" id="buttonPost">Publicar</v-button>
-            </div>
-        </form>
-    </div>
-
 </template>
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
@@ -82,58 +68,78 @@
       font-family: "Open Sans";
       margin-right: 1em;
 
-      .nav__link {
+      .navLink {
         border-bottom: 4px solid map-get(c.$colors, "orange");
         font-weight: 700;
       }
-      // @include m.mv(800px) {
-      //   display: none;
-      // }
+      @include m.mv(500px) {
+        display: none;
+      }
+    }
+
+    .menuMobile {
+      display: none;
+      @include m.mv(500px) {
+        margin:auto;
+        margin-right: 1vw;
+        display: block;
+        ul {
+          display: none;
+        }
+        
+        input:checked ~ ul {
+          display: block;
+        }
+        
+        input {
+          display: none;
+        }
+        
+        label {
+          box-sizing: border-box;
+          display: inline-block;
+          background: map-get(c.$colors, "light-orange");
+          border-radius: 5px;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          font-weight: bold;
+          text-align: center;
+          user-select: none;
+        }
+
+        /* Estilo del boton cuando se pasa el mouse por encima*/
+        // label:hover {
+        //   background: map-get(c.$colors, "light-orange");
+        // }
+
+        /* Estilo del boton cuando el menú está expandido*/
+        // input:checked ~ label {
+        //   background: map-get(c.$colors, "light-orange");
+        // }
+
+        ul {
+          margin-top: 0;
+          padding: 0;
+          width: 200px;
+          font-family: 'open Sans', 'Sans serif';
+        }
+
+        li {
+          display: block;
+          // background: map-get(c.$colors, "light-orange");
+          margin: 0;
+          padding: 10px;
+          list-style: none;
+          border-bottom: 1px solid grey;
+        }
+
+        /*Estilo cuando el mouse pasa encima de cada link del menu*/
+        li:hover {
+          filter: brightness(110%);
+        }
+      }
     }
   }
 }
-.addPost{
-    background-color: #FF4700;
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 5%;
-    h1{
-      color: white;
-      font-size: xx-large;
-      display: flex;
-      justify-content: center;
-    }
-    #postTitle{
-      background-color: white;
-      width: 60%;
-      margin-top: 50px;
-      margin-left: 165px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border: 1px;
-      border-color: grey;
-    }
-    #description{
-      background-color: white;
-      height: 100px;
-      width: 60%;
-      border: 10px;
-      margin-left: 165px;
-      border-color: grey;
-      text-align:start;
-    }
-    #inputFile{
-      background-color: white;
-      width: 60%;
-      margin-left: 165px;
-    }
-    #buttonsForm{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      
-    }
-    }
-    
 </style>
