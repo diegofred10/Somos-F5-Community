@@ -5,6 +5,7 @@ import ProfileUser from './views/ProfileUserView.vue';
 
 <template>
   <RouterView />
+<ProfileUser/>
 </template>
 
 <style scoped lang="scss">

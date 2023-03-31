@@ -29,11 +29,11 @@ import CardProfile from '../components/CardProfile.vue';
     width: 50vw;
     display: flex;
     align-items: center;
-    margin-left: 3vw;
+    margin-left: 2vw;
     margin-top: 2%;
     
     .text{
-        font-size: 4vw;
+        font-size: 3vw;
         color: map-get(c.$colors,"black");
         font-family: 'Open Sans', sans-serif ;
         font-weight: bold;
@@ -41,7 +41,7 @@ import CardProfile from '../components/CardProfile.vue';
     }
     .star{
         position: relative;
-        width: 7vw;
+        width: 5vw;
         right: 9%;
     }
 }

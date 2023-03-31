@@ -31,6 +31,7 @@ import ButtonsProfile from './ButtonsProfile.vue';
 width: 90vw;
 display: flex;
 align-items: center;
+justify-content: center;
 margin-top: 2vw;
     .info{
  display: flex;
@@ -56,7 +57,7 @@ margin-top: 2vw;
         .publication{
             background-color: map-get(c.$colors,"white");
             border: 3px solid map-get(c.$colors,"grey");
-            width: 120vh;
+            width: 140vh;
             .titlePubli{
                 font-size: 1.5vw;
                 color: map-get(c.$colors,"black");
