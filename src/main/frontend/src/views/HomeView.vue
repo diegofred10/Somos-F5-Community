@@ -1,13 +1,8 @@
 <script setup>
-
-
+import FeedbackView from './FeedbackView.vue';
 </script>
 
 <template>
-  <main>
-    <Header/>
-    <PostComp/>
-  </main>
-
+<FeedbackView/>
 </template>
 
