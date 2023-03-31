@@ -4,9 +4,11 @@
 
 
 body{
+    
+    width: 70%;
     font-family: "flexo";
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     background-color: map-get(c.$colors,"light-orange");
     font-family: "openSans";
 
