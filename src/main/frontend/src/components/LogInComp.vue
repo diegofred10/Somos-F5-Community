@@ -57,99 +57,99 @@ export default {
 </template>
 
 <style lang="scss">
-// .logIn {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     margin-top: 7vh;
+.logIn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7vh;
 
-//     .headerForm {
-//         font-size: 7vh;
-//         color: white;
-//     }
+    .headerForm {
+        font-size: 7vh;
+        color: white;
+    }
 
-//     .v-sheet {
-//         width: 40vw;
+    .v-sheet {
+        width: 40vw;
 
-//         .v-form {
-//             background-color: #FF4700;
+        .v-form {
+            background-color: #FF4700;
 
-//             .v-input__control {
-//                 background-color: white;
-//                 border-radius: 5px;
-//             }
+            .v-input__control {
+                background-color: white;
+                border-radius: 5px;
+            }
 
-//             .passwordLink {
-//                 color: white;
-//                 display: flex;
-//                 justify-content: center;
-//             }
+            .passwordLink {
+                color: white;
+                display: flex;
+                justify-content: center;
+            }
 
-//             .d-flex.flex-column {
-//                 width: fit-content;
-//                 margin: auto;
+            .d-flex.flex-column {
+                width: fit-content;
+                margin: auto;
 
-//                 .v-btn {
-//                     color: white;
-//                     background-color: black;
-//                 }
-//                 .v-btn--size-default{
-//                     min-width: 25vw;
-//                 }
-//             }
-//         }
-//     }
+                .v-btn {
+                    color: white;
+                    background-color: black;
+                }
+                .v-btn--size-default{
+                    min-width: 25vw;
+                }
+            }
+        }
+    }
 
-//     .stringsPic {
-//         position: absolute;
-//         right: 29vw;
-//         top: 17vh;
-//         height: 7vh;
-//         width: 7vw;
-//     }
+    .stringsPic {
+        position: absolute;
+        right: 29vw;
+        top: 17vh;
+        height: 7vh;
+        width: 7vw;
+    }
 
-//     .blueTriangle {
-//         position: absolute;
-//         right: 1vw;
-//         bottom: 0;
-//         height: 55vh;
-//         width: 25vw;
-//     }
+    .blueTriangle {
+        position: absolute;
+        right: 1vw;
+        bottom: 0;
+        height: 55vh;
+        width: 25vw;
+    }
 
-//     .littleStar {
-//         position: absolute;
-//         right: 17vw;
-//         bottom: 35vh;
-//         height: 20vh;
-//         width: 12vw;
-//     }
+    .littleStar {
+        position: absolute;
+        right: 17vw;
+        bottom: 35vh;
+        height: 20vh;
+        width: 12vw;
+    }
 
-//     .pinkTriangle {
-//         position: absolute;
-//         transform: rotate(90deg);
-//         right: 30vw;
-//         top: 47.5vh;
-//         height: 80vh;
-//         width: 12vw;
-//     }
+    .pinkTriangle {
+        position: absolute;
+        transform: rotate(90deg);
+        right: 30vw;
+        top: 47.5vh;
+        height: 80vh;
+        width: 12vw;
+    }
 
-//     .greenTriangle {
-//         position: absolute;
-//         transform: rotate(-90deg);
-//         right: 55vw;
-//         top: 53.5vh;
-//         height: 70vh;
-//         width: 11vw;
-//         z-index: 1;
-//     }
+    .greenTriangle {
+        position: absolute;
+        transform: rotate(-90deg);
+        right: 55vw;
+        top: 53.5vh;
+        height: 70vh;
+        width: 11vw;
+        z-index: 1;
+    }
 
-//     .blueSplash {
-//         position: absolute;
-//         left: 0vw;
-//         bottom: 0;
-//         height: 40vh;
-//         width: 22vw;
-//     }
-// }
+    .blueSplash {
+        position: absolute;
+        left: 0vw;
+        bottom: 0;
+        height: 40vh;
+        width: 22vw;
+    }
+}
 </style>
 
