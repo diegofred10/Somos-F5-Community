@@ -15,7 +15,7 @@
 .add{
  width: 90vw;
  height: 9vh;
- margin-top: 2vw;
+ margin: 2vw;
  display: flex;
  justify-content: space-between;
  justify-self: center;

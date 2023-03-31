@@ -1,15 +1,8 @@
 <script setup>
-import PostComp from '../components/PostComponent.vue'
-
+import FeedbackView from './FeedbackView.vue';
 </script>
 
 <template>
-  
-<PostComp/>
-  
+<FeedbackView/>
 </template>
 
-<style >
-
-
-</style>
