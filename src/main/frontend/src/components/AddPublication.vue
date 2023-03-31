@@ -13,9 +13,8 @@
 @use "@/scss/colors" as c;
 
 .add{
- width: 25vw;
+ width: 60vw;
  height: 7vh;
- margin: 2vw;
  display: flex;
  justify-content: space-between;
  justify-self: center;
