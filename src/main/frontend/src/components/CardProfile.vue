@@ -12,11 +12,12 @@ import ButtonsProfile from './ButtonsProfile.vue';
         <div class="publication">
             <h2 class="titlePubli">Simulador certificación</h2>
             <p class="textPubli">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga atque fugiat optio veniam vero illo recusandae consequuntur, minima iure corrupti pariatur sapiente nobis id ea. Quia saepe necessitatibus aspernatur laborum.</p>
+             <div class="buttons">
+               <ButtonsProfile/>
+             </div>   
         </div>
     </div>
-    <div class="buttons">
-        <ButtonsProfile/>
-    </div>
+
 
 </div>
 <div class="separator">
@@ -28,9 +29,10 @@ import ButtonsProfile from './ButtonsProfile.vue';
 @use "@/scss/colors" as c;
 
 .card{
-width: 90vw;
 display: flex;
 align-items: center;
+justify-content: center;
+flex-direction: column;
 margin-top: 2vw;
     .info{
  display: flex;
@@ -75,7 +77,9 @@ margin-top: 2vw;
         
     }
     .buttons{
-        margin-left: 2vw;
+       
+        display: flex;
+        justify-content: flex-end;
     }
 }
 

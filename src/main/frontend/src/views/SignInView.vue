@@ -15,6 +15,6 @@ import SignInComp from '../components/SignInComp.vue';
 .main {
     background-color: #FF4700;
     width: 100vw;
-    height: 125vh;
+    height: 100vh;
 }
 </style>
