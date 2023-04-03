@@ -1,4 +1,9 @@
 <script setup>
+// const buttonDelete = document.getElementById('delete');
+
+// buttonDelete.addEventListener('click', () => {
+//   // código para borrar elementos
+// });
 
 </script>
 
@@ -11,7 +16,6 @@
 
 <style scoped lang="scss">
 @use "@/scss/colors" as c;
-
 
 .buttons{
 
