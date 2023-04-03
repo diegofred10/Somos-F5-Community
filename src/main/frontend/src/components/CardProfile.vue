@@ -56,7 +56,7 @@ margin-top: 2vw;
         .publication{
             background-color: map-get(c.$colors,"white");
             border: 3px solid map-get(c.$colors,"grey");
-            height: 20vh;
+            width: 120vh;
             .titlePubli{
                 font-size: 1.5vw;
                 color: map-get(c.$colors,"black");

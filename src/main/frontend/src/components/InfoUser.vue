@@ -1,5 +1,4 @@
 <script setup>
-// import colors from '../scss/_colors.scss'
 </script>
 
 <template>
