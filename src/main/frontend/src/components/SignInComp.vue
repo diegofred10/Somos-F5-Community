@@ -31,10 +31,22 @@ const submitData = async () => {
         const response = await authService.register(email.value, password.value);
         alert("Registrado con exito");
         router.push("/login");
-    } catch (error) {
+    } catch (error)
+
+    {
         console.error(error);
     }
+
+    
 };
+
+// methods: {
+    //     async validate() {
+    //         const { valid } = await this.$refs.form.validate()
+
+    //         if (valid) alert('Form is valid')
+    //     },
+    // },
 
 </script>
 
@@ -98,6 +110,7 @@ const submitData = async () => {
 
             .v-input__details {
                 z-index: 5;
+
                 .v-messages__message {
                     color: #FED2C0
                 }
