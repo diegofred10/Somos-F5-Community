@@ -3,6 +3,6 @@ import FeedbackView from './FeedbackView.vue';
 </script>
 
 <template>
-<FeedbackView/>
+ <!-- <FeedbackView/> -->
 </template>
 

@@ -57,14 +57,14 @@
             .date {
                 color: map-get(c.$colors,"grey");
                 font-family: 'Open Sans', sans-serif ;
-                font-size: 2vw;
+                font-size: 1.5vw;
             }
         }
 
         .postContainer {
             background-color: map-get(c.$colors,"white");
             border: 3px solid map-get(c.$colors,"grey");
-            width: 90vw;
+            width: 60vw;
 
             .postTitle {
                 font-size: 1.5vw;
@@ -90,7 +90,7 @@
     margin: 2vw;
 
     .stripe{
-    width: 90vw; 
+    width: 70vw; 
     height: 5vh;
         }
     }

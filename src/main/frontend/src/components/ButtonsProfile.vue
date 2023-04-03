@@ -4,8 +4,8 @@
 
 <template>
 <div class="buttons">
-    <button class="edit">Editar</button>
-    <button class="delete">Borrar</button>
+    <button class="edit"><img src="../assets/images/imagesSomosF5/edit_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
+    <button class="delete"><img src="../assets/images/imagesSomosF5/delete_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
 </div>
 </template>
 
@@ -16,27 +16,19 @@
 .buttons{
 
     .edit{
-        background-color: map-get(c.$colors,"purple");
-        color: map-get(c.$colors,"white");
-        font-family: 'Open Sans', sans-serif ;
-        font-size: 2vw;
-        width: 12vw;
-        height: 8vh;
-        margin-top: 2vw;
+        background-color: map-get(c.$colors,"light-purple");
+        margin: 1vw;
         border-radius: 5%;
         cursor: pointer;
+        width: 3vw;
     }
 
     .delete{
         background-color: map-get(c.$colors,"light-purple");
-        color: map-get(c.$colors,"white");
-        font-family: 'Open Sans', sans-serif ;
-        font-size: 2vw;
-        width: 12vw;
-        height: 8vh;
-        margin-top: 1vw;
+        margin: 1vw;
         border-radius: 5%;
         cursor: pointer;
+        width: 3vw;
     }
 }
 </style>
