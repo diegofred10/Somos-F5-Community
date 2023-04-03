@@ -1,6 +1,6 @@
 <script></script>
 <template>
-  <div class="header">
+  <div class="headerLogin">
     <a href="/" aria-current="page" class="headerLogo"></a>
   </div>
 </template>
@@ -8,8 +8,7 @@
 @use "@/scss/colors" as c;
 @use "@/scss/mixins" as m;
 
-.header {
-  position: fixed;
+.headerLogin {
   left: 0%;
   top: 0%;
   right: 0%;
