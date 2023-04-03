@@ -25,21 +25,23 @@ const email = ref(""),
     checkCode = ref(""),
     checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
 
-const submitData = async () => {
-    const authService = new AuthService();
-    try {
-        const response = await authService.register(email.value, password.value);
-        alert("Registrado con exito");
-        router.push("/login");
-    } catch (error)
+    const submitData = async () => {
 
-    {
-        console.error(error);
-    }
-
-    
-};
-
+        const authService = new AuthService();
+        if(email.value && password.value != null){
+            try {
+            const response = await authService.register(email.value, password.value);
+            alert("Registrado con exito");
+            router.push("/login");
+        } catch (error) {
+            console.error(error);
+        }
+        }
+        else{
+            alert("Debes rellenar todos los campos");
+        }
+        
+    };
 // methods: {
     //     async validate() {
     //         const { valid } = await this.$refs.form.validate()
@@ -58,11 +60,11 @@ const submitData = async () => {
                 <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required></v-text-field>
 
                 <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'"
-                    name="input-10-1" label="Contraseña">
+                    name="input-10-1" label="Contraseña" required>
                 </v-text-field>
 
                 <v-text-field v-model="confirmPassword" :rules="confirmPasswordRules" :type="show1 ? 'text' : 'password'"
-                    name="input-10-1" label="Repetir contraseña">
+                    name="input-10-1" label="Repetir contraseña" required>
                 </v-text-field>
 
                 <v-text-field v-model="checkCode" :rules="checkCodeRules" label="Codigo de verificacion" required>
