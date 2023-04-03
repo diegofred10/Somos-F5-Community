@@ -1,12 +1,13 @@
 <script setup>
-
+import PopUpAdd from './PopUpAdd.vue';
 </script>
 
 <template>
-<div class="add">
-<h1 class="title">Añadir publicación</h1> 
+<div class="add" @click="dialog>
+<h1 class= "title">Añadir publicación</h1> 
 <p class="icon">+</p>
 </div>
+<PopUpAdd/>
 </template>
 
 <style lang="scss" scoped>
