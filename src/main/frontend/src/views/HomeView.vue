@@ -1,8 +1,8 @@
 <script setup>
-import FeedbackView from './FeedbackView.vue';
+// import FeedbackView from './FeedbackView.vue';
 </script>
 
 <template>
-<FeedbackView/>
+<!-- <FeedbackView/> -->
 </template>
 
