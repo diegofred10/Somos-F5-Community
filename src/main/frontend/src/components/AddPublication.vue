@@ -15,6 +15,7 @@
 .add{
  width: 60vw;
  height: 7vh;
+ margin-top: 2vw;
  display: flex;
  justify-content: space-between;
  justify-self: center;
@@ -25,7 +26,7 @@
         font-size: 1.8vw;
         color: map-get(c.$colors,"grey");
         font-family: 'Open Sans', sans-serif ;
-        margin-left: 2vw;
+        margin-left: 1vw;
     }
     .icon{
         font-size: 3vw;
