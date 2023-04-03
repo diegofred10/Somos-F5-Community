@@ -22,10 +22,7 @@ const email = ref(""),
 const submitData = async () => {
   const authService = new AuthService();
   try {
-    const role = await authService.login(
-      email.value,
-      password.value
-    );
+    const role = await authService.login(email.value, password.value);
     auth.setRole(role);
     auth.setUsername(email.value);
     auth.setIsAuthenticated();
@@ -44,20 +41,11 @@ const submitData = async () => {
     <h1 class="headerForm">Bienvenido a SomosF5</h1>
     <v-sheet class="mx-auto">
       <v-form id="loginForm" @submit.prevent="submitData">
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="Correo Electronico"
-          required
-        ></v-text-field>
 
-        <v-text-field
-          v-model="password"
-          :rules="passwordRules"
-          :type="show1 ? 'text' : 'password'"
-          name="input-10-1"
-          label="Contraseña"
-        >
+        <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required>
+        </v-text-field>
+
+        <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Contraseña" required>
         </v-text-field>
 
         <a class="passwordLink" href="">¿Has olvidado tu contraseña?</a>

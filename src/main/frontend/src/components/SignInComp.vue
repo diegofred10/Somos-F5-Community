@@ -26,15 +26,29 @@ const email = ref(""),
     checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
 
     const submitData = async () => {
+
         const authService = new AuthService();
-        try {
+        if(email.value && password.value != null){
+            try {
             const response = await authService.register(email.value, password.value);
             alert("Registrado con exito");
             router.push("/login");
         } catch (error) {
-        console.error(error);
-    }
-};
+            console.error(error);
+        }
+        }
+        else{
+            alert("Debes rellenar todos los campos");
+        }
+        
+    };
+// methods: {
+    //     async validate() {
+    //         const { valid } = await this.$refs.form.validate()
+
+    //         if (valid) alert('Form is valid')
+    //     },
+    // },
 
 </script>
 
@@ -46,11 +60,11 @@ const email = ref(""),
                 <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required></v-text-field>
 
                 <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'"
-                    name="input-10-1" label="Contraseña">
+                    name="input-10-1" label="Contraseña" required>
                 </v-text-field>
 
                 <v-text-field v-model="confirmPassword" :rules="confirmPasswordRules" :type="show1 ? 'text' : 'password'"
-                    name="input-10-1" label="Repetir contraseña">
+                    name="input-10-1" label="Repetir contraseña" required>
                 </v-text-field>
 
                 <v-text-field v-model="checkCode" :rules="checkCodeRules" label="Codigo de verificacion" required>
@@ -77,7 +91,7 @@ const email = ref(""),
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 7vh;
+    margin-top: 3vh;
 
     .headerForm {
         font-size: 7vh;
@@ -93,21 +107,35 @@ const email = ref(""),
             .v-input__control {
                 background-color: white;
                 border-radius: 5px;
+                z-index: 2;
+            }
+
+            .v-input__details {
+                z-index: 5;
+
+                .v-messages__message {
+                    color: #FED2C0
+                }
             }
 
             .passwordLink {
                 color: white;
                 display: flex;
                 justify-content: center;
+                z-index: 2;
+
             }
 
             .d-flex.flex-column {
                 width: fit-content;
                 margin: auto;
 
+
                 .v-btn {
                     color: white;
                     background-color: black;
+                    z-index: 2;
+
                 }
 
                 .v-btn--size-default {
@@ -119,16 +147,15 @@ const email = ref(""),
 
     .stringsPic {
         position: absolute;
-        right: 29vw;
-        top: 17vh;
-        height: 7vh;
-        width: 7vw;
+        right: 31vw;
+        top: 15.5vh;
+        height: 5vh;
+        width: 5vw;
     }
 
     .blueTriangle {
         position: absolute;
         right: 1vw;
-        top: 70vh;
         height: 55vh;
         width: 25vw;
     }
@@ -136,7 +163,6 @@ const email = ref(""),
     .littleStar {
         position: absolute;
         right: 17vw;
-        bottom: 8vh;
         height: 20vh;
         width: 12vw;
     }
@@ -145,7 +171,6 @@ const email = ref(""),
         position: absolute;
         transform: rotate(90deg);
         right: 30vw;
-        top: 72.5vh;
         height: 80vh;
         width: 12vw;
     }
@@ -154,7 +179,6 @@ const email = ref(""),
         position: absolute;
         transform: rotate(-90deg);
         right: 55vw;
-        top: 79.5vh;
         height: 70vh;
         width: 10vw;
         z-index: 1;
@@ -163,7 +187,6 @@ const email = ref(""),
     .blueSplash {
         position: absolute;
         left: 0vw;
-        top: 85vh;
         height: 40vh;
         width: 22vw;
     }
