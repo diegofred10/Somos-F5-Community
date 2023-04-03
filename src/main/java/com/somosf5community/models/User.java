@@ -29,6 +29,7 @@ public class User {
 
     private String username;
     private String password;
+    private String image;
 
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

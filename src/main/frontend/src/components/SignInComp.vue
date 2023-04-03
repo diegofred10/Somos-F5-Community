@@ -3,7 +3,7 @@ import { ref, reactive } from "vue";
 import AuthService from "../services/AuthService";
 import { useRouter } from "vue-router";
 
-let checkCodeVar = "bienvenidos a la secta";
+// let checkCodeVar = "bienvenidos a la secta";
 
 const router = useRouter();
 
@@ -21,9 +21,9 @@ const email = ref(""),
   confirmPasswordRules = reactive([
     (v) => !!v || "Confirm password",
     (v) => v === password.value || "Passwords do not match",
-  ]),
-  checkCode = ref(""),
-  checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
+  ])
+  // checkCode = ref(""),
+  // checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
 
 const submitData = async () => {
   const authService = new AuthService();
@@ -68,13 +68,13 @@ const submitData = async () => {
         >
         </v-text-field>
 
-        <v-text-field
+        <!-- <v-text-field
           v-model="checkCode"
           :rules="checkCodeRules"
           label="Codigo de verificacion"
           required
         >
-        </v-text-field>
+        </v-text-field> -->
 
         <div class="d-flex flex-column">
           <v-btn type="submit" class="mt-4" block @click="validate">

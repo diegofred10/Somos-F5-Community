@@ -1,5 +1,17 @@
 <script setup>
+import axios from 'axios'
+import { ref, reactive, computed, onBeforeMount } from 'vue'
+import { useAuthStore } from "@/stores/authStore";
+	const auth = useAuthStore();
+    console.log(auth.username)
+    let userAvatar = ref();
+let userAvatarComputed =  computed(() => userAvatar.value);
 
+onBeforeMount(() => {
+axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res) => {
+    userAvatar.value = res.data.image
+});
+})
 </script>
 
 <template>
@@ -18,7 +30,9 @@
         </div>  
       </div>
       <div class="photoUser">
-        <img class="imgProfile" src="../assets/images/imagesSomosF5/foto-perfil.png" alt="img">
+        <img class="imgProfile" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="img">
+        
+        <img class="imgProfile" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bc61fe6a1ce2b9ac31_shape-3.svg" alt="">
       </div>
     </div>
 </div>

@@ -13,6 +13,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.somosf5community.services.SecurityUserDetailsService;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 
 @ComponentScan
 @Configuration
@@ -31,8 +33,7 @@ public class WebSecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors()
-                .and()
+                .cors(withDefaults())
                 .headers(header -> header.frameOptions().sameOrigin())
                 .csrf(csrf -> csrf.disable())
                 .formLogin(form -> form.disable())
@@ -40,8 +41,8 @@ public class WebSecurityConfig {
                         .logoutUrl("/api/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests((auth) -> auth
-                        // .requestMatchers("/api/register", "/api/login", "/api/users").permitAll()
-                        .requestMatchers("/api/logout").hasAnyRole("USER", "ADMIN")
+                        // .requestMatchers("/api/register", "/api/login", "/api/users/*").permitAll()
+                        .requestMatchers("/api/logout", "/media/upload").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/api/films/add").hasRole("ADMIN")
                         .anyRequest().permitAll())
                 .userDetailsService(service)
