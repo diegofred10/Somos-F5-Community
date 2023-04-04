@@ -40,16 +40,11 @@ const email = ref(""),
         else{
             alert("Debes rellenar todos los campos");
         }
-        
+        //delete me, please
+        //Vitoria, cagondios, ya estoy comentando el codigo
+        //hostias
+        //puta mierda el github
     };
-// methods: {
-    //     async validate() {
-    //         const { valid } = await this.$refs.form.validate()
-
-    //         if (valid) alert('Form is valid')
-    //     },
-    // },
-
 </script>
 
 <template>
