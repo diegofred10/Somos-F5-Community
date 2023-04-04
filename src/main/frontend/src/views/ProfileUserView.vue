@@ -1,13 +1,17 @@
 <script setup>
 import InfoUser from '../components/InfoUser.vue';
-import AddPublication from '../components/AddPublication.vue';
 import CardProfile from '../components/CardProfile.vue';
+import AddNewPostPopUp from '../components/AddNewPostPopUp.vue';
+
 import Header from '../components/Header.vue';
 </script>
 
 <template>
+
 <Header/>
 <InfoUser class="info"/>
+<AddNewPostPopUp/>
+
 <div class="title">
     <div class="text">
         <h2>Mis publicaciones</h2>

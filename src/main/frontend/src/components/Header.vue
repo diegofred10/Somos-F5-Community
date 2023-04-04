@@ -1,4 +1,5 @@
-<script setup></script>
+<script setup>
+</script>
 <template>
   <div class="header">
     <a href="/" aria-current="page" class="headerLogo"></a>
