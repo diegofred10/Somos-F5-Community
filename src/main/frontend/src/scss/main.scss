@@ -1,18 +1,23 @@
 @use "/src/scss/resetScss.scss";
 @use "/src/scss/_mixins.scss";
 @use "@/scss/colors" as c;
+@use "@/scss/fonts"as f;
+
 
 
 body{
-    
-    width: 70%;
-    font-family: "flexo";
-    display: flex;
-    // justify-content: center;
+    font-family:  "openSans" ;
+    // display: flex;
+    justify-content: center;
     background-color: map-get(c.$colors,"light-orange");
-    font-family: "openSans";
+
 
 .bold{
     font-weight: bold;
 }
+}
+
+.router-link-exact-active {
+    border-bottom: 4px solid map-get(c.$colors, "orange");
+    font-weight: 700;
 }

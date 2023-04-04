@@ -26,7 +26,7 @@ const submitData = async () => {
     auth.setRole(role);
     auth.setUsername(email.value);
     auth.setIsAuthenticated();
-    router.push("/");
+    router.push("/ProfileUser");
     console.log(auth.isAuthenticate, auth.roles, auth.username);
   } catch (error) {
     console.error(error);

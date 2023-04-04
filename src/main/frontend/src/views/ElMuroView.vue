@@ -20,14 +20,20 @@ import PostComp from '../components/PostComponent.vue'
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
-    .tools{
 
-        margin-top: 2vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 94vw;
-    }
+.tools{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+}
 
+//         margin-top: 2vw;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         width: 94vw;
+//     }
+// }
 
 </style>
