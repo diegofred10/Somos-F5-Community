@@ -1,4 +1,5 @@
 <script setup>
+import Header from '../components/Header.vue';
 import UserFeed from '../components/UserFeed.vue';
 import AddPublication from '../components/AddPublication.vue';
 import Filter from '../components/Filter.vue'
@@ -6,6 +7,7 @@ import PostComp from '../components/PostComponent.vue'
 </script>
 
 <template>
+<Header/>
 <UserFeed/>
 <div class="tools">
     <AddPublication/>   

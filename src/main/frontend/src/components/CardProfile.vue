@@ -40,14 +40,13 @@ window.addEventListener('DOMContentLoaded', () => {
         <div class="publication">
             <h2 class="titlePubli">Simulador certificación</h2>
             <p class="textPubli">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga atque fugiat optio veniam vero illo recusandae consequuntur, minima iure corrupti pariatur sapiente nobis id ea. Quia saepe necessitatibus aspernatur laborum.</p>
-            <div class="buttons">
-               <button class="button-edit"><img src="../assets/images/imagesSomosF5/edit_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
-               <button class="button-delete"><img src="../assets/images/imagesSomosF5/delete_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
-            </div>  
+ 
         </div>
+      <div class="buttons">
+        <button class="button-edit"><img src="../assets/images/imagesSomosF5/edit_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
+        <button class="button-delete"><img src="../assets/images/imagesSomosF5/delete_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
+      </div>   
     </div>
-
-
 </div>
 <div class="separator">
     <img class="stripe" src="../assets/images/imagesSomosF5/franjaMorada 2.png" alt="">
@@ -101,29 +100,29 @@ margin-top: 2vw;
                 margin-left: 2%;
                 margin-top: 1%;
             }
-            .buttons{
             
-                display: flex;
-                justify-content: flex-end;
-
-                .button-edit{
-                    background-color: map-get(c.$colors,"light-purple");
-                    margin: 1vw;
-                    border-radius: 5%;
-                    width: 3vw;
-                }
-
-                .button-delete{
-                    background-color: map-get(c.$colors,"light-purple");
-                    margin: 1vw;
-                    border-radius: 5%;
-                    width: 3vw;
-                }
             }
 
         }
         
     }
+            .buttons{          
+                display: flex;
+                justify-content: flex-end;
+                .button-edit{
+                    background-color: map-get(c.$colors,"light-purple");
+                    border-radius: 5%;
+                    width: 2.5vw;    
+                    margin-top: 2%;                
+                }
+
+                .button-delete{
+                    background-color: map-get(c.$colors,"light-purple");
+                    border-radius: 5%;
+                    width: 2.5vw;
+                    margin-left: 2%;
+                    margin-top: 2%;
+                }
 
 }
 
