@@ -26,7 +26,6 @@ const email = ref(""),
   checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
 
 
-<<<<<<< HEAD
 const submitData = async () => {
   const authService = new AuthService();
   try {
@@ -55,7 +54,7 @@ const submitData = async () => {
         //Vitoria, cagondios, ya estoy comentando el codigo
         //hostias
         //puta mierda el github
-    };
+    
 </script>
 
 <template>
