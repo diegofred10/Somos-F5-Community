@@ -4,7 +4,7 @@
 
 <template>
   <v-card class="card">
-    <v-card-title class="text">
+
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -14,7 +14,7 @@
         hide-details
        >
     </v-text-field>
-    </v-card-title>
+
     <v-data-table
       :headers="headers"
       :items="desserts"
@@ -29,11 +29,16 @@
 
 .card{
   background-color: map-get(c.$colors,"light-purple");
-  margin: 2vw;
-  width: 90vw;
-  height: 10vh;
+  margin-top: 1vw;
+  width: 60vw;
+  height: 7vh;
   .text{
     width: 40vw;
+
+    label{
+    font-family: 'Open Sans', sans-serif ;
+    font-size: 2vw;
+    }
   }
   img{
     width: 3vw;

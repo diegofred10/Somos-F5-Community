@@ -13,8 +13,10 @@ import CardProfile from '../components/CardProfile.vue';
 
     <img class="star" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bcb276576e8a46f894_shape-2.svg" alt="">
 </div>
+<div class="components">
 <AddPublication/>
 <CardProfile/>
+</div>
 </template>
 
 <style lang="scss" scoped>
@@ -30,11 +32,11 @@ import CardProfile from '../components/CardProfile.vue';
     width: 50vw;
     display: flex;
     align-items: center;
-    margin-left: 3vw;
+    margin-left: 2vw;
     margin-top: 2%;
     
     .text{
-        font-size: 4vw;
+        font-size: 3vw;
         color: map-get(c.$colors,"black");
         font-family: 'Open Sans', sans-serif ;
         font-weight: bold;
@@ -42,9 +44,14 @@ import CardProfile from '../components/CardProfile.vue';
     }
     .star{
         position: relative;
-        width: 7vw;
+        width: 5vw;
         right: 9%;
     }
+}
+.components{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 </style>

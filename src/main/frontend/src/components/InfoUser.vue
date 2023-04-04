@@ -43,12 +43,12 @@ height: 30vh;
 width: 90vw;
 display: flex;
 align-items: center;
-margin-top: 2vw;
+justify-content: space-around;
+margin: 2vw;
 
     .photoUser{
-        width: 25vh;
-        margin-left: 3%;
-        margin-right: 3%;
+        width: 24vh;
+        margin-right: 2vw;
         .imgProfile{
             border-radius: 100%;
         }
@@ -60,9 +60,10 @@ margin-top: 2vw;
         justify-content: center;
         flex-direction: column;
         align-items: flex-start;
+        margin-right: 6vw;
         
         .name{
-            font-size: 4vw;
+            font-size: 3.5vw;
             color: map-get(c.$colors,"white");
             font-family: 'Open Sans', sans-serif ;
             
@@ -73,7 +74,7 @@ margin-top: 2vw;
         margin-top: 2%;
         font-family: 'Open Sans', sans-serif ;
             .logo{
-                width: 18%;
+                width: 22%;
 
             }
             .contactsName{
@@ -87,31 +88,29 @@ margin-top: 2vw;
     .design{
         display: flex;
         justify-content: flex-end;
-        width: 55%;
-        height: 85%;
-
+        display: contents;
         .arrow{
-            width: 15%;          
+            width: 14%;          
             z-index: 2;
-            right: 35vw;
-            top: 10%;
+            // right: 35vw;
+            // top: 10%;
             margin-top: -2%;
-            position: absolute;    
+            position: relative;    
             rotate: -20deg;
         }
         .triangle{
-            width: 10%;
-            right: 27vw;
-            top: -13%;
-            position: absolute;
+            width: 10vw;
+            // right: 27vw;
+            // top: -13%;
+            position: relative;
             rotate: 270deg;
         }
         .semicircle{
-            right: 12%;
+            left: 5%;
             rotate: 180deg;
-            width: 13%;
-            top: 2%;
-            position: absolute;
+            width: 12%;
+            top: -12%;
+            position: relative;
         }
     }
 }

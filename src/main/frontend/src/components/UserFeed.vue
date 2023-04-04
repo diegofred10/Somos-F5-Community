@@ -63,7 +63,6 @@ margin-top: 2vw;
         color: map-get(c.$colors,"white");
         font-family: 'Open Sans', sans-serif ;
         font-weight: bold;
-        z-index: 2;
         right: 4vw;
         position: relative;
         }
