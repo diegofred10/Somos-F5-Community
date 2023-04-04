@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 	import { ref, reactive, computed } from "vue";
 	import axios from "axios";
 	import FeedbackView from "./FeedbackView.vue";
@@ -30,7 +30,6 @@
 </script>
 
 <template>
-<<<<<<< HEAD
 	<FeedbackView />
 	<h1>hola</h1>
 	<form
@@ -52,18 +51,12 @@
 			class="file-img form-film__input"
 			@change="onFileChange"
 		/>
-
- <!-- <FeedbackView/> -->
-</template> -->
-
-<!-- 
 		<img
 			v-if="url"
 			class="img"
 			:src="imageUrl"
 			alt=""
 		/>
-
 		<button type="submit">submit</button>
 	</form>
 </template>
@@ -73,4 +66,4 @@
 		padding: 1em;
 		width: 50%;
 	}
-</style> -->
+</style>

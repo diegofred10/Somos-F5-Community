@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +21,6 @@ import lombok.AllArgsConstructor;
 public class UserService implements BaseService<User> {
 
     private UserRepository userRepository;
-    private JdbcTemplate jdbcTemplate;
-
 
     @Override
     @Transactional
@@ -57,11 +54,6 @@ public class UserService implements BaseService<User> {
         return userRepository.save(user);
 
     }
-
-    // @Transactional
-    // public void updateUserImage(User user, String filename) {
-    //    user.setImage(filename);
-    // }
 
     @Transactional
     public User store(User user) {
