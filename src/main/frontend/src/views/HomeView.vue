@@ -2,6 +2,7 @@
 	import { ref, reactive, computed } from "vue";
 	import axios from "axios";
 	import FeedbackView from "./FeedbackView.vue";
+    import ProfileUserView from "./ProfileUserView.vue";
 
 	const url = ref("");
 	const imageUrl = computed(() => url.value);
@@ -30,7 +31,8 @@
 </script>
 
 <template>
-	<FeedbackView />
+    <ProfileUserView/>
+	<!-- <FeedbackView /> -->
 	<h1>hola</h1>
 	<form
 		method="post"
