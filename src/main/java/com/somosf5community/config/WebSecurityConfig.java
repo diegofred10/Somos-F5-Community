@@ -41,10 +41,10 @@ public class WebSecurityConfig {
                         .logoutUrl("/api/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/api/register", "/api/login", "/api/users").permitAll()
-                        .requestMatchers("/api/logout").hasAnyRole("USER", "ADMIN")
-                        // .requestMatchers("/api/films/add").hasRole("ADMIN")
-                        .anyRequest().authenticated())
+                        // .requestMatchers("/api/register", "/api/login", "/api/users/*").permitAll()
+                        .requestMatchers("/api/logout", "/media/upload").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/api/films/add").hasRole("ADMIN")
+                        .anyRequest().permitAll())
                 .userDetailsService(service)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .httpBasic(basic -> basic.authenticationEntryPoint(authenticationEntryPoint));

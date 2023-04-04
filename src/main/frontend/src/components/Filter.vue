@@ -13,7 +13,6 @@
         single-line
         hide-details
        >
-        <!--<img class="search" src="../assets/images/imagesSomosF5/search.png" alt=""> -->
     </v-text-field>
 
     <v-data-table

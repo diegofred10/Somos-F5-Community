@@ -4,23 +4,26 @@
 <template>
 <div class="infoUser">
     <div class="photoUser">
+        <input type="file" @change="onFileChange" ref="fileInput" style="display:none">  
+        <button @click="$refs.fileInput.click()">    
         <img class="imgProfile" src="../assets/images/imagesSomosF5/foto-perfil.png" alt="img">
+    </button>
     </div>
-    <div class="info">
-        <h3 class="name">Marco Polo</h3>
-        <div class="contacts">
+    <div class="contacts">
+        <p class="name">Marco Polo</p>
+        <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/github.png" alt="gitHub">
             <p class="contactsName">Github</p>
         </div>
-        <div class="contacts">
+        <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/linkedin.png" alt="linkedin">
             <p class="contactsName">LinkedIn</p>
         </div>
-        <div class="contacts">
+        <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="email">
             <p class="contactsName">Email</p>
         </div>
-        <div class="contacts">
+        <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="geo">
             <p class="contactsName">Castropol</p>
         </div>   
@@ -35,45 +38,54 @@
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
+@use "@/scss/fonts";
 
 .infoUser{
 background-color: map-get(c.$colors,"orange");
-height: 30vh;
-width: 90vw;
+height:auto;
+width: 96%;
 display: flex;
 align-items: center;
-justify-content: space-around;
-margin: 2vw;
+// justify-content: space-around;
+margin: 2%;
 
     .photoUser{
-        width: 24vh;
-        margin-right: 2vw;
+        width: 15%;
+        // margin:2vw;
+        // margin-top:2vw;
+        // margin-bottom:2vw;
+        // margin-left:2vw;
         .imgProfile{
             border-radius: 100%;
         }
     }
 
-    .info{
+    .contacts{
         display: flex;
-        align-items: center;
-        justify-content: center;
+        // align-items: center;
+        // justify-content: center;
         flex-direction: column;
-        align-items: flex-start;
-        margin-right: 6vw;
+        // align-items: flex-start;
+        // margin-right: 6vw;
         
         .name{
-            font-size: 3.5vw;
+            font-size: 2em;
             color: map-get(c.$colors,"white");
-            font-family: 'Open Sans', sans-serif ;
+            font-family: 'openSans';
+            font-weight: bold;
             
         }
-        .contacts{
-        display: flex;
-        float:left;
-        margin-top: 2%;
-        font-family: 'Open Sans', sans-serif ;
+        .contact{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        // margin-top: 2%;
+        font-family: 'openSans' ;
+        margin-bottom: 0.5em;
+
             .logo{
-                width: 22%;
+                width: 10%;
+
 
             }
             .contactsName{
@@ -86,30 +98,36 @@ margin: 2vw;
 
     .design{
         display: flex;
-        justify-content: flex-end;
-        display: contents;
+        // justify-content: flex-end;
+        // display: contents;
+        flex-direction: row;
+        width: 40%;
+  
+        
         .arrow{
-            width: 14%;          
-            z-index: 2;
+            width: 45%;          
+            z-index: 1;
             // right: 35vw;
             // top: 10%;
-            margin-top: -2%;
-            position: relative;    
+            // margin-top: -2%;
+            // position: relative;    
             rotate: -20deg;
         }
         .triangle{
-            width: 10vw;
-            // right: 27vw;
+            width: 20%;
+            margin-bottom: -15%;
             // top: -13%;
-            position: relative;
+           
+            // position: relative;
             rotate: 270deg;
         }
         .semicircle{
-            left: 5%;
+            // left: 5%;
+            z-index: 1;
             rotate: 180deg;
-            width: 12%;
-            top: -12%;
-            position: relative;
+            width: 60%;
+            // top: -12%;
+            // position: relative;
         }
     }
 }
