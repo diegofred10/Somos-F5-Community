@@ -70,7 +70,7 @@ margin-top: 2vw;
             display: flex;
             text-align: center;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
             .titleHeader{
                 font-size: 2vw;
                 color: map-get(c.$colors,"black");
@@ -80,7 +80,7 @@ margin-top: 2vw;
             .date{
                 color: map-get(c.$colors,"grey");
                 font-family: 'Open Sans', sans-serif ;
-                font-size: 2vw;
+                font-size: 1.5vw;
             }
         }
         .publication{
