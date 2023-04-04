@@ -7,8 +7,10 @@ import Header from '../components/Header.vue';
 </script>
 
 <template>
+
 <Header/>
 <InfoUser class="info"/>
+<AddNewPostPopUp/>
 
 <div class="title">
     <div class="text">

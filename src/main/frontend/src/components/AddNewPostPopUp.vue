@@ -45,6 +45,8 @@ const dialog = ref(false)
         </v-card>
         </v-dialog>
 
+
+
 </template>
 
 <style lang="scss" scoped>
@@ -139,7 +141,7 @@ margin-bottom: 1%;
      display: flex;
      flex-direction: column;
      justify-content: space-around;
-    //  text-align: start;
+     text-align: start;
 
 
 
@@ -157,31 +159,36 @@ margin-bottom: 1%;
 .buttonsForm{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 30px;
     margin-bottom: 20px;
+
     
 }
 
 .btnCancel{
     background-color: map-get(c.$colors, "grey");
     color: map-get(c.$colors, "white");
-    margin-left: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     margin-top: 1px;
+    min-width: 100px;
+    margin-left: 10px;
+
 
 }
 
 .btnPost{
     background-color: map-get(c.$colors, "purple");
     color: map-get(c.$colors, "white");
-    margin-left: 50px;
+    margin-left: 100px;
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    max-width: 100px;
+
+
 }
 
 </style>
