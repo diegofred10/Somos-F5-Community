@@ -4,6 +4,7 @@
 
 <template>
   <RouterView />
+  <LogInViewVue/>
 </template>
 
 <style scoped lang="scss">
