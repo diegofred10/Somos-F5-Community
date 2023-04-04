@@ -12,6 +12,7 @@ import Header from '../components/Header.vue';
     <div class="text">
         <h2>Mis publicaciones</h2>
     </div>
+
     <img class="star" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bcb276576e8a46f894_shape-2.svg" alt="">
 </div>
 <AddPublication/>

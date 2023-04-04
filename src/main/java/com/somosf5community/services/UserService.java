@@ -86,6 +86,7 @@ public class UserService implements BaseService<User> {
         User user = findById(id);
         user.setUsername(userDetails.getUsername());
         user.setPassword(userDetails.getPassword());
+        user.setImage(userDetails.getImage());
         return save(user);
     }
 
