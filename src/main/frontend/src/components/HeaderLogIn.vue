@@ -4,6 +4,7 @@
     <a href="/" aria-current="page" class="headerLogo"></a>
   </div>
 </template>
+
 <style lang="scss">
 @use "@/scss/colors" as c;
 @use "@/scss/mixins" as m;
