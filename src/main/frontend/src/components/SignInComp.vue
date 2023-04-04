@@ -42,14 +42,6 @@ const email = ref(""),
         }
         
     };
-// methods: {
-    //     async validate() {
-    //         const { valid } = await this.$refs.form.validate()
-
-    //         if (valid) alert('Form is valid')
-    //     },
-    // },
-
 </script>
 
 <template>

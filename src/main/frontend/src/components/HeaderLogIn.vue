@@ -9,7 +9,7 @@
 @use "@/scss/mixins" as m;
 
 .header {
-  position: fixed;
+  position: sticky;
   left: 0%;
   top: 0%;
   right: 0%;
