@@ -4,7 +4,7 @@ import ProfileUser from '../views/ProfileUserView.vue';
 </script>
 
 <template>
- <!-- <FeedbackView/> -->
- <ProfileUser/>
+ <FeedbackView/>
+ <!-- <ProfileUser/> -->
 </template>
 
