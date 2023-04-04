@@ -1,7 +1,7 @@
 <script setup>
 import InfoUser from '../components/InfoUser.vue';
-import AddPublication from '../components/AddPublication.vue';
 import CardProfile from '../components/CardProfile.vue';
+import AddNewPostPopUp from '../components/AddNewPostPopUp.vue';
 
 </script>
 
@@ -14,7 +14,7 @@ import CardProfile from '../components/CardProfile.vue';
     </div>
     <img class="star" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bcb276576e8a46f894_shape-2.svg" alt="">
 </div>
-<AddPublication/>
+<AddNewPostPopUp/>
 <CardProfile/>
 
 </template>
