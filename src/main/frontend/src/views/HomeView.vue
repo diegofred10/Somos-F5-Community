@@ -1,7 +1,7 @@
 <script setup>
 	import { ref, reactive, computed } from "vue";
 	import axios from "axios";
-	import FeedbackView from "./FeedbackView.vue";
+	import ElMuroView from "./ElMuroView.vue";
 
 	const url = ref("");
 	const imageUrl = computed(() => url.value);
@@ -30,7 +30,7 @@
 </script>
 
 <template>
-	<FeedbackView />
+	<ElMuroView />
 	<h1>hola</h1>
 	<form
 		method="post"

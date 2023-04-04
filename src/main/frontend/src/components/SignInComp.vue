@@ -27,33 +27,23 @@ const email = ref(""),
 
 
 const submitData = async () => {
-  const authService = new AuthService();
-  try {
-    const response = await authService.register(email.value, password.value);
-    alert("Registrado con exito");
-    router.push("/login");
-  } catch (error) {
-    console.error(error);
-  }
+ 
+    const authService = new AuthService();
+    if(email.value && password.value != null){
+        try {
+        const response = await authService.register(email.value, password.value);
+        alert("Registrado con exito");
+        router.push("/login");
+    } catch (error) {
+        console.error(error);
+    }
+    }
+    else{
+        alert("Debes rellenar todos los campos");
+    }
 };
 
-        const authService = new AuthService();
-        if(email.value && password.value != null){
-            try {
-            const response = await authService.register(email.value, password.value);
-            alert("Registrado con exito");
-            router.push("/login");
-        } catch (error) {
-            console.error(error);
-        }
-        }
-        else{
-            alert("Debes rellenar todos los campos");
-        }
-        //delete me, please
-        //Vitoria, cagondios, ya estoy comentando el codigo
-        //hostias
-        //puta mierda el github
+       
     
 </script>
 
