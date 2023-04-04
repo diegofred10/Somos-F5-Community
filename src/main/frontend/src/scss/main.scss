@@ -16,3 +16,8 @@ body{
     font-weight: bold;
 }
 }
+
+.router-link-exact-active {
+    border-bottom: 4px solid map-get(c.$colors, "orange");
+    font-weight: 700;
+}

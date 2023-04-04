@@ -112,14 +112,14 @@ margin-top: 2vw;
                 .button-edit{
                     background-color: map-get(c.$colors,"light-purple");
                     border-radius: 5%;
-                    width: 2.5vw;    
+                    width: 4vw;    
                     margin-top: 2%;                
                 }
 
                 .button-delete{
                     background-color: map-get(c.$colors,"light-purple");
                     border-radius: 5%;
-                    width: 2.5vw;
+                    width: 4vw;
                     margin-left: 2%;
                     margin-top: 2%;
                 }
