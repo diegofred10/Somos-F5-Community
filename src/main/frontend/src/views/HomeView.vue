@@ -1,8 +1,8 @@
 <script setup>
-import FeedbackView from './FeedbackView.vue';
+import ProfileUserView from './ProfileUserView.vue';
 </script>
 
 <template>
- <!-- <FeedbackView/> -->
+ <ProfileUserView/>
 </template>
 
