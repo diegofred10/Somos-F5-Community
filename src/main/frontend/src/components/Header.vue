@@ -31,9 +31,11 @@
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
 @use "@/scss/mixins" as m;
+@use "@/scss/fonts" ;
 
 .header {
-  position: fixed;
+  position: sticky;
+  z-index:10;
   left: 0%;
   top: 0%;
   right: 0%;
@@ -43,6 +45,7 @@
   -webkit-box-pack: center;
   justify-content: center;
   background-color: map-get(c.$colors, "light-orange");
+  margin-bottom: 1px;
 
   .headerLogo {
     background-image: url("https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bc9e1976ae0ada64b0_somos-f5.svg");
@@ -65,7 +68,7 @@
       -webkit-box-align: center;
       align-items: center;
       grid-column-gap: 2rem;
-      font-family: "Open Sans";
+      font-family: "openSans";
       margin-right: 1em;
 
       .navLink {
