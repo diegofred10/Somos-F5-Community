@@ -7,7 +7,7 @@ import PostComp from '../components/PostComponent.vue'
 </script>
 
 <template>
-<Header/>
+    <Header/>
 <UserFeed/>
 <div class="tools">
     <AddPublication/>   
