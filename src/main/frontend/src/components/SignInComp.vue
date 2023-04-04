@@ -3,53 +3,48 @@ import { ref, reactive } from "vue";
 import AuthService from "../services/AuthService";
 import { useRouter } from "vue-router";
 
-let checkCodeVar = "bienvenidos a la secta";
+// let checkCodeVar = "bienvenidos a la secta";
 
 const router = useRouter();
 
 const email = ref(""),
-    emailRules = reactive([
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+/.test(v) || "E-mail must be valid",
-    ]),
-    password = ref(""),
-    passwordRules = reactive([
-        (v) => !!v || "Password required",
-        (v) => v.length >= 8 || "Min 8 characters",
-    ]),
-    confirmPassword = ref(""),
-    confirmPasswordRules = reactive([
-        (v) => !!v || "Confirm password",
-        (v) => v === password.value || "Passwords do not match",
-    ]),
-    checkCode = ref(""),
-    checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
+  emailRules = reactive([
+    (v) => !!v || "E-mail is required",
+    (v) => /.+@.+/.test(v) || "E-mail must be valid",
+  ]),
+  password = ref(""),
+  passwordRules = reactive([
+    (v) => !!v || "Password required",
+    (v) => v.length >= 8 || "Min 8 characters",
+  ]),
+  confirmPassword = ref(""),
+  confirmPasswordRules = reactive([
+    (v) => !!v || "Confirm password",
+    (v) => v === password.value || "Passwords do not match",
+  ]),
+  checkCode = ref(""),
+  checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
 
-    const submitData = async () => {
 
-        const authService = new AuthService();
-        if(email.value && password.value != null){
-            try {
-            const response = await authService.register(email.value, password.value);
-            alert("Registrado con exito");
-            router.push("/login");
-        } catch (error) {
-            console.error(error);
-        }
-        }
-        else{
-            alert("Debes rellenar todos los campos");
-        }
-        
-    };
-// methods: {
-    //     async validate() {
-    //         const { valid } = await this.$refs.form.validate()
+const submitData = async () => {
+ 
+    const authService = new AuthService();
+    if(email.value && password.value != null){
+        try {
+        const response = await authService.register(email.value, password.value);
+        alert("Registrado con exito");
+        router.push("/login");
+    } catch (error) {
+        console.error(error);
+    }
+    }
+    else{
+        alert("Debes rellenar todos los campos");
+    }
+};
 
-    //         if (valid) alert('Form is valid')
-    //     },
-    // },
-
+       
+    
 </script>
 
 <template>
@@ -67,8 +62,13 @@ const email = ref(""),
                     name="input-10-1" label="Repetir contraseña" required>
                 </v-text-field>
 
-                <v-text-field v-model="checkCode" :rules="checkCodeRules" label="Codigo de verificacion" required>
-                </v-text-field>
+        <v-text-field
+          v-model="checkCode"
+          :rules="checkCodeRules"
+          label="Codigo de verificacion"
+          required
+        >
+        </v-text-field>
 
                 <div class="d-flex flex-column">
                     <v-btn type="submit" class="mt-4" block @click="validate">

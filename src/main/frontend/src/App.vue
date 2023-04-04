@@ -1,14 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import ProfileUser from './views/ProfileUserView.vue';
-import AddNewPostPopUp from './components/AddNewPostPopUp.vue';
+import LogInComp from './components/LogInComp.vue';
 </script>
 
 <template>
 
-  <AddNewPostPopUp/>
+  
   <RouterView />
- <ProfileUser/>
+  <LogInViewVue/>
 </template>
 
 <style scoped lang="scss">

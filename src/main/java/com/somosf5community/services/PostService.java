@@ -58,7 +58,7 @@ public class PostService implements BaseService<Post> {
         post.setTitle(postDetails.getTitle());
         post.setDescription(postDetails.getDescription());
         post.setDate(postDetails.getDate());
-        post.setUser(postDetails.getUser());
+        post.setProfile(postDetails.getProfile());
         return save(post);
     }
     
