@@ -43,8 +43,8 @@ window.addEventListener('DOMContentLoaded', () => {
  
         </div>
       <div class="buttons">
-        <button class="button-edit"><img src="../assets/images/imagesSomosF5/edit_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
-        <button class="button-delete"><img src="../assets/images/imagesSomosF5/delete_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
+        <button class="button-edit"><img class="imgEdit" src="../assets/images/imagesSomosF5/edit_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
+        <button class="button-delete"><img class="imgDelete" src="../assets/images/imagesSomosF5/delete_FILL1_wght400_GRAD0_opsz48.png" alt=""></button>
       </div>   
     </div>
 </div>
@@ -80,7 +80,8 @@ margin-top: 2vw;
             .date{
                 color: map-get(c.$colors,"grey");
                 font-family: 'Open Sans', sans-serif ;
-                font-size: 2vw;
+                font-size: large;
+                margin: 2% 0 0 0;
             }
         }
         .publication{
@@ -112,8 +113,12 @@ margin-top: 2vw;
                 .button-edit{
                     background-color: map-get(c.$colors,"light-purple");
                     border-radius: 5%;
-                    width: 4vw;    
-                    margin-top: 2%;                
+                    width: 5%;    
+                    height: 1em;
+                    margin-top: 2%;      
+                    .imgEdit{
+                      width: 100%;
+                    }          
                 }
 
                 .button-delete{
