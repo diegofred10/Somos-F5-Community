@@ -47,25 +47,28 @@
 
 .banner{
     display: flex;
-    justify-content: center;
+    // justify-content: center;
+    align-items: end;
+    .infoUser{
+        width: 100%;
+        background-color: map-get(c.$colors,"orange");
+        height:15em;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 0 auto;
+// margin: 2%;
 
-.infoUser{
-background-color: map-get(c.$colors,"orange");
-height:auto;
-width: 90%;
-display: flex;
-align-items: center;
-justify-content: space-around;
-margin: 2%;
-
-  .photoAndContact{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 25vw;
+    .photoAndContact{
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        // width: 25vw;
 
     .photoUser{
-        width: 45%;
+        width: 25em;
+        display: flex;
+        justify-content: center;
 
         .imgProfile{
             border-radius: 100%;
@@ -97,17 +100,17 @@ margin: 2%;
             }
             .contactsName{
                 color: white;
-                margin-left: 2%;
+             
             }
         }
-
     }
 }
     .design{
         display: flex;
         justify-content: flex-end;
         flex-direction: row;
-        width: 40%;
+        width: 30em;
+        margin: 0 10em 5em 5em;
   
         
         .arrow{
@@ -116,7 +119,7 @@ margin: 2%;
             rotate: -20deg;
         }
         .triangle{
-            width: 20%;
+            width: 40%;
             margin-bottom: -15%;
             rotate: 270deg;
         }

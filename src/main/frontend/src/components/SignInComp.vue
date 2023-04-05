@@ -3,7 +3,7 @@ import { ref, reactive } from "vue";
 import AuthService from "../services/AuthService";
 import { useRouter } from "vue-router";
 
-// let checkCodeVar = "bienvenidos a la secta";
+let checkCodeVar = "bienvenidos a la secta";
 
 const router = useRouter();
 
