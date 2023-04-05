@@ -53,7 +53,7 @@ const dialog = ref(false)
 
 .addPubli{
  width: 50%;
- height: 50%;
+ height: 3em;
  display: flex;
  justify-content: space-between;
  align-items: center;
@@ -61,7 +61,7 @@ const dialog = ref(false)
  border: 3px solid map-get(c.$colors,"grey");
 
     .addPubliTitle{
-        font-size: 1.8vw;
+        font-size: 1.5em;
         color: map-get(c.$colors,"grey");
         font-family: 'Open Sans', sans-serif ;
         margin-left: 1vw;
@@ -69,7 +69,7 @@ const dialog = ref(false)
     .icon{
         width: 5%;
         height: 100%;
-        font-size: 3vw;
+        font-size: 2em;
         color: map-get(c.$colors,"black");
         font-family: 'Open Sans', sans-serif ;
         font-weight: bold;

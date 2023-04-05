@@ -34,6 +34,7 @@
 @use "@/scss/fonts" ;
 
 .header {
+  width: 100%;
   position: sticky;
   z-index:10;
   left: 0%;
