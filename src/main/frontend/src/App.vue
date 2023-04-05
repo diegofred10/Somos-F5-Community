@@ -1,12 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
+  import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
   <RouterView />
-  <ProfileUser/>
+  <LogInViewVue/>
 </template>
 
 <style scoped lang="scss">
+
 </style>

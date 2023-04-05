@@ -1,7 +1,7 @@
 @use "/src/scss/resetScss.scss";
 @use "/src/scss/_mixins.scss";
 @use "@/scss/colors" as c;
-@use "@/scss/fonts"as f;
+@use "@/scss/fonts";
 
 
 
@@ -15,4 +15,9 @@ body{
 .bold{
     font-weight: bold;
 }
+}
+
+.router-link-exact-active {
+    border-bottom: 4px solid map-get(c.$colors, "orange");
+    font-weight: 700;
 }
