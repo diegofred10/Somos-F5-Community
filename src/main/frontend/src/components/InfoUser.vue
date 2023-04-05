@@ -118,67 +118,77 @@ const store = useAuthStore();
 
 .banner{
     display: flex;
-    justify-content: center;
-    width: 100%;
-
+    // justify-content: center;
+    align-items: end;
     .infoUser{
-        display: flex;
-        width: 90%;
+        width: 100%;
         background-color: map-get(c.$colors,"orange");
-
-    .photoAndContact{
+        height:15em;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 60%;
-            .photoUser{
-                width: 50%;
+        justify-content: space-around;
+        margin: 0 auto;
+// margin: 2%;
 
-                .imgProfile{
-                    border-radius: 100%;
-                }
+  .photoAndContact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25vw;
+
+    .photoUser{
+        width: 45%;
+
+        .imgProfile{
+            border-radius: 100%;
+        }
+    }
+
+    .contacts{
+        display: flex;
+        flex-direction: column;
+        
+        .name{
+            font-size: 2em;
+            color: map-get(c.$colors,"white");
+            font-family: 'openSans';
+            font-weight: bold;
+            
+        }
+        .contact{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-family: 'openSans' ;
+            margin-bottom: 0.5em;
+
+            .logo{
+                width: 10%;
+
+
             }
-            .contacts{
-                display: flex;
-                flex-direction: column;
-                
-                .name{
-                    font-size: 2em;
-                    color: map-get(c.$colors,"white");
-                    font-family: 'openSans';
-                    font-weight: bold;
-                    
-                }
-                .contact{
-                    display: flex;
-                    flex-direction: column;
-                    font-family: 'openSans' ;
-                    margin-bottom: 0.5em;
-                    input{
-                        width: 50%;
-                    }
-                    .logo{
-                        width: 5%;
-                    }
-                    .contactsName{
-                        color: white;
-                        margin-left: 2%;
-                    }
-                }
+            .contactsName{
+                color: white;
+                margin-left: 2%;
             }
         }
+
+    }
+}
     .design{
         display: flex;
         // justify-content: flex-end;
         flex-direction: row;
-        width: 35%;
+        width: 40%;
+  
+        
         .arrow{
             width: 30%;          
             z-index: 1;  
             rotate: -20deg;
         }
         .triangle{
-            width: 20%;
+            width: 40%;
             margin-bottom: -15%;
             rotate: 270deg;
         }
