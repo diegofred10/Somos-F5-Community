@@ -7,7 +7,7 @@ import Header from '../components/Header.vue';
 
 <template>
 <Header/>
-<InfoUser class="info"/>
+<InfoUser/>
 <div class="title">
     <div class="text">
         <h2>Mis publicaciones</h2>
@@ -23,17 +23,13 @@ import Header from '../components/Header.vue';
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
-// .info{
-//     display: flex;
-//     justify-content: center;
-//     align-self: center;
-// }
+
 
 .title{
-    width: 50vw;
+    width: 46vw;
     display: flex;
     align-items: center;
-    // margin-left: 3vw;
+    justify-content: center;
     margin: 2%;
     
     .text{

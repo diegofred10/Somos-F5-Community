@@ -2,7 +2,7 @@
 import Header from '../components/Header.vue';
 import UserFeed from '../components/UserFeed.vue';
 import AddPublication from '../components/AddPublication.vue';
-import Filter from '../components/Filter.vue'
+import Search from '../components/Search.vue'
 import PostComp from '../components/PostComponent.vue'
 </script>
 
@@ -11,7 +11,7 @@ import PostComp from '../components/PostComponent.vue'
 <UserFeed/>
 <div class="tools">
     <AddPublication/>   
-    <Filter/>
+    <Search/>
 </div>
 <div class="publi">
     <PostComp/>

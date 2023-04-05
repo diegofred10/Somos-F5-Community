@@ -103,21 +103,28 @@ const store = useAuthStore();
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
+.banner{
+    display: flex;
+    justify-content: center;
+
 .infoUser{
 background-color: map-get(c.$colors,"orange");
 height:auto;
-width: 96%;
+width: 90%;
 display: flex;
 align-items: center;
-// justify-content: space-around;
+justify-content: space-around;
 margin: 2%;
 
+  .photoAndContact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25vw;
+
     .photoUser{
-        width: 15%;
-        // margin:2vw;
-        // margin-top:2vw;
-        // margin-bottom:2vw;
-        // margin-left:2vw;
+        width: 45%;
+
         .imgProfile{
             border-radius: 100%;
         }
@@ -125,11 +132,7 @@ margin: 2%;
 
     .contacts{
         display: flex;
-        // align-items: center;
-        // justify-content: center;
         flex-direction: column;
-        // align-items: flex-start;
-        // margin-right: 6vw;
         
         .name{
             font-size: 2em;
@@ -142,9 +145,8 @@ margin: 2%;
             display: flex;
             flex-direction: row;
             align-items: center;
-        // margin-top: 2%;
-        font-family: 'openSans' ;
-        margin-bottom: 0.5em;
+            font-family: 'openSans' ;
+            margin-bottom: 0.5em;
 
             .logo{
                 width: 10%;
@@ -158,43 +160,32 @@ margin: 2%;
         }
 
     }
-
+}
     .design{
         display: flex;
-        // justify-content: flex-end;
-        // display: contents;
+        justify-content: flex-end;
         flex-direction: row;
         width: 40%;
   
         
         .arrow{
-            width: 45%;          
-            z-index: 1;
-            // right: 35vw;
-            // top: 10%;
-            // margin-top: -2%;
-            // position: relative;    
+            width: 30%;          
+            z-index: 1;  
             rotate: -20deg;
         }
         .triangle{
             width: 20%;
             margin-bottom: -15%;
-            // top: -13%;
-           
-            // position: relative;
             rotate: 270deg;
         }
         .semicircle{
-            // left: 5%;
             z-index: 1;
             rotate: 180deg;
-            width: 60%;
-            // top: -12%;
-            // position: relative;
+            width: 40%;
         }
     }
 }
 
-
+}
 
 </style>
