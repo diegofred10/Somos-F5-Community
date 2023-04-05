@@ -155,16 +155,16 @@ const submitData = async () => {
 
     .blueTriangle {
         position: absolute;
-        right: 1vw;
-        height: 55vh;
-        width: 25vw;
+        // right: 1vw;
+        height: 40%;
+        width: 18%;
     }
 
     .littleStar {
         position: absolute;
         right: 17vw;
-        height: 20vh;
-        width: 12vw;
+        height: 20%;
+        width: 12%;
     }
 
     .pinkTriangle {
