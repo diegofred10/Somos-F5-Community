@@ -31,6 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <template>
+<div class="cards">
 <div class="card">
     <div class="info">
         <div class="headerCard">
@@ -51,10 +52,13 @@ window.addEventListener('DOMContentLoaded', () => {
 <div class="separator">
     <img class="stripe" src="../assets/images/imagesSomosF5/franjaMorada 2.png" alt="">
 </div>
+</div>
 </template>
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
+@use "@/scss/fonts";
+
 
 .card{
 display: flex;
@@ -66,37 +70,39 @@ margin-top: 2vw;
  display: flex;
  justify-content: center;
  flex-direction: column;
+ align-items: center;
         .headerCard{
             display: flex;
             text-align: center;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
+            width: 60%;
             .titleHeader{
                 font-size: 2vw;
                 color: map-get(c.$colors,"black");
-                font-family: 'Open Sans', sans-serif ;
+                font-family: 'openSans';
                 font-weight: bold;
             }
             .date{
                 color: map-get(c.$colors,"grey");
-                font-family: 'Open Sans', sans-serif ;
-                font-size: 2vw;
+                font-family: 'openSans';
+                font-size: 1.5vw;
             }
         }
         .publication{
             background-color: map-get(c.$colors,"white");
             border: 3px solid map-get(c.$colors,"grey");
-            width: 120vh;
+            width: 60%;
             .titlePubli{
                 font-size: 1.5vw;
                 color: map-get(c.$colors,"black");
-                font-family: 'Open Sans', sans-serif ;
+                font-family: 'openSans';
                 font-weight: 600;
                 margin-left: 2%;
                 margin-top: 1%;
             }
             .textPubli{
-                font-family: 'Open Sans', sans-serif ;
+                font-family: 'openSans' ;
                 margin-left: 2%;
                 margin-top: 1%;
             }
