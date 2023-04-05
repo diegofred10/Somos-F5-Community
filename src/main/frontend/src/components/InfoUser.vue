@@ -1,4 +1,66 @@
 <script setup>
+
+import { ref, reactive, computed, onBeforeMount } from "vue";
+import axios from "axios";
+import { useAuthStore } from "../stores/authStore";
+
+const store = useAuthStore();
+	const url = ref("");
+    const user = ref("");
+    const profile = ref("");
+	const imageUrl = computed(() => url.value);
+
+	const onFileChange = event => {
+		const file = event.target.files[0];
+		if (file) {
+			const formData = new FormData();
+			formData.append("file", file);
+			axios({
+				method: "POST",
+				url: "http://localhost:8080/media/upload",
+				data: formData,
+				withCredentials: true
+
+			})
+				.then(response => {
+					url.value = response.data.url;
+                    console.log(url.value)
+				})
+				.catch(e => {
+					console.log(e);
+				});
+		}
+        window.location.reload()
+	};
+    onBeforeMount(() => {
+        axios({
+            method: "GET",
+            url: "http://localhost:8080/api/users/username/"+ store.username,
+            withCredentials: true
+        })
+            .then(response => {
+                user.value = response.data;
+                user.value.profile_id = 1;
+                console.log(user.value.profile_id)
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    });
+    onBeforeMount(() => {
+        axios({
+            method: "GET",
+            url: 'http://localhost:8080/api/profiles/'+ user.value.profile_id,
+            withCredentials: true
+        })
+            .then(response => {
+                profile.value = response.data;
+                console.log(profile.value)
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    });
 </script>
 
 <template>
@@ -6,26 +68,27 @@
     <div class="photoUser">
         <input type="file" @change="onFileChange" ref="fileInput" style="display:none">  
         <button @click="$refs.fileInput.click()">    
-        <img class="imgProfile" src="../assets/images/imagesSomosF5/foto-perfil.png" alt="img">
+        <img class="imgProfile" :src="'http://localhost:8080/media/' + user.image" alt="img">
     </button>
     </div>
     <div class="contacts">
-        <p class="name">Marco Polo</p>
+        <input v-if="profile.name==null" placeholder="Nombre" class="name"> 
+        <input v-else :placeholder=profile.name  class="name">
         <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/github.png" alt="gitHub">
-            <p class="contactsName">Github</p>
+            <p class="contactsName">{{ profile.github }}</p>
         </div>
         <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/linkedin.png" alt="linkedin">
-            <p class="contactsName">LinkedIn</p>
+            <p class="contactsName">{{ profile.linkedin }}</p>
         </div>
         <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="email">
-            <p class="contactsName">Email</p>
+            <p class="contactsName">{{ profile.email }}</p>
         </div>
         <div class="contact">
             <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="geo">
-            <p class="contactsName">Castropol</p>
+            <p class="contactsName">{{ profile.location }}</p>
         </div>   
     </div>
     <div class="design">       

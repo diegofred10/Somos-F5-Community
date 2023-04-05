@@ -3,7 +3,7 @@ import { ref, reactive } from "vue";
 import AuthService from "../services/AuthService";
 import { useRouter } from "vue-router";
 
-// let checkCodeVar = "bienvenidos a la secta";
+let checkCodeVar = "bienvenidos a la secta";
 
 const router = useRouter();
 
@@ -27,17 +27,7 @@ const email = ref(""),
 
 
 const submitData = async () => {
-  const authService = new AuthService();
-  try {
-    const response = await authService.register(email.value, password.value);
-    alert("Registrado con exito");
-    router.push("/login");
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-        const authService = new AuthService();
+    const authService = new AuthService();
         if(email.value && password.value != null){
             try {
             const response = await authService.register(email.value, password.value);
@@ -50,6 +40,9 @@ const submitData = async () => {
         else{
             alert("Debes rellenar todos los campos");
         }
+};
+    
+        
         //delete me, please
         //Vitoria, cagondios, ya estoy comentando el codigo
         //hostias

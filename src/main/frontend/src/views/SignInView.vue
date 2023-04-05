@@ -1,7 +1,6 @@
 <script setup>
 import HeaderLogIn from '../components/HeaderLogIn.vue'
 import SignInComp from '../components/SignInComp.vue';
-
 </script>
 
 <template>

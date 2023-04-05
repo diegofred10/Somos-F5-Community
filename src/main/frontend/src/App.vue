@@ -5,7 +5,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <RouterView />
-  <ProfileUser/>
 </template>
 
 <style scoped lang="scss">
