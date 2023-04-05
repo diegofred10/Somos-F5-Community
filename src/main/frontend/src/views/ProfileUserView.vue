@@ -25,9 +25,10 @@ import Header from '../components/Header.vue';
 
 
 .title{
-    width: 50vw;
+    width: 46vw;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 2%;
     
     .text{
