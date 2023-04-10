@@ -10,9 +10,6 @@
 @use "@/scss/mixins" as m;
 
 .headerLogin {
-
-  position: sticky;
-
   left: 0%;
   top: 0%;
   right: 0%;
