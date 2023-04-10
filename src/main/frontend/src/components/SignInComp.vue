@@ -48,7 +48,7 @@ const submitData = async () => {
 </script>
 
 <template>
-    <div class="logIn">
+    <div class="signIn">
         <h1 class="headerForm">Bienvenido a SomosF5</h1>
         <v-sheet class="mx-auto">
             <v-form v-model="valid" @submit.prevent="submitData">
@@ -77,32 +77,44 @@ const submitData = async () => {
                 </div>
             </v-form>
         </v-sheet>
-        <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png" />
-        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
+        <div class="design">
+        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />       
+        <!-- <img class="greenTriangle" src="../assets/images/svgPics/greenTriangle.svg" />       -->
+        <!-- <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" /> -->
         <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-        <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" />
-        <img class="greenTriangle" src="../assets/images/svgPics/greenTriangle.svg" />
-        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
+        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
+        </div>
     </div>
 </template>
 
 <style lang="scss">
-.logIn {
+@use "@/scss/colors" as c;
+@use "@/scss/fonts";
+
+.signIn {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 3vh;
 
     .headerForm {
-        font-size: 7vh;
-        color: white;
+        color: map-get(c.$colors,"white");
+        font-family: 'openSans';
+        font-weight: bold;
+        font-size: 8vh;
     }
 
     .v-sheet {
-        width: 40vw;
+        width: 30vw;
+        margin-top: 3vh;
 
         .v-form {
-            background-color: #ff4700;
+            background-color: map-get(c.$colors,"orange");
+            display: flex;
+            flex-direction: column;
+            height: 60%;
+
+
 
             .v-input__control {
                 background-color: white;
@@ -112,9 +124,10 @@ const submitData = async () => {
 
             .v-input__details {
                 z-index: 5;
+                margin-bottom: 1.5vw;
 
                 .v-messages__message {
-                    color: #FED2C0
+                    color: #FED2C0;     
                 }
             }
 
@@ -145,50 +158,51 @@ const submitData = async () => {
         }
     }
 
-    .stringsPic {
-        position: absolute;
-        right: 31vw;
-        top: 15.5vh;
-        height: 5vh;
-        width: 5vw;
-    }
+     .design{
+       display: flex;
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+       height: 50%;
+       justify-content: space-between;
+       align-items: flex-end;
 
-    .blueTriangle {
-        position: absolute;
-        // right: 1vw;
-        height: 40%;
-        width: 18%;
-    }
+        .blueTriangle {
+             height: 110%;
+             width: 18%;
+        }
 
-    .littleStar {
-        position: absolute;
-        right: 17vw;
-        height: 20%;
-        width: 12%;
-    }
+        .littleStar {     
+            position: relative;     
+            left: 30%;
+            bottom: 35%;
+            height: 55%;
+            width: 15%;
+         }
 
-    .pinkTriangle {
-        position: absolute;
-        transform: rotate(90deg);
-        right: 30vw;
-        height: 80vh;
-        width: 12vw;
-    }
+        // .pinkTriangle {
+        //     // position: relative;
+           
+        //     transform: rotate(90deg);
+        //     // right: 30vw;
+        //       height: 20vh;
+        //       width: 12vw;
+        // }
 
-    .greenTriangle {
-        position: absolute;
-        transform: rotate(-90deg);
-        right: 55vw;
-        height: 70vh;
-        width: 10vw;
-        z-index: 1;
-    }
+        // .greenTriangle {
+        //     //  position: relative;
+            
+        //      transform: rotate(-90deg);
+        //     // right: 55vw;
+        //     //  height: 70vh;
+        //     //  width: 10vw;
+        //      z-index: 1;
+        // }
 
-    .blueSplash {
-        position: absolute;
-        left: 0vw;
-        height: 40vh;
-        width: 22vw;
-    }
+        .blueSplash {
+            height: 45vh;
+            width: 25vw;
+        }
+     }
 }
 </style>
