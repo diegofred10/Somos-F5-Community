@@ -8,33 +8,33 @@
         <div class="photoUser">
             <input type="file" @change="onFileChange" ref="fileInput" style="display:none">  
             <button @click="$refs.fileInput.click()">           
-            <img class="imgProfile" src="../assets/images/imagesSomosF5/foto-perfil.png" alt="img">
+            <img class="imgProfile" src="../assets/images/imagesSomosF5/foto-perfil.png" alt="Imagen de la foto de perfil.">
         </button>
         </div>
         <div class="contacts">
             <p class="name">Marco Polo</p>
             <div class="contact">
-                <img class="logo" src="../assets/images/imagesSomosF5/github.png" alt="gitHub">
-                <p class="contactsName">Github</p>
+                <img class="logo" src="../assets/images/imagesSomosF5/github.png" alt="Imagen del logo de GitHub.">
+                <p class="contactsName">GitHub</p>
             </div>
             <div class="contact">
-                <img class="logo" src="../assets/images/imagesSomosF5/linkedin.png" alt="linkedin">
+                <img class="logo" src="../assets/images/imagesSomosF5/linkedin.png" alt="Imagen del logo de LinkedIn.">
                 <p class="contactsName">LinkedIn</p>
             </div>
             <div class="contact">
-                <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="email">
+                <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="Imagen de un logo de correo electrónico.">
                 <p class="contactsName">Email</p>
             </div>
             <div class="contact">
-                <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="geo">
+                <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="Imagen de una flecha de localización geográfica.">
                 <p class="contactsName">Castropol</p>
             </div>   
         </div>
     </div> 
         <div class="design">       
-            <img class="arrow" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/632a9e30dd20f538a3049cc4_shape-13.svg" alt="">
-            <img class="triangle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bbaf7322b42359abe7_shape-5.svg" alt="">       
-            <img class="semicircle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/63c7aad88f903d7f30ff4eff_emp-shape-05.svg" alt="">
+            <img class="arrow" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/632a9e30dd20f538a3049cc4_shape-13.svg" alt="Imagen de una flecha.">
+            <img class="triangle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bbaf7322b42359abe7_shape-5.svg" alt="Imagen de un triángulo color morado.">       
+            <img class="semicircle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/63c7aad88f903d7f30ff4eff_emp-shape-05.svg" alt="Imagen de un semicírculo de color negro.">
         </div>
     </div>
 </div>
