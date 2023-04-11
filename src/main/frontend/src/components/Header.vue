@@ -22,7 +22,7 @@
           <router-link to="/ElMuro" class="navLink" href=""
             >El Muro</router-link
           >
-          <router-link to="/login" href="">Log Out</router-link>
+          <router-link to="/" href="">LogOut</router-link>
         </ul>
       </nav>
     </div>

@@ -57,19 +57,17 @@ const submitData = async () => {
         </div>
       </v-form>
     </v-sheet>
-    <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png" alt="Imagen de unas rayas."/>
-    <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" alt="Imagen de un triángulo azul."/>
-    <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" alt="Imagen de una estrella pequeña."/>
-    <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" alt="Imagen de un triángulo rosa."/>
-    <img
-      class="greenTriangle"
-      src="../assets/images/svgPics/greenTriangle.svg" alt="Imagen de un triángulo verde."
-    />
-    <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" alt="Imagen de una mancha azul."/>
+   
+    <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
+    <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
+    <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" >
+@use "@/scss/colors" as c;
+@use "@/scss/fonts";
+
 .logIn {
   display: flex;
   flex-direction: column;
@@ -78,22 +76,22 @@ const submitData = async () => {
 
   .headerForm {
     font-size: 7vh;
-    color: white;
+    color: map-get(c.$colors,"white");
   }
 
   .v-sheet {
     width: 40vw;
 
     .v-form {
-      background-color: #ff4700;
+      background-color:map-get(c.$colors,"orange"); 
 
       .v-input__control {
-        background-color: white;
+        background-color: map-get(c.$colors,"white");
         border-radius: 5px;
       }
 
       .passwordLink {
-        color: white;
+        color: map-get(c.$colors,"white");
         display: flex;
         justify-content: center;
       }
@@ -103,8 +101,8 @@ const submitData = async () => {
         margin: auto;
 
         .v-btn {
-          color: white;
-          background-color: black;
+          color: map-get(c.$colors,"white");
+          background-color:map-get(c.$colors,"black");
         }
         .v-btn--size-default {
           min-width: 25vw;
@@ -113,13 +111,7 @@ const submitData = async () => {
     }
   }
 
-  .stringsPic {
-    position: absolute;
-    right: 29vw;
-    top: 17vh;
-    height: 7vh;
-    width: 7vw;
-  }
+ 
 
   .blueTriangle {
     position: absolute;
@@ -137,24 +129,7 @@ const submitData = async () => {
     width: 12vw;
   }
 
-  .pinkTriangle {
-    position: absolute;
-    transform: rotate(90deg);
-    right: 30vw;
-    top: 47.5vh;
-    height: 80vh;
-    width: 12vw;
-  }
-
-  .greenTriangle {
-    position: absolute;
-    transform: rotate(-90deg);
-    right: 55vw;
-    top: 53.5vh;
-    height: 70vh;
-    width: 11vw;
-    z-index: 1;
-  }
+ 
 
   .blueSplash {
     position: absolute;
