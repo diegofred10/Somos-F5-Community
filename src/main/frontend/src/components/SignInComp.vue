@@ -101,12 +101,12 @@ const submitData = async () => {
         color: map-get(c.$colors,"white");
         font-family: 'openSans';
         font-weight: bold;
-        font-size: 8vh;
+        font-size: 6vh;
     }
 
     .v-sheet {
-        width: 30vw;
-        margin-top: 3vh;
+        width: 35vw;
+        margin-top: 1%;
 
         .v-form {
             background-color: map-get(c.$colors,"orange");

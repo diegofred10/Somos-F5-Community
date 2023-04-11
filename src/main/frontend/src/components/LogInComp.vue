@@ -57,19 +57,18 @@ const submitData = async () => {
         </div>
       </v-form>
     </v-sheet>
-    <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png" />
-    <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
-    <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-    <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" />
-    <img
-      class="greenTriangle"
-      src="../assets/images/svgPics/greenTriangle.svg"
-    />
-    <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
+    <div class="designLG">
+        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" /> 
+        <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
+        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
+        </div>
   </div>
 </template>
 
 <style lang="scss">
+@use "@/scss/colors" as c;
+@use "@/scss/fonts";
+
 .logIn {
   display: flex;
   flex-direction: column;
@@ -77,12 +76,16 @@ const submitData = async () => {
   margin-top: 7vh;
 
   .headerForm {
-    font-size: 7vh;
-    color: white;
+    color: map-get(c.$colors,"white");
+    font-family: 'openSans';
+    font-weight: bold;
+    font-size: 6vh;
+    align-self: center;
+    margin: 2%;
   }
 
   .v-sheet {
-    width: 40vw;
+    width: 35vw;
 
     .v-form {
       background-color: #ff4700;
@@ -113,55 +116,31 @@ const submitData = async () => {
     }
   }
 
-  .stringsPic {
-    position: absolute;
-    right: 29vw;
-    top: 17vh;
-    height: 7vh;
-    width: 7vw;
-  }
+  .designLG{
+       display: flex;
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+       height: 50%;
+       justify-content: space-between;
+       align-items: flex-end;
 
-  .blueTriangle {
-    position: absolute;
-    right: 1vw;
-    bottom: 0;
-    height: 55vh;
-    width: 25vw;
-  }
+    .blueTriangle {
+      height: 100%;
+      width: 18%;
+    }
 
-  .littleStar {
-    position: absolute;
-    right: 17vw;
-    bottom: 35vh;
-    height: 20vh;
-    width: 12vw;
-  }
+    .littleStar {
+      position: relative;     
+      left: 30%;
+      bottom: 35%;
+      width: 12%;
+    }
 
-  .pinkTriangle {
-    position: absolute;
-    transform: rotate(90deg);
-    right: 30vw;
-    top: 47.5vh;
-    height: 80vh;
-    width: 12vw;
-  }
-
-  .greenTriangle {
-    position: absolute;
-    transform: rotate(-90deg);
-    right: 55vw;
-    top: 53.5vh;
-    height: 70vh;
-    width: 11vw;
-    z-index: 1;
-  }
-
-  .blueSplash {
-    position: absolute;
-    left: 0vw;
-    bottom: 0;
-    height: 40vh;
-    width: 22vw;
+    .blueSplash {
+      height: 85%;
+      width: 25%;
+    }
   }
 }
 </style>
