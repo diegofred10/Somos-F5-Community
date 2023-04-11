@@ -27,7 +27,6 @@ const email = ref(""),
 
 
 const submitData = async () => {
- 
     const authService = new AuthService();
     if(email.value && password.value != null){
         try {
@@ -42,8 +41,12 @@ const submitData = async () => {
         alert("Debes rellenar todos los campos");
     }
 };
-
-       
+    
+        
+        //delete me, please
+        //Vitoria, cagondios, ya estoy comentando el codigo
+        //hostias
+        //puta mierda el github
     
 </script>
 
