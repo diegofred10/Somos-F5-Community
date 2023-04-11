@@ -6,10 +6,10 @@
     <div class="menuContainer">
       <nav role="navigation" class="menuNav">
         <router-link to="/ProfileUser" class="nav-bar__link" href=""
-          >Mis Publicaciones</router-link
+          >Mis publicaciones</router-link
         >
         <router-link to="/ElMuro" class="nav-bar__link" href="">El Muro</router-link>
-        <router-link to="/login" href="">LogOut</router-link>
+        <router-link to="/login" href="">Log Out</router-link>
       </nav>
 
       <nav class="menuMobile">
@@ -22,7 +22,7 @@
           <router-link to="/ElMuro" class="navLink" href=""
             >El Muro</router-link
           >
-          <router-link to="/login" href="">LogOut</router-link>
+          <router-link to="/login" href="">Log Out</router-link>
         </ul>
       </nav>
     </div>

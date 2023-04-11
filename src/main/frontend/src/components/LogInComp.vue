@@ -9,13 +9,13 @@ const router = useRouter();
 
 const email = ref(""),
   emailRules = reactive([
-    (v) => !!v || "E-mail is required",
-    (v) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v) => !!v || "Es necesario introducir un e-mail",
+    (v) => /.+@.+/.test(v) || "Introduzca un e-mail válido",
   ]),
   password = ref(""),
   passwordRules = reactive([
-    (v) => !!v || "Password required",
-    (v) => v.length >= 8 || "Min 8 characters",
+    (v) => !!v || "Es necesario introducir una contraseña",
+    (v) => v.length >= 8 || "La contraseña debe tener al menos 8 caracteres",
 
   ]);
 
@@ -30,7 +30,7 @@ const submitData = async () => {
     console.log(auth.isAuthenticate, auth.roles, auth.username);
   } catch (error) {
     console.error(error);
-    alert("no te conozco")
+    alert("No te conozco")
   }
   onReset();
 };
@@ -42,7 +42,7 @@ const submitData = async () => {
     <v-sheet class="mx-auto">
       <v-form id="loginForm" @submit.prevent="submitData">
 
-        <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required>
+        <v-text-field v-model="email" :rules="emailRules" label="Correo electrónico" required>
         </v-text-field>
 
         <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Contraseña" required>
@@ -57,15 +57,15 @@ const submitData = async () => {
         </div>
       </v-form>
     </v-sheet>
-    <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png" />
-    <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
-    <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-    <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" />
+    <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png" alt="Imagen de unas rayas."/>
+    <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" alt="Imagen de un triángulo azul."/>
+    <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" alt="Imagen de una estrella pequeña."/>
+    <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" alt="Imagen de un triángulo rosa."/>
     <img
       class="greenTriangle"
-      src="../assets/images/svgPics/greenTriangle.svg"
+      src="../assets/images/svgPics/greenTriangle.svg" alt="Imagen de un triángulo verde."
     />
-    <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
+    <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" alt="Imagen de una mancha azul."/>
   </div>
 </template>
 

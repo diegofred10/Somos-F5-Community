@@ -10,13 +10,13 @@
 			type=""
 			name=""
 			value=""
-			placeholder="Titulo de tu publicación"
+			placeholder="Título de tu publicación"
 		/>
 		<input class="description"
 			type=""
 			name=""
 			value=""
-			placeholder="Cuentanos algo interesante..."
+			placeholder="Cuéntanos algo interesante..."
 		/>
 		<input class="resources"
 			type=""
@@ -28,9 +28,9 @@
     <button class="cancelButton">Cancelar</button>
     <button class="sendButton">Publicar</button>
   </div>
-  <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="triangulo morado">
-  <img class="roseTriangle" src="../assets/images/imagesSomosF5/trianguloSalmon 2.png" alt="triangulo salmon">
-  <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="splash verde">
+  <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="Imagen de un triángulo color morado.">
+  <img class="roseTriangle" src="../assets/images/imagesSomosF5/trianguloSalmon 2.png" alt="Imagen de un triángulo color salmón.">
+  <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="Imagen de una mancha de agua color verde.">
   
 	</form>
   </div>
