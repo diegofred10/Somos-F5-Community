@@ -28,6 +28,6 @@ export const useAuthStore = defineStore("auth", () => {
   const setIsAuthenticated = () => {
     isAuthenticate.value = true;
   };
-
-  return { isAuthenticate, username, roles, setRole, setUsername, setIsAuthenticated };
+    
+  return { isAuthenticate, username, roles, setRole, setUsername, setIsAuthenticated, user };
 });

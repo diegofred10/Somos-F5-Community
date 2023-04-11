@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,10 +27,15 @@ public class Profile {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
+    @Column(nullable = true)
     private String name;
+    @Column(nullable = true)
     private String surname;
+    @Column(nullable = true)
     private String location;
+    @Column(nullable = true)
     private String github;
+    @Column(nullable = true)
     private String linkedin;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile")
