@@ -9,21 +9,21 @@ const router = useRouter();
 
 const email = ref(""),
   emailRules = reactive([
-    (v) => !!v || "E-mail is required",
-    (v) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v) => !!v || "Es necesario introducir un e-mail",
+    (v) => /.+@.+/.test(v) || "El e-mail debe ser correcto",
   ]),
   password = ref(""),
   passwordRules = reactive([
-    (v) => !!v || "Password required",
-    (v) => v.length >= 8 || "Min 8 characters",
+    (v) => !!v || "Es necesario introducri una contraseña",
+    (v) => v.length >= 8 || "La contraseña debe tener al menos 8 caracteres",
   ]),
   confirmPassword = ref(""),
   confirmPasswordRules = reactive([
-    (v) => !!v || "Confirm password",
-    (v) => v === password.value || "Passwords do not match",
+    (v) => !!v || "Confirme su contraseña",
+    (v) => v === password.value || "Las contraseñas no coinciden",
   ]),
   checkCode = ref(""),
-  checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
+  checkCodeRules = reactive([(v) => v === checkCodeVar || "¡Alerta, intruso!"]);
 
 
 const submitData = async () => {
@@ -32,7 +32,7 @@ const submitData = async () => {
     if(email.value && password.value != null){
         try {
         const response = await authService.register(email.value, password.value);
-        alert("Registrado con exito");
+        alert("Registrado con éxito");
         router.push("/login");
     } catch (error) {
         console.error(error);
@@ -52,7 +52,7 @@ const submitData = async () => {
         <h1 class="headerForm">Bienvenido a SomosF5</h1>
         <v-sheet class="mx-auto">
             <v-form v-model="valid" @submit.prevent="submitData">
-                <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required></v-text-field>
+                <v-text-field v-model="email" :rules="emailRules" label="Correo electrónico" required></v-text-field>
 
                 <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'"
                     name="input-10-1" label="Contraseña" required>
@@ -65,7 +65,7 @@ const submitData = async () => {
         <v-text-field
           v-model="checkCode"
           :rules="checkCodeRules"
-          label="Codigo de verificacion"
+          label="Código de verificación"
           required
         >
         </v-text-field>
@@ -78,11 +78,11 @@ const submitData = async () => {
             </v-form>
         </v-sheet>
         <div class="design">
-        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />       
-        <!-- <img class="greenTriangle" src="../assets/images/svgPics/greenTriangle.svg" />       -->
-        <!-- <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" /> -->
-        <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
+        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" alt="Imagen de una mancha azul."/>       
+        <!-- <img class="greenTriangle" src="../assets/images/svgPics/greenTriangle.svg" alt="Imagen de un triángulo verde."/>       -->
+        <!-- <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" alt="Imagen de un triángulo rosa."/> -->
+        <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" alt="Imagen de una estrella pequeña."/>
+        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" alt="Imagen de un triángulo azul."/>
         </div>
     </div>
 </template>
