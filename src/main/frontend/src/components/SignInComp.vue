@@ -26,7 +26,6 @@ const email = ref(""),
   checkCodeRules = reactive([(v) => v === checkCodeVar || "¡Alerta, intruso!"]);
 
 const submitData = async () => {
- 
     const authService = new AuthService();
     if(email.value && password.value != null){
         try {

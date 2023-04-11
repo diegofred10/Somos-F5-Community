@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.somosf5community.exception.UserNotFoundException;
 import com.somosf5community.models.User;
 import com.somosf5community.repositories.UserRepository;
+import com.somosf5community.models.Profile;
+import com.somosf5community.repositories.ProfileRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -21,6 +23,7 @@ import lombok.AllArgsConstructor;
 public class UserService implements BaseService<User> {
 
     private UserRepository userRepository;
+    private ProfileRepository profileRepository;
 
     @Override
     @Transactional
@@ -57,7 +60,7 @@ public class UserService implements BaseService<User> {
 
     @Transactional
     public User store(User user) {
-
+        Profile profileSave= new Profile();
         Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
 
         if (userOptional.isPresent()) {
@@ -68,7 +71,11 @@ public class UserService implements BaseService<User> {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
             user.setPassword(encodedPassword);
+            profileSave.setId(user.getId());
+            profileRepository.save(profileSave);
+            user.setProfile(profileSave);
             return userRepository.save(user);
+            
         } catch (DataAccessException e) {
             throw new UserNotFoundException("Dont save user: " + user.getUsername());
         }
