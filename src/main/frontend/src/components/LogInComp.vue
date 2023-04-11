@@ -57,14 +57,15 @@ const submitData = async () => {
         </div>
       </v-form>
     </v-sheet>
-   
-    <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
-    <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-    <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
+    <div class="designLG">
+        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" /> 
+        <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
+        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
+        </div>
   </div>
 </template>
 
-<style lang="scss" >
+<style lang="scss">
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
@@ -75,12 +76,16 @@ const submitData = async () => {
   margin-top: 7vh;
 
   .headerForm {
-    font-size: 7vh;
     color: map-get(c.$colors,"white");
+    font-family: 'openSans';
+    font-weight: bold;
+    font-size: 6vh;
+    align-self: center;
+    margin: 2%;
   }
 
   .v-sheet {
-    width: 40vw;
+    width: 35vw;
 
     .v-form {
       background-color:map-get(c.$colors,"orange"); 
@@ -110,33 +115,31 @@ const submitData = async () => {
       }
     }
   }
+  .designLG{
+       display: flex;
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+       height: 50%;
+       justify-content: space-between;
+       align-items: flex-end;
 
- 
+    .blueTriangle {
+      height: 100%;
+      width: 18%;
+    }
 
-  .blueTriangle {
-    position: absolute;
-    right: 1vw;
-    bottom: 0;
-    height: 55vh;
-    width: 25vw;
-  }
+    .littleStar {
+      position: relative;     
+      left: 30%;
+      bottom: 35%;
+      width: 12%;
+    }
 
-  .littleStar {
-    position: absolute;
-    right: 17vw;
-    bottom: 35vh;
-    height: 20vh;
-    width: 12vw;
-  }
-
- 
-
-  .blueSplash {
-    position: absolute;
-    left: 0vw;
-    bottom: 0;
-    height: 40vh;
-    width: 22vw;
+    .blueSplash {
+      height: 85%;
+      width: 25%;
+    }
   }
 }
 </style>
