@@ -9,13 +9,13 @@ const router = useRouter();
 
 const email = ref(""),
   emailRules = reactive([
-    (v) => !!v || "E-mail is required",
-    (v) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v) => !!v || "Es necesario introducir un e-mail",
+    (v) => /.+@.+/.test(v) || "Introduzca un e-mail válido",
   ]),
   password = ref(""),
   passwordRules = reactive([
-    (v) => !!v || "Password required",
-    (v) => v.length >= 8 || "Min 8 characters",
+    (v) => !!v || "Es necesario introducir una contraseña",
+    (v) => v.length >= 8 || "La contraseña debe tener al menos 8 caracteres",
 
   ]);
 
@@ -30,7 +30,7 @@ const submitData = async () => {
     console.log(auth.isAuthenticate, auth.roles, auth.username);
   } catch (error) {
     console.error(error);
-    alert("no te conozco")
+    alert("No te conozco")
   }
   onReset();
 };
@@ -42,7 +42,7 @@ const submitData = async () => {
     <v-sheet class="mx-auto">
       <v-form id="loginForm" @submit.prevent="submitData">
 
-        <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required>
+        <v-text-field v-model="email" :rules="emailRules" label="Correo electrónico" required>
         </v-text-field>
 
         <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Contraseña" required>

@@ -9,29 +9,30 @@ const router = useRouter();
 
 const email = ref(""),
   emailRules = reactive([
-    (v) => !!v || "E-mail is required",
-    (v) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v) => !!v || "Es necesario introducir un e-mail",
+    (v) => /.+@.+/.test(v) || "El e-mail debe ser en el formato correcto",
   ]),
   password = ref(""),
   passwordRules = reactive([
-    (v) => !!v || "Password required",
-    (v) => v.length >= 8 || "Min 8 characters",
+    (v) => !!v || "Es necesario introducir una contraseña",
+    (v) => v.length >= 8 || "Introduzca un e-mail válido",
   ]),
   confirmPassword = ref(""),
   confirmPasswordRules = reactive([
-    (v) => !!v || "Confirm password",
-    (v) => v === password.value || "Passwords do not match",
+    (v) => !!v || "Confirme su contraseña",
+    (v) => v === password.value || "Las contraseñas no coinciden",
   ]),
   checkCode = ref(""),
-  checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
+  checkCodeRules = reactive([(v) => v === checkCodeVar || "¡Alerta, intruso!"]);
 
 const submitData = async () => {
-  const authService = new AuthService();
-  if (email.value && password.value != null) {
-    try {
-      const response = await authService.register(email.value, password.value);
-      alert("Registrado con exito");
-      router.push("/login");
+ 
+    const authService = new AuthService();
+    if(email.value && password.value != null){
+        try {
+        const response = await authService.register(email.value, password.value);
+        alert("Registrado con éxito");
+        router.push("/login");
     } catch (error) {
       console.error(error);
     }
@@ -42,16 +43,11 @@ const submitData = async () => {
 </script>
 
 <template>
-  <div class="signIn">
-    <h1 class="headerForm">Bienvenido a SomosF5</h1>
-    <v-sheet class="mx-auto">
-      <v-form v-model="valid" @submit.prevent="submitData">
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="Correo Electronico"
-          required
-        ></v-text-field>
+    <div class="signIn">
+        <h1 class="headerForm">Bienvenido a SomosF5</h1>
+        <v-sheet class="mx-auto">
+            <v-form v-model="valid" @submit.prevent="submitData">
+                <v-text-field v-model="email" :rules="emailRules" label="Correo Electrónico" required></v-text-field>
 
         <v-text-field
           v-model="password"
@@ -76,27 +72,24 @@ const submitData = async () => {
         <v-text-field
           v-model="checkCode"
           :rules="checkCodeRules"
-          label="Codigo de verificacion"
+          label="Código de verificación"
           required
         >
         </v-text-field>
 
-        <div class="d-flex flex-column">
-          <v-btn type="submit" class="mt-4" block @click="validate">
-            Registrarse
-          </v-btn>
+                <div class="d-flex flex-column">
+                    <v-btn type="submit" class="mt-4" block @click="validate">
+                        Registrarse
+                    </v-btn>
+                </div>
+            </v-form>
+        </v-sheet>
+        <div class="design">
+        <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />       
+        <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
+        <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
         </div>
-      </v-form>
-    </v-sheet>
-    <div class="design">
-      <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
-      <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-      <img
-        class="blueTriangle"
-        src="../assets/images/svgPics/blueTriangle.svg"
-      />
     </div>
-  </div>
 </template>
 
 <style lang="scss">
