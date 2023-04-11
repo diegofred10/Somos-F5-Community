@@ -115,7 +115,6 @@ const submitData = async () => {
       }
     }
   }
-
   .designLG{
        display: flex;
        position: absolute;
