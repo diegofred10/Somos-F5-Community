@@ -8,43 +8,37 @@ let checkCodeVar = "bienvenidos a la secta";
 const router = useRouter();
 
 const email = ref(""),
-    emailRules = reactive([
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+/.test(v) || "E-mail must be valid",
-    ]),
-    password = ref(""),
-    passwordRules = reactive([
-        (v) => !!v || "Password required",
-        (v) => v.length >= 8 || "Min 8 characters",
-    ]),
-    confirmPassword = ref(""),
-    confirmPasswordRules = reactive([
-        (v) => !!v || "Confirm password",
-        (v) => v === password.value || "Passwords do not match",
-    ]),
-    checkCode = ref(""),
-    checkCodeRules = reactive([(v) => v === checkCodeVar || "Alerta, intruso!"]);
-
+  emailRules = reactive([
+    (v) => !!v || "Es necesario introducir un e-mail",
+    (v) => /.+@.+/.test(v) || "El e-mail debe ser en el formato correcto",
+  ]),
+  password = ref(""),
+  passwordRules = reactive([
+    (v) => !!v || "Es necesario introducir una contraseña",
+    (v) => v.length >= 8 || "Introduzca un e-mail válido",
+  ]),
+  confirmPassword = ref(""),
+  confirmPasswordRules = reactive([
+    (v) => !!v || "Confirme su contraseña",
+    (v) => v === password.value || "Las contraseñas no coinciden",
+  ]),
+  checkCode = ref(""),
+  checkCodeRules = reactive([(v) => v === checkCodeVar || "¡Alerta, intruso!"]);
 
 const submitData = async () => {
-
     const authService = new AuthService();
     if (email.value && password.value != null) {
         try {
-            const response = await authService.register(email.value, password.value);
-            alert("Registrado con exito");
-            router.push("/login");
-        } catch (error) {
-            console.error(error);
-        }
+        const response = await authService.register(email.value, password.value);
+        alert("Registrado con éxito");
+        router.push("/");
+    } catch (error) {
+      console.error(error);
     }
-    else {
-        alert("Debes rellenar todos los campos");
-    }
+  } else {
+    alert("Debes rellenar todos los campos");
+  }
 };
-
-
-
 </script>
 
 <template>
@@ -52,15 +46,27 @@ const submitData = async () => {
         <h1 class="headerForm">Bienvenido a SomosF5</h1>
         <v-sheet class="mx-auto">
             <v-form v-model="valid" @submit.prevent="submitData">
-                <v-text-field v-model="email" :rules="emailRules" label="Correo Electronico" required></v-text-field>
+                <v-text-field v-model="email" :rules="emailRules" label="Correo Electrónico" required></v-text-field>
 
-                <v-text-field v-model="password" :rules="passwordRules" :type="show1 ? 'text' : 'password'"
-                    name="input-10-1" label="Contraseña" required>
-                </v-text-field>
+        <v-text-field
+          v-model="password"
+          :rules="passwordRules"
+          :type="show1 ? 'text' : 'password'"
+          name="input-10-1"
+          label="Contraseña"
+          required
+        >
+        </v-text-field>
 
-                <v-text-field v-model="confirmPassword" :rules="confirmPasswordRules" :type="show1 ? 'text' : 'password'"
-                    name="input-10-1" label="Repetir contraseña" required>
-                </v-text-field>
+        <v-text-field
+          v-model="confirmPassword"
+          :rules="confirmPasswordRules"
+          :type="show1 ? 'text' : 'password'"
+          name="input-10-1"
+          label="Repetir contraseña"
+          required
+        >
+        </v-text-field>
 
                 <v-text-field v-model="checkCode" :rules="checkCodeRules" label="Codigo de verificacion" required>
                 </v-text-field>
