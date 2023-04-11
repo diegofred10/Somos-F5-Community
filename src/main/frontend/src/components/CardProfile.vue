@@ -39,7 +39,7 @@
 					<p class="date">24-06-2022</p>
 				</div>
 				<div class="publication">
-					<h2 class="titlePubli">Simulador certificación</h2>
+					<h2 class="titlePubli">Simulador de certificación</h2>
 					<p class="textPubli">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Fuga atque fugiat optio veniam vero illo recusandae
@@ -61,7 +61,7 @@
 			<img
 				class="stripe"
 				src="../assets/images/imagesSomosF5/franjaMorada 2.png"
-				alt=""
+				alt="Imagen de una franja morada."
 			/>
 		</div>
 	</div>

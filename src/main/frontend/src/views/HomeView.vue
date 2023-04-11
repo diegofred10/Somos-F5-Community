@@ -31,13 +31,13 @@
 
 <template>
 	<ElMuroView />
-	<h1>hola</h1>
+	<h1>Hola</h1>
 	<form
 		method="post"
 		class="form-film"
 		@submit.prevent="submit"
 	>
-		<h1 class="form-film__title">Añade un nuevo titulo</h1>
+		<h1 class="form-film__title">Añade un nuevo título</h1>
 		<input
 			type="text"
 			name="title"
@@ -57,7 +57,7 @@
 			:src="imageUrl"
 			alt=""
 		/>
-		<button type="submit">submit</button>
+		<button type="submit">Submit</button>
 	</form>
 </template>
 <style lang="scss">
