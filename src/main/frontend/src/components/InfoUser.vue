@@ -54,10 +54,10 @@ const store = useAuthStore();
                 console.log("Catch error username");
             });
     });
-    onBeforeMount(() => {
+    onBeforeUpdate(() => {
         axios({
             method: "GET",
-            url: 'http://localhost:8080/api/profiles/'+ 1,
+            url: 'http://localhost:8080/api/profiles/'+ userId,
             withCredentials: true
         })
             .then(response => {
@@ -76,7 +76,7 @@ const store = useAuthStore();
             }
             await axios({
                 method: "PUT",
-                url: 'http://localhost:8080/api/profiles/update/' + 1,
+                url: 'http://localhost:8080/api/profiles/update/' + userId,
                 data: profile,
                 withCredentials: true
             })
