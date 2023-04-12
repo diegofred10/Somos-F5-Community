@@ -108,6 +108,7 @@ const submitData = async () => {
         .v-btn {
           color: map-get(c.$colors,"white");
           background-color:map-get(c.$colors,"black");
+          z-index: 5;
         }
         .v-btn--size-default {
           min-width: 25vw;
