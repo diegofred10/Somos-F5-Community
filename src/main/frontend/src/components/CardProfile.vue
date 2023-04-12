@@ -64,7 +64,7 @@ import { defineProps } from 'vue';
 			<img
 				class="stripe"
 				src="../assets/images/imagesSomosF5/franjaMorada 2.png"
-				alt=""
+				alt="Imagen de una franja morada."
 			/>
 		</div>
 	</div>
