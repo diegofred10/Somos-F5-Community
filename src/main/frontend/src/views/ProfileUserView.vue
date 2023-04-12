@@ -1,10 +1,20 @@
 <script setup>
-	import { ref } from "vue";
+	import { ref, onBeforeMount } from "vue";
 	import { useProgrammatic } from "@oruga-ui/oruga-next";
 	import InfoUser from "../components/InfoUser.vue";
 	import CardProfile from "../components/CardProfile.vue";
 	import Header from "../components/Header.vue";
 	import AddPublication from "../components/AddPublication.vue";
+	import PostService from "../services/PostService";
+	const postService = new PostService();
+	let posts = ref([]);
+ 	onBeforeMount(async()=>{
+	await postService.fetchAllPost()
+	posts.value = postService.getPost()
+	console.log(posts.value)
+	});
+
+
 
 	const trapFocus = ref(false);
 	const { oruga } = useProgrammatic();
@@ -19,7 +29,7 @@
 
 <template>
 	<main>
-		<Header />
+		<Header/>
 		<InfoUser />
 
 		<div class="title">
@@ -43,10 +53,10 @@
 				<i class="fa-solid fa-plus btn-add"></i>
 			</o-button>
 		</section>
-		<CardProfile />
-		<CardProfile />
-		<CardProfile />
-		<CardProfile />
+			<CardProfile
+			v-for= "post in posts" :post="post"/>
+
+		
 	</main>
 </template>
 

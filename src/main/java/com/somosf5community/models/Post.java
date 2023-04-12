@@ -28,6 +28,7 @@ public class Post {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_post")
     private Long id;
     private String title;
+    @Column(nullable = true)
     private Date date;
     private String description;
 
