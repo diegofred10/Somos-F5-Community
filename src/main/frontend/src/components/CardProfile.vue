@@ -1,4 +1,5 @@
 <script setup>
+import { defineProps } from 'vue';
 	window.addEventListener("DOMContentLoaded", () => {
 		const buttonDelete = document.querySelector(".button-delete");
 		const buttonEdit = document.querySelector(".button-edit");
@@ -29,6 +30,11 @@
 			});
 		});
 	});
+
+	const props = defineProps({
+		post: Object,
+
+	})
 </script>
 
 <template>
@@ -39,12 +45,9 @@
 					<p class="date">24-06-2022</p>
 				</div>
 				<div class="publication">
-					<h2 class="titlePubli">Simulador de certificación</h2>
+					<h2 class="titlePubli">{{ post.title }}</h2>
 					<p class="textPubli">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Fuga atque fugiat optio veniam vero illo recusandae
-						consequuntur, minima iure corrupti pariatur sapiente nobis
-						id ea. Quia saepe necessitatibus aspernatur laborum.
+						{{ post.description }}
 					</p>
 				</div>
 				<div class="buttons">
@@ -72,10 +75,10 @@
 	@use "@/scss/fonts";
 
 	.card {
-		width: 100%;
+		// min-width: 100%;
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		// align-items: center;
+		// justify-content: center;
 		flex-direction: column;
 		.info {
 			display: flex;
