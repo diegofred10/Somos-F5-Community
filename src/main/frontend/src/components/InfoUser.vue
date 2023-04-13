@@ -152,22 +152,24 @@ const store = useAuthStore();
 
 .photoAndContact{
     display: flex;
-    width: 35%;
+    width: 40%;
     align-items: center;
 
     .photoUser{
+        object-fit: cover;
         border-radius: 100%;
-        width: 40%;
+        width: 10em;
+        height: 10em;
         margin: 2%;
         cursor: pointer;
     }
     .contacts{
-        width: 50%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         .name{
             width: 100%;
-            font-size: 2em;
+            font-size: 1.5em;
             color: map-get(c.$colors,"white");
             font-family: 'openSans';
             font-weight: bold;
@@ -200,7 +202,7 @@ const store = useAuthStore();
         display: flex;
         flex-direction: row;
         height: fit-content;
-        width: max-content;
+        width: fit-content;
         .arrow{
             width: 20%;          
             z-index: 1;  

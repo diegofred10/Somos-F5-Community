@@ -1,5 +1,7 @@
 <script setup>
+import axios from 'axios';
 import { defineProps } from 'vue';
+let date = new Date().toLocaleDateString();
 	window.addEventListener("DOMContentLoaded", () => {
 		const buttonDelete = document.querySelector(".button-delete");
 		const buttonEdit = document.querySelector(".button-edit");
@@ -35,6 +37,15 @@ import { defineProps } from 'vue';
 		post: Object,
 
 	})
+	const deletePost = () => {
+		const idPost = props.post.id;
+		axios({
+			method: "DELETE",
+			url: "http://localhost:8080/api/posts/" + idPost,
+			withCredentials: true,
+		});
+		location.reload()
+	};
 </script>
 
 <template>
@@ -42,20 +53,27 @@ import { defineProps } from 'vue';
 		<div class="card">
 			<div class="info">
 				<div class="headerCard">
-					<p class="date">24-06-2022</p>
+					<p class="date">{{ date }}</p>
 				</div>
 				<div class="publication">
-					<h2 class="titlePubli">{{ post.title }}</h2>
-					<p class="textPubli">
-						{{ post.description }}
-					</p>
+					<div class="text">
+						<h2 class="titlePubli">{{ post.title }}</h2>
+						<p class="textPubli">
+							{{ post.description }}
+						</p>
+					</div>
+					<img
+						v-if="post.image"
+						:src="'http://localhost:8080/media/' + post.image"
+						alt="imagen post"
+					/>
 				</div>
 				<div class="buttons">
 					<button class="button-edit">
 						<i class="fa-solid fa-pen btn btn-edit"></i>
 					</button>
 					<button class="button-delete">
-						<i class="fa-solid fa-trash btn btn-delete"></i>
+						<i @click="deletePost" class="fa-solid fa-trash btn btn-delete"></i>
 					</button>
 				</div>
 			</div>
@@ -73,7 +91,10 @@ import { defineProps } from 'vue';
 <style lang="scss" scoped>
 	@use "@/scss/colors" as c;
 	@use "@/scss/fonts";
-
+	
+	.cards{
+		width: 100%;
+	}
 	.card {
 		// min-width: 100%;
 		display: flex;
@@ -110,6 +131,12 @@ import { defineProps } from 'vue';
 				font-family: "openSans";
 				padding: 0.5em;
 			}
+			img {
+					width: 10%;
+					&:active {
+						width: 50%;
+					}
+				}
 		}
 	}
 

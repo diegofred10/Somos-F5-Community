@@ -27,6 +27,11 @@ const router = createRouter({
       name: 'ElMuro',
       component: () => import('../views/ElMuroView.vue')
 
+    },
+    {
+      path: '/Miscontactos',
+      name: 'Miscontactos',
+      component: () => import('../views/MisContactosView.vue')
     }
     
   ]

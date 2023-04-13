@@ -8,8 +8,11 @@
         <router-link to="/ProfileUser" class="nav-bar__link" href=""
           >Mis publicaciones</router-link
         >
+        <router-link to="/Miscontactos" class="nav-bar__link" href=""
+          >Mis Contactos</router-link
+        >
         <router-link to="/ElMuro" class="nav-bar__link" href="">El Muro</router-link>
-        <router-link to="/login" href="">Log Out</router-link>
+        <router-link to="/" href="">Log Out</router-link>
       </nav>
 
       <nav class="menuMobile">

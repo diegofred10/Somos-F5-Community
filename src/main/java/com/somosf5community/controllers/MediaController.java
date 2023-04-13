@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.somosf5community.models.Post;
 import com.somosf5community.models.User;
 import com.somosf5community.repositories.UserRepository;
+import com.somosf5community.services.PostService;
 import com.somosf5community.services.StorageService;
 import com.somosf5community.services.UserService;
 
@@ -34,6 +36,7 @@ public class MediaController {
     private final HttpServletRequest request;
     private final UserRepository userRepository;
     private final UserService userService;
+    private final PostService postService;
 
     @PostMapping("upload")
     public Map<String, String> uploadFile(@RequestParam("file") MultipartFile multiparFile, User user) {
@@ -66,6 +69,28 @@ public class MediaController {
                 .ok()
                 .header(HttpHeaders.CONTENT_TYPE, contentType)
                 .body(file);
+    }
+    @PostMapping("upload/post")
+    public Map<String, String> uploadFile(@RequestParam("file") MultipartFile multipartFile, Post post) {
+        // String url = "";
+        // if (multipartFile != null) {
+            post.setImage(multipartFile.getOriginalFilename());
+            postService.save(post);
+    
+            String path = storageService.store(multipartFile);
+            String host = request.getRequestURL().toString().replace(request.getRequestURI(), "");
+            String url = ServletUriComponentsBuilder
+                    .fromHttpUrl(host)
+                    .path("/media/")
+                    .path(path)
+                    .toUriString();
+
+
+// else {
+//             postService.save(post);
+//         }
+    
+        return Map.of("url", url);
     }
 }
 
