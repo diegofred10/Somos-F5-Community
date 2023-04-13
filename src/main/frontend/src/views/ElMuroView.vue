@@ -10,7 +10,7 @@ import PostComp from '../components/PostComponent.vue'
     <Header/>
 <UserFeed/>
 <div class="tools">
-    <AddPublication/>   
+    <!-- <AddPublication/>    -->
     <Search/>
 </div>
 <div class="publi">
