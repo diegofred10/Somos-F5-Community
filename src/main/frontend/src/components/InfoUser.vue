@@ -100,7 +100,7 @@ const store = useAuthStore();
                 <div class="contact">
                     <i v-if="readOnly==true" @click="readOnly=false" class="fa-solid fa-pen" style="color: white;">
                     </i>
-                    <i v-if="readOnly==false" @click="submit" class="fa-solid fa-pen" style="color: black;">
+                    <i v-if="readOnly==false" @click="readOnly=true" class="fa-solid fa-pen" style="color: black;">
                     </i>
                     <input v-model="nameModel" v-if="profile.name==null" placeholder="Nombre" class="name" :readonly=readOnly> 
                     <input v-model="nameModel" v-else :placeholder=profile.name  class="name" :readonly=readOnly>

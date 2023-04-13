@@ -1,22 +1,35 @@
 <script setup>
-import { ref } from "vue";
+import { ref, reactive, onBeforeMount } from "vue";
+
+import PostService from "@/services/PostService.js"
+const postService = new PostService()
+const titleModel = ref()
+const descriptionModel = ref()
+const post = reactive({
+  title: titleModel,
+  description: descriptionModel
+})
+const submitData = () => {
+  postService.submitPost(post)
+}
 </script>
 
 <template>
   <div class="formBody">
     <form>
       <h1 class="addYourPubli">¡Añade una nueva publicación!</h1>
-      <input class="title" type="" name="" value="" placeholder="Título de tu publicación" />
-      <input class="description" type="" name="" value="" placeholder="Cuéntanos algo interesante..." />
-      <input class="resources" type="" name="" value="" placeholder="Sube archivos!" />
+      <input v-model="titleModel" class="title" type="text" placeholder="Titulo de tu publicación" />
+      <textarea v-model="descriptionModel" class="description" placeholder="Cuentanos algo interesante..." rows="5"
+        cols="46">
+      </textarea>
+      <input class="resources" type="file" @change="onFileChange" ref="fileInput">
       <div class="buttonsContainer">
         <button class="cancelButton">Cancelar</button>
-        <button class="sendButton">Publicar</button>
+        <button @click="submitData" class="sendButton">Publicar</button>
       </div>
-      <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png"
-        alt="Imagen de un triángulo color morado.">
-      <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png"
-        alt="Imagen de una mancha de agua color verde.">
+      <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="triangulo morado">
+      <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="splash verde">
+
     </form>
   </div>
 </template>
@@ -44,7 +57,29 @@ import { ref } from "vue";
     padding: 1em;
     height: 35em;
 
-    input {
+    .title {
+      background: white;
+      font-weight: bold;
+      border-radius: 5px;
+      z-index: 5;
+
+      @media(min-width: 426px) {
+        width: 55%;
+      }
+    }
+
+    .description {
+      background: white;
+      font-weight: bold;
+      border-radius: 5px;
+      z-index: 5;
+
+      @media(min-width: 426px) {
+        width: 55%;
+      }
+    }
+
+    .resources {
       background: white;
       font-weight: bold;
       border-radius: 5px;
@@ -127,7 +162,21 @@ import { ref } from "vue";
     height: 35em;
     background: map-get(c.$colors, "orange");
 
-    input {
+    .title {
+      width: 100%;
+      border: 2px solid grey;
+      background: white;
+      font-weight: bold;
+    }
+
+    .description {
+      width: 100%;
+      border: 2px solid grey;
+      background: white;
+      font-weight: bold;
+    }
+
+    .resources {
       width: 100%;
       border: 2px solid grey;
       background: white;
