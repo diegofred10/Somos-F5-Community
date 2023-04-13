@@ -5,28 +5,22 @@
 
     <div class="menuContainer">
       <nav role="navigation" class="menuNav">
-        <router-link to="/ProfileUser" class="nav-bar__link" href=""
-          >Mis Publicaciones</router-link
-        >
-        <router-link to="/MisContactos" class="nav-bar__link" href=""
-          >Mis Contactos</router-link
-        >
         <router-link to="/ElMuro" class="nav-bar__link" href="">El Muro</router-link>
-        <router-link to="/login" href="">Log Out</router-link>
+        <router-link to="/User" class="nav-bar__link" href=""
+          >Usuarios</router-link
+        >
+        <router-link to="/" href="">Log Out</router-link>
       </nav>
 
       <nav class="menuMobile">
         <input type="checkbox" id="menu" />
         <label for="menu"> ☰ </label>
         <ul>
-          <router-link to="/ProfileUser" class="nav-bar__link" href=""
-            >Mis Publicaciones</router-link
-          >
-          <router-link to="/MisContactos" class="nav-bar__link" href=""
-          >Mis Contactos</router-link
-        >
           <router-link to="/ElMuro" class="navLink" href=""
-            >El Muro</router-link
+          >El Muro</router-link
+          >
+          <router-link to="/Users" class="nav-bar__link" href=""
+            >Usuarios</router-link
           >
           <router-link to="/" href="">LogOut</router-link>
         </ul>
