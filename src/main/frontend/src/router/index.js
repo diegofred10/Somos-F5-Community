@@ -29,12 +29,25 @@ const router = createRouter({
 
     },
     {
+<<<<<<< HEAD
       path: '/Miscontactos',
       name: 'Miscontactos',
       component: () => import('../views/MisContactosView.vue')
+=======
+      path: '/MisContactos',
+      name: 'MisContactos',
+      component: () => import('../views/MisContactosView.vue')
+
+    },
+    {
+      path: '/Users',
+      name: 'Users',
+      component: () => import('../views/UsersView.vue')
+
+>>>>>>> b71c0807ef30846e275a447f3698d6bff60ad0e7
     }
     
-  ]
+   ]
 })
 
 export default router
