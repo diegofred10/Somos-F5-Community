@@ -31,8 +31,6 @@ axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res
       </div>
       <div class="photoUser">
         <img class="imgProfile" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
-        
-        <img class="imgProfile" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bc61fe6a1ce2b9ac31_shape-3.svg" alt="Imagen de una mancha azul.">
       </div>
     </div>
 </div>
@@ -43,8 +41,6 @@ axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res
 
 .info{
 background-color: map-get(c.$colors,"orange");
-height: 22vh;
-width: 94vw;
 display: flex;
 justify-content: space-between;
 justify-content: center;

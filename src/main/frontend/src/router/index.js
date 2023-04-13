@@ -27,7 +27,12 @@ const router = createRouter({
       name: 'ElMuro',
       component: () => import('../views/ElMuroView.vue')
 
-    }
+    },
+    {
+      path: '/Contactos',
+      name: 'Contactos',
+      component: () => import('../views/ContactosView.vue')
+    },
     
   ]
 })
