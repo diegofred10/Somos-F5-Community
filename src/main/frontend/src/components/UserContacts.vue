@@ -1,0 +1,94 @@
+<script setup>
+
+</script>
+<template>
+<section class="banner">
+    <div class="design-c">
+        <img class="pigeon-c" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bc61fe6a1ce2b9ac31_shape-3.svg">
+        <h1 class="title-c">Mis contactos</h1>     
+    </div>
+    <section class="user-c">   
+      <div class="userData-c">
+        <h2 class="name-c">Marco Polo</h2>
+        <div class="contacts-c">
+            <img class="logo-c" src="../assets/images/imagesSomosF5/geo-alt.png" alt="Imagen de un logo de localización geográfica">
+            <p class="contactsName-c">Castropol</p>
+        </div>  
+      </div>
+      <div class="photoUser-c">
+        <img class="imgProfile-c" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
+      </div>
+    </section>
+</section>
+
+</template>
+<style lang="scss">
+@use "@/scss/colors" as c;
+@use "@/scss/fonts";
+
+.banner{
+background-color: map-get(c.$colors,"orange");
+display: flex;
+justify-content: space-between;
+justify-content: center;
+align-items: center;
+    .design-c{
+    display: flex;
+    align-items: center;
+        .pigeon-c{
+        position: relative;
+        width: 12vw;
+        margin-left: 2vw;
+        }
+        .title-c{
+        font-size: 4vw;
+        color: map-get(c.$colors,"white");
+        font-family: 'Open Sans', sans-serif ;
+        font-weight: bold;
+        right: 4vw;
+        position: relative;
+        }
+
+    }
+    .user-c{
+    display: flex;
+    align-items: center;
+          .userData-c{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            .name-c{
+            font-size: 2.6vw;
+            color: map-get(c.$colors,"white");
+            font-family: 'Open Sans', sans-serif ;
+            font-weight: bold;
+            }
+            .contacts-c{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            float:left;
+            margin-top: 2%;
+            font-family: 'Open Sans', sans-serif ;
+                .logo-c{
+                width: 12%;
+                }
+                .contactsName-c{
+                color: white;
+                margin-left: 2%;
+                }
+            }
+        }
+        .photoUser-c{
+        width: 18vh;
+        margin-left: 3%;
+        margin-right: 3%;
+        .imgProfile-c{
+            border-radius: 100%;
+        }
+
+        }
+    }
+}
+
+</style>

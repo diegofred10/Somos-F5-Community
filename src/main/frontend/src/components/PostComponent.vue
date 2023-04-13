@@ -1,6 +1,8 @@
 <script setup>
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
+
+
 </script>
 
 <template>
@@ -8,6 +10,8 @@
       <div class="info">
         <div class="nameContainer">
             <h1 class="nameUser">Saúl Aguinaga BackEnd God</h1>
+
+            
             <h3 class="date">24-03-2023</h3>
         </div>
         <div class="postContainer">
@@ -20,6 +24,7 @@
                 Aldus PageMaker including versions of Lorem Ipsum</p>
             </div>
          </div>
+         
     
 
 </div>
