@@ -29,12 +29,19 @@ const router = createRouter({
 
     },
     {
-      path: '/Contactos',
-      name: 'Contactos',
-      component: () => import('../views/ContactosView.vue')
+      path: '/MisContactos',
+      name: 'MisContactos',
+      component: () => import('../views/MisContactosView.vue')
+
     },
+    {
+      path: '/Users',
+      name: 'Users',
+      component: () => import('../views/UsersView.vue')
+
+    }
     
-  ]
+   ]
 })
 
 export default router
