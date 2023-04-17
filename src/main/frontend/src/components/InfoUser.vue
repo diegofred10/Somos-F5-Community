@@ -128,12 +128,12 @@ const store = useAuthStore();
                 </div>
             </div>   
         </div>
-
+        
         <div class="design">       
-            <img class="arrow" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/632a9e30dd20f538a3049cc4_shape-13.svg" alt="Imagen de una flecha.">
-            <img class="triangle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bbaf7322b42359abe7_shape-5.svg" alt="Imagen de un triángulo color morado.">       
-            <img class="semicircle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/63c7aad88f903d7f30ff4eff_emp-shape-05.svg" alt="Imagen de un semicírculo de color negro.">
+            <img class="bannerDesing" src="../assets/images/imagesSomosF5/banner.png" alt="">
+            <button class="addContacts">AÑADIR A MIS CONTACTOS</button>
         </div>
+
     </div>
 
 </template>
@@ -148,11 +148,11 @@ const store = useAuthStore();
         background-color: map-get(c.$colors,"orange");
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
 .photoAndContact{
     display: flex;
-    width: 35%;
+    width: 60%;
     align-items: center;
 
     .photoUser{
@@ -198,24 +198,31 @@ const store = useAuthStore();
 }
     .design{
         display: flex;
-        flex-direction: row;
-        height: fit-content;
-        width: max-content;
-        .arrow{
-            width: 20%;          
-            z-index: 1;  
-            rotate: -20deg;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-end;
+        align-items: center;
+
+        .bannerDesing{
+            width: 45%;
         }
-        .triangle{
-            width: 20%;
-            margin-bottom: -15%;
-            rotate: 270deg;
+        .addContacts{
+        width: 30%;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        color: map-get(c.$colors,"white");
+        font-family: 'openSans';
+        font-weight: bold;
+        font-size: 70%;
+        text-align: center;
+        margin-bottom: 1%;
+        &:hover{
+            background-color: map-get(c.$colors,"white");
+            color: map-get(c.$colors,"orange");
         }
-        .semicircle{
-            z-index: 1;
-            rotate: 180deg;
-            width: 30%;
-        }
+      }
+
     }
 }
 </style>
