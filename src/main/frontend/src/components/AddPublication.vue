@@ -14,7 +14,6 @@ const post = reactive({
   title: titleModel,
   description: descriptionModel
 })
-<<<<<<< HEAD
 const submitData = async () => {
   try {
     const formData = new FormData();
@@ -44,10 +43,6 @@ const submitData = async () => {
   } catch (error) {
     console.log(error);
   }
-=======
-const submitData = () => {
-  postService.submitPost(post)
->>>>>>> b71c0807ef30846e275a447f3698d6bff60ad0e7
 }
 </script>
 
@@ -57,14 +52,9 @@ const submitData = () => {
       <h1 class="addYourPubli">¡Añade una nueva publicación!</h1>
       <input v-model="titleModel" class="title" type="text" placeholder="Titulo de tu publicación" />
       <textarea v-model="descriptionModel" class="description" placeholder="Cuentanos algo interesante..." rows="5"
-<<<<<<< HEAD
-        cols="46"></textarea>
-      <input type="file" @change="onFileChange" ref="fileInput" />
-=======
         cols="46">
       </textarea>
       <input class="resources" type="file" @change="onFileChange" ref="fileInput">
->>>>>>> b71c0807ef30846e275a447f3698d6bff60ad0e7
       <div class="buttonsContainer">
         <button class="cancelButton">Cancelar</button>
         <button class="sendButton">Publicar</button>
@@ -86,35 +76,11 @@ const submitData = () => {
     width: 1000px;
   }
 
-<<<<<<< HEAD
-  .addYourPubli {
-    color: white;
-    font-size: xx-large;
-    font-weight: bold;
-  }
-
-  .title {
-    height: 2.5em;
-  }
-
-  .description {
-    background-color: white;
-    padding: .5em;
-    border: 2px solid grey;
-  }
-
-  .resources {
-    height: 2.5em;
-  }
-
-  .buttonsContainer {
-=======
   @media(min-width: 1439px) {
     width: 1000px;
   }
 
   form {
->>>>>>> b71c0807ef30846e275a447f3698d6bff60ad0e7
     display: flex;
     flex-direction: column;
     align-items: center;

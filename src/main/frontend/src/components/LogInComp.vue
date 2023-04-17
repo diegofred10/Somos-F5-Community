@@ -77,15 +77,11 @@ const submitData = async () => {
   margin-top: 7vh;
 
   .headerForm {
-<<<<<<< HEAD
     
     background: url("../assets/images/separator1.png");
     background-size: cover;
     background-repeat: no-repeat;
     color: map-get(c.$colors,"white");
-=======
-    color: map-get(c.$colors, "white");
->>>>>>> b71c0807ef30846e275a447f3698d6bff60ad0e7
     font-family: 'openSans';
     font-weight: bold;
     font-size: 6vh;

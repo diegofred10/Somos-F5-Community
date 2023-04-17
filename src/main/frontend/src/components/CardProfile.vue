@@ -61,6 +61,7 @@ let date = new Date().toLocaleDateString();
 						<p class="textPubli">
 							{{ post.description }}
 						</p>
+						<p>Ver mas</p>
 					</div>
 					<img
 						v-if="post.image"
