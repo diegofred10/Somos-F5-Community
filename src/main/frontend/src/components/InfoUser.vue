@@ -1,16 +1,19 @@
 <script setup>
 
-import { ref, reactive, computed, onBeforeMount, onBeforeUpdate} from "vue";
+import { ref, reactive, computed, onBeforeMount, onBeforeUpdate, onMounted, readonly} from "vue";
 import axios from "axios";
-import { useAuthStore } from "../stores/authStore";
+import { useAuthStore } from "../stores/AuthStore";
+import LogInComp from "./LogInComp.vue";
 
 const store = useAuthStore();
 	const url = ref("");
     const user = ref("");
     const profile = ref("");
     const nameModel = ref("");
+    const githubModel = ref("");
+    const linkedinModel = ref("");
+    const locationModel = ref("");
 	const imageUrl = computed(() => url.value);
-    let userId = ref('');
     let readOnly=ref(true);
 
 	const onFileChange = event => {
@@ -23,11 +26,11 @@ const store = useAuthStore();
 				url: "http://localhost:8080/media/upload",
 				data: formData,
 				withCredentials: true
+                
 
 			})
 				.then(response => {
 					url.value = response.data.url;
-                    console.log(url)
 				})
 				.catch(e => {
 					console.log(e);
@@ -40,43 +43,37 @@ const store = useAuthStore();
     onBeforeMount(() => {
         axios({
             method: "GET",
-            url: "http://localhost:8080/api/users/username/"+ store.username,
+            url: 'http://localhost:8080/api/users/'+ store.id,
             withCredentials: true
         })
             .then(response => {
                 user.value = response.data;
-                userId = parseInt(user.value.id);
-
-                console.log(userId);
             })
             .catch(e => {
                 console.log(e);
-                console.log("Catch error username");
-            });
-    });
-    onBeforeUpdate(() => {
-        axios({
-            method: "GET",
-            url: 'http://localhost:8080/api/profiles/'+ userId,
-            withCredentials: true
-        })
-            .then(response => {
-                profile.value = response.data;
-            })
-            .catch(e => {
-                console.log(e);
+                console.log(store.id);
                 console.log("Catch error profile");
             });
     });
 
     const submit = async ()=> {
+        console.log("soy submit");
+        readOnly.value=true;
+        console.log(readOnly.value);
         try {
             const profile = {
-                name: nameModel.value
+                name: nameModel.value,
+                github: githubModel.value,
+                linkedin: linkedinModel.value,
+                location: locationModel.value,
             }
+            store.name = profile.name,
+            store.github = profile.github,
+            store.linkedin = profile.linkedin,
+            store.location = profile.location,
             await axios({
                 method: "PUT",
-                url: 'http://localhost:8080/api/profiles/update/' + userId,
+                url: 'http://localhost:8080/api/profiles/update/' + store.id,
                 data: profile,
                 withCredentials: true
             })
@@ -87,7 +84,6 @@ const store = useAuthStore();
 </script>
 
 <template>
-
     <div class="infoUser">
         <div class="photoAndContact">
                 <input type="file" @change="onFileChange" ref="fileInput" style="display:none">  
@@ -95,37 +91,33 @@ const store = useAuthStore();
                 <img @click="$refs.fileInput.click()" class="photoUser" v-if="user.image!=null" :src="'http://localhost:8080/media/' + user.image" alt="img">
                 <img @click="$refs.fileInput.click()" class="photoUser" v-else src="../assets/images/perfilVacio.png" alt="img">
                 <!-- </button> -->
-                <!-- {{ userId }} -->
             <div class="contacts">
                 <div class="contact">
-                    <i v-if="readOnly==true" @click="readOnly=false" class="fa-solid fa-pen" style="color: white;">
-                    </i>
-                    <i v-if="readOnly==false" @click="submit" class="fa-solid fa-pen" style="color: black;">
-                    </i>
-                    <input v-model="nameModel" v-if="profile.name==null" placeholder="Nombre" class="name" :readonly=readOnly> 
-                    <input v-model="nameModel" v-else :placeholder=profile.name  class="name" :readonly=readOnly>
-                    
+                    <input v-model="nameModel" v-if="store.name==''" placeholder="Nombre" class="name" :readonly=readOnly> 
+                    <input v-model="nameModel" v-else :placeholder=store.name  class="name" :readonly=readOnly>
                 </div>
                 <div class="contact">
                     <img class="logo" src="../assets/images/imagesSomosF5/github.png" alt="gitHub">
-                    <input v-if="profile.github==null" placeholder="GitHub" class="contactsName" :readonly=readOnly> 
-                    <input v-else :placeholder=profile.github  class="contactsName" :readonly=readOnly>
+                    <input v-model="githubModel" v-if="store.github==''" placeholder="GitHub" class="contactsName" :readonly=readOnly> 
+                    <input v-model="githubModel" v-else :placeholder=store.github  class="contactsName" :readonly=readOnly>
                 </div>
                 <div class="contact">
                     <img class="logo" src="../assets/images/imagesSomosF5/linkedin.png" alt="linkedin">
-                    <input v-if="profile.linkedin==null" placeholder="LinkedIn" class="contactsName" :readonly=readOnly> 
-                    <input v-else :placeholder=profile.linkedin class="contactsName" :readonly=readOnly>
-                </div>
-                <div class="contact">
-                    <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="email">
-                    <input v-if="profile.email==null" placeholder="Email" class="contactsName" :readonly=readOnly> 
-                    <input v-else :placeholder=profile.email class="contactsName" :readonly=readOnly>
+                    <input v-model="linkedinModel" v-if="store.linkedin==''" placeholder="LinkedIn" class="contactsName" :readonly=readOnly> 
+                    <input v-model="linkedinModel" v-else :placeholder=store.linkedin class="contactsName" :readonly=readOnly>
                 </div>
                 <div class="contact">
                     <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="geo">
-                    <input v-if="profile.location==null" placeholder="Ubicación" class="contactsName" :readonly=readOnly> 
-                    <input v-else :placeholder=profile.location class="contactsName" :readonly=readOnly>
+                    <input v-model="locationModel" v-if="store.location=='' || store.location==null" placeholder="Ubicación" class="contactsName" :readonly=readOnly> 
+                    <input v-model="locationModel" v-else :placeholder=store.location class="contactsName" :readonly=readOnly>
                 </div>
+                <div class="contact">
+                    <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="email">
+                    <!-- <input  v-if="user.username==null" placeholder="Email" class="contactsName" :readonly=true>  -->
+                    <input :placeholder=user.username class="contactsName" :readonly=true>
+                </div>
+                <button v-if="readOnly==true" @click="readOnly=false" class="buttonEdit" style="color: white;">Editar perfil</button>
+                <button v-if="readOnly==false" @click="submit"  class="buttonSave" style="color: #FF4700;">Guardar cambios</button>
             </div>   
         </div>
 
@@ -185,6 +177,7 @@ const store = useAuthStore();
                 margin-right: 1%;
             }
             .contactsName{
+                color: white;
                 font-size: 1em;
                 margin-left: 2%;
             }
@@ -192,7 +185,23 @@ const store = useAuthStore();
                 color: white;
                 border: 0;
                 outline: none;
+                &::placeholder{
+                    color: white;   
+                }
             }
+        }
+        .buttonEdit{
+            width: 70%;
+            // height: 3vh;
+            border: 1px solid white;
+            border-radius: 30px;
+        }
+        .buttonSave{
+            width: 70%;
+            height: fit-content;
+            border: 1px solid white;
+            border-radius: 30px;
+            background-color: black;
         }
     }
 }
@@ -200,7 +209,7 @@ const store = useAuthStore();
         display: flex;
         flex-direction: row;
         height: fit-content;
-        width: max-content;
+        width: fit-content;
         .arrow{
             width: 20%;          
             z-index: 1;  
