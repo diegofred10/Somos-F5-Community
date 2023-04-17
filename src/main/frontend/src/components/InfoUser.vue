@@ -87,10 +87,8 @@ const store = useAuthStore();
     <div class="infoUser">
         <div class="photoAndContact">
                 <input type="file" @change="onFileChange" ref="fileInput" style="display:none">  
-                <!-- <button @click="$refs.fileInput.click()">      -->
                 <img @click="$refs.fileInput.click()" class="photoUser" v-if="user.image!=null" :src="'http://localhost:8080/media/' + user.image" alt="img">
                 <img @click="$refs.fileInput.click()" class="photoUser" v-else src="../assets/images/perfilVacio.png" alt="img">
-                <!-- </button> -->
             <div class="contacts">
                 <div class="contact">
                     <input v-model="nameModel" v-if="store.name==''" placeholder="Nombre" class="name" :readonly=readOnly> 
@@ -113,7 +111,6 @@ const store = useAuthStore();
                 </div>
                 <div class="contact">
                     <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="email">
-                    <!-- <input  v-if="user.username==null" placeholder="Email" class="contactsName" :readonly=true>  -->
                     <input :placeholder=user.username class="contactsName" :readonly=true>
                 </div>
                 <button v-if="readOnly==true" @click="readOnly=false" class="buttonEdit" style="color: white;">Editar perfil</button>
@@ -192,7 +189,6 @@ const store = useAuthStore();
         }
         .buttonEdit{
             width: 70%;
-            // height: 3vh;
             border: 1px solid white;
             border-radius: 30px;
         }
