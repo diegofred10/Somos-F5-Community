@@ -49,7 +49,7 @@ const submitData = async () => {
           label="Contraseña" required>
         </v-text-field>
 
-        <a class="passwordLink" href="">¿Has olvidado tu contraseña?</a>
+        <!-- <a class="passwordLink" href="">¿Has olvidado tu contraseña?</a> -->
 
         <div class="d-flex flex-column">
           <v-btn type="submit" class="mt-4" block @click="validate">
@@ -77,7 +77,11 @@ const submitData = async () => {
   margin-top: 7vh;
 
   .headerForm {
-    color: map-get(c.$colors, "white");
+    
+    background: url("../assets/images/separator1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: map-get(c.$colors,"white");
     font-family: 'openSans';
     font-weight: bold;
     font-size: 6vh;

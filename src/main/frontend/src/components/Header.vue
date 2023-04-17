@@ -1,4 +1,12 @@
-<script setup></script>
+<script setup>
+import AuthService from '../services/AuthService.js';
+const service = new AuthService();
+
+const logout = async()=>{
+  await service.logout()
+}
+
+</script>
 <template>
   <div class="header">
     <a href="/" aria-current="page" class="headerLogo"></a>
@@ -12,7 +20,7 @@
           >Mis Contactos</router-link
         >
         <router-link to="/ElMuro" class="nav-bar__link" href="">El Muro</router-link>
-        <router-link to="/login" href="">Log Out</router-link>
+        <router-link @click="logout" to="/" href="">Log Out</router-link>
       </nav>
 
       <nav class="menuMobile">
@@ -28,7 +36,7 @@
           <router-link to="/ElMuro" class="navLink" href=""
             >El Muro</router-link
           >
-          <router-link to="/" href="">LogOut</router-link>
+          <router-link @click="logout" to="/" href="">LogOut</router-link>
         </ul>
       </nav>
     </div>

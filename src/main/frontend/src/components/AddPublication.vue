@@ -1,7 +1,12 @@
 <script setup>
 import { ref, reactive, onBeforeMount } from "vue";
+import axios from "axios";
 
 import PostService from "@/services/PostService.js"
+const onFileChange = event => {
+  file.value = event.target.files[0];
+};
+const file = ref(null);
 const postService = new PostService()
 const titleModel = ref()
 const descriptionModel = ref()
@@ -9,14 +14,41 @@ const post = reactive({
   title: titleModel,
   description: descriptionModel
 })
-const submitData = () => {
-  postService.submitPost(post)
+const submitData = async () => {
+  try {
+    const formData = new FormData();
+    formData.append("title", titleModel.value);
+    formData.append("description", descriptionModel.value);
+    if (file.value != null) {
+      formData.append("file", file.value);
+
+      await axios({
+        method: "POST",
+        url: "http://localhost:8080/media/upload/post",
+        data: formData,
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    } else {
+      await axios({
+        method: "POST",
+        url: "http://localhost:8080/api/posts/add",
+        data: post,
+        withCredentials: true,
+      });
+    }
+    console.log("Enviado")
+  } catch (error) {
+    console.log(error);
+  }
 }
 </script>
 
 <template>
   <div class="formBody">
-    <form>
+    <form @submit.prevent="submitData">
       <h1 class="addYourPubli">¡Añade una nueva publicación!</h1>
       <input v-model="titleModel" class="title" type="text" placeholder="Titulo de tu publicación" />
       <textarea v-model="descriptionModel" class="description" placeholder="Cuentanos algo interesante..." rows="5"
@@ -25,7 +57,7 @@ const submitData = () => {
       <input class="resources" type="file" @change="onFileChange" ref="fileInput">
       <div class="buttonsContainer">
         <button class="cancelButton">Cancelar</button>
-        <button @click="submitData" class="sendButton">Publicar</button>
+        <button class="sendButton">Publicar</button>
       </div>
       <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="triangulo morado">
       <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="splash verde">
