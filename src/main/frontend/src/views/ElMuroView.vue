@@ -8,23 +8,15 @@ import PostComp from '../components/PostComponent.vue'
 </script>
 
 <template>
-    <main>
-        <Header/>
-        <UserFeed/>
-        <div class="tools">
-            <section class=" modal-container">
-                <!-- <p>Añadir publicacion</p> -->
-                <o-button @click="cardModal()" class="modal">
-                    AÑADIR PUBLICACION
-                    <i class="fa-solid fa-plus btn-add"></i>
-                </o-button>
-            </section>
-            <Search />
-        </div>
-        <div class="publi">
-            <PostComp />
-        </div>
-    </main>
+    <Header/>
+<UserFeed/>
+<div class="tools">
+    <!-- <AddPublication/>    -->
+    <Search/>
+</div>
+<div class="publi">
+    <PostComp/>
+</div>
 </template>
 
 <style lang="scss" scoped>

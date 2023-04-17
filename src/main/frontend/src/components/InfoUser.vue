@@ -129,11 +129,12 @@ const submit = async () => {
                 </div>
             </div>
         </div>
-
-        <div class="design">
-            <img class="figures" src="../assets/images/imagesSomosF5/imagenCombinada.png" alt="Imagen de una flecha.">
-
+        
+        <div class="design">       
+            <img class="bannerDesing" src="../assets/images/imagesSomosF5/banner.png" alt="">
+            <button class="addContacts">AÑADIR A MIS CONTACTOS</button>
         </div>
+
     </div>
 </template>
 
@@ -142,70 +143,90 @@ const submit = async () => {
 @use "@/scss/fonts";
 
 
-.infoUser {
-    width: 100%;
-    background-color: map-get(c.$colors, "orange");
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .design {
-        width: 35%;
-        height: fit-content;
-    }
-
-    .photoAndContact {
+.infoUser{
+        width: 100%;
+        background-color: map-get(c.$colors,"orange");
         display: flex;
-        width: 40%;
         align-items: center;
+        justify-content: space-evenly;
 
-        .photoUser {
-            object-fit: cover;
-            border-radius: 100%;
-            width: 10em;
-            height: 10em;
-            margin: 2%;
-            cursor: pointer;
+.photoAndContact{
+    display: flex;
+    width: 70%;
+    align-items: center;
+
+    .photoUser{
+        border-radius: 100%;
+        width: 20%;
+        margin: 2%;
+        cursor: pointer;
+    }
+    .contacts{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        .name{
+            width: 100%;
+            font-size: 2em;
+            color: map-get(c.$colors,"white");
+            font-family: 'openSans';
+            font-weight: bold;
+            margin-left: 1%;
         }
-
-        .contacts {
+        .contact{
             width: 100%;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            align-items: center;
+            font-family: 'openSans' ;
+            margin-bottom: 0.5em;
 
-            .name {
-                width: 100%;
-                font-size: 1.5em;
-                color: map-get(c.$colors, "white");
-                font-family: 'openSans';
-                font-weight: bold;
-                margin-left: 1%;
+            .logo{
+                width: 5%;
+                margin-right: 1%;
             }
-
-            .contact {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                font-family: 'openSans';
-                margin-bottom: 0.5em;
-
-                .logo {
-                    width: 10%;
-                    margin-right: 1%;
-                }
-
-                .contactsName {
-                    font-size: 1em;
-                    margin-left: 2%;
-                }
-
-                input {
-                    color: white;
-                    border: 0;
-                    outline: none;
-                }
+            .contactsName{
+                width: 100%;
+                font-size: 1em;
+                margin-left: 2%;
+            }
+            input{
+                color: white;
+                border: 0;
+                outline: none;
             }
         }
     }
+}
+    .design{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
 
-}</style>
+        .bannerDesing{
+            width: 100%;
+        }
+        .addContacts{
+            
+        width: 40%;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        color: map-get(c.$colors,"white");
+        font-family: 'openSans';
+        font-weight: bold;
+        font-size: 70%;
+        text-align: center;
+        margin-bottom: 1%;
+        &:hover{
+            background-color: map-get(c.$colors,"white");
+            color: map-get(c.$colors,"orange");
+        }
+      }
+
+    }
+}
+</style>
