@@ -26,7 +26,6 @@ const store = useAuthStore();
 				url: "http://localhost:8080/media/upload",
 				data: formData,
 				withCredentials: true
-                
 
 			})
 				.then(response => {
@@ -45,6 +44,7 @@ const store = useAuthStore();
             method: "GET",
             url: 'http://localhost:8080/api/users/'+ store.id,
             withCredentials: true
+
         })
             .then(response => {
                 user.value = response.data;
@@ -81,6 +81,56 @@ const store = useAuthStore();
             console.log("submit error" + error);
         }
     }
+    window.location.reload()
+};
+
+onBeforeMount(() => {
+    axios({
+        method: "GET",
+        url: "http://localhost:8080/api/users/username/" + store.username,
+        withCredentials: true
+    })
+        .then(response => {
+            user.value = response.data;
+            userId = parseInt(user.value.id);
+
+            console.log(userId);
+        })
+        .catch(e => {
+            console.log(e);
+            console.log("Catch error username");
+        });
+});
+onBeforeUpdate(() => {
+    axios({
+        method: "GET",
+        url: 'http://localhost:8080/api/profiles/' + userId,
+        withCredentials: true
+    })
+        .then(response => {
+            profile.value = response.data;
+        })
+        .catch(e => {
+            console.log(e);
+            console.log("Catch error profile");
+        });
+});
+
+const submit = async () => {
+    try {
+        const profile = {
+            name: nameModel.value
+        }
+        await axios({
+            method: "PUT",
+            url: 'http://localhost:8080/api/profiles/update/' + userId,
+            data: profile,
+            withCredentials: true
+        })
+    } catch (error) {
+        console.log("submit error" + error);
+    }
+}
 </script>
 
 <template>
@@ -117,14 +167,13 @@ const store = useAuthStore();
                 <button v-if="readOnly==false" @click="submit"  class="buttonSave" style="color: #FF4700;">Guardar cambios</button>
             </div>   
         </div>
-
+        
         <div class="design">       
-            <img class="arrow" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/632a9e30dd20f538a3049cc4_shape-13.svg" alt="Imagen de una flecha.">
-            <img class="triangle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bbaf7322b42359abe7_shape-5.svg" alt="Imagen de un triángulo color morado.">       
-            <img class="semicircle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/63c7aad88f903d7f30ff4eff_emp-shape-05.svg" alt="Imagen de un semicírculo de color negro.">
+            <img class="bannerDesing" src="../assets/images/imagesSomosF5/banner.png" alt="">
+            <button class="addContacts">AÑADIR A MIS CONTACTOS</button>
         </div>
-    </div>
 
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -137,21 +186,21 @@ const store = useAuthStore();
         background-color: map-get(c.$colors,"orange");
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
 .photoAndContact{
     display: flex;
-    width: 35%;
+    width: 70%;
     align-items: center;
 
     .photoUser{
         border-radius: 100%;
-        width: 40%;
+        width: 20%;
         margin: 2%;
         cursor: pointer;
     }
     .contacts{
-        width: 50%;
+        width: 80%;
         display: flex;
         flex-direction: column;
         .name{
@@ -163,6 +212,7 @@ const store = useAuthStore();
             margin-left: 1%;
         }
         .contact{
+            width: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -170,11 +220,12 @@ const store = useAuthStore();
             margin-bottom: 0.5em;
 
             .logo{
-                width: 10%;
+                width: 5%;
                 margin-right: 1%;
             }
             .contactsName{
                 color: white;
+                width: 100%;
                 font-size: 1em;
                 margin-left: 2%;
             }
@@ -202,25 +253,34 @@ const store = useAuthStore();
     }
 }
     .design{
+        width: 30%;
         display: flex;
-        flex-direction: row;
-        height: fit-content;
-        width: fit-content;
-        .arrow{
-            width: 20%;          
-            z-index: 1;  
-            rotate: -20deg;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+
+        .bannerDesing{
+            width: 100%;
         }
-        .triangle{
-            width: 20%;
-            margin-bottom: -15%;
-            rotate: 270deg;
+        .addContacts{
+            
+        width: 40%;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        color: map-get(c.$colors,"white");
+        font-family: 'openSans';
+        font-weight: bold;
+        font-size: 70%;
+        text-align: center;
+        margin-bottom: 1%;
+        &:hover{
+            background-color: map-get(c.$colors,"white");
+            color: map-get(c.$colors,"orange");
         }
-        .semicircle{
-            z-index: 1;
-            rotate: 180deg;
-            width: 30%;
-        }
+      }
+
     }
 }
 </style>
