@@ -7,10 +7,10 @@ const store = useAuthStore();
 const url = ref("");
 const user = ref("");
 const profile = ref("");
-const nameModel = ref("");
-const githubModel = ref("");
-const linkedinModel = ref("");
-const locationModel = ref("");
+const nameModel = ref(store.name);
+const githubModel = ref(store.github);
+const linkedinModel = ref(store.linkedin);
+const locationModel = ref(store.location);
 const imageUrl = computed(() => url.value);
 let readOnly = ref(true);
 
@@ -57,20 +57,24 @@ const submit = async () => {
   readOnly.value = true;
   console.log(readOnly.value);
   try {
-    const profile = {
-      name: nameModel.value,
-      github: githubModel.value,
-      linkedin: linkedinModel.value,
-      location: locationModel.value,
-    };
-        store.name = profile.name,
-      store.github = profile.github,
-      store.linkedin = profile.linkedin,
-      store.location = profile.location,
+    // const profile = {
+    //   name: nameModel.value,
+    //   github: githubModel.value,
+    //   linkedin: linkedinModel.value,
+    //   location: locationModel.value,
+    // };
+    //     store.name = profile.name,
+    //   store.github = profile.github,
+    //   store.linkedin = profile.linkedin,
+    //   store.location = profile.location,
+    store.name =  nameModel.value,
+    store.github = githubModel.value,
+    store.linkedin = linkedinModel.value,
+    store.location = locationModel.value
       await axios({
         method: "PUT",
         url: "http://localhost:8080/api/profiles/update/" + store.id,
-        data: profile,
+        data: store,
         withCredentials: true,
       });
   } catch (error) {
@@ -86,7 +90,7 @@ onBeforeUpdate(() => {
     withCredentials: true,
   })
     .then((response) => {
-      profile.value = response.data;
+      store.value = response.data;
     })
     .catch((e) => {
       console.log(e);
@@ -122,15 +126,8 @@ onBeforeUpdate(() => {
         <div class="contact">
           <input
             v-model="nameModel"
-            v-if="store.name == ''"
-            placeholder="Nombre"
-            class="name"
-            :readonly="readOnly"
-          />
-          <input
-            v-model="nameModel"
-            v-else
-            :placeholder="store.name"
+            modelvalue="name"
+            @update:modelValue="newValue => name = newValue"
             class="name"
             :readonly="readOnly"
           />
@@ -143,15 +140,8 @@ onBeforeUpdate(() => {
           />
           <input
             v-model="githubModel"
-            v-if="store.github == ''"
-            placeholder="GitHub"
-            class="contactsName"
-            :readonly="readOnly"
-          />
-          <input
-            v-model="githubModel"
-            v-else
-            :placeholder="store.github"
+            modelvalue="github"
+            @update:modelValue="newValue => github = newValue"
             class="contactsName"
             :readonly="readOnly"
           />
@@ -164,18 +154,18 @@ onBeforeUpdate(() => {
           />
           <input
             v-model="linkedinModel"
-            v-if="store.linkedin == ''"
-            placeholder="LinkedIn"
+            modelvalue="linkedin"
+            @update:modelValue="newValue => linkedin = newValue"
             class="contactsName"
             :readonly="readOnly"
           />
-          <input
+          <!-- <input
             v-model="linkedinModel"
             v-else
             :placeholder="store.linkedin"
             class="contactsName"
             :readonly="readOnly"
-          />
+          /> -->
         </div>
         <div class="contact">
           <img
@@ -185,18 +175,18 @@ onBeforeUpdate(() => {
           />
           <input
             v-model="locationModel"
-            v-if="store.location == '' || store.location == null"
-            placeholder="Ubicación"
+            modelvalue="location"
+            @update:modelValue="newValue => location = newValue"
             class="contactsName"
             :readonly="readOnly"
           />
-          <input
+          <!-- <input
             v-model="locationModel"
             v-else
             :placeholder="store.location"
             class="contactsName"
             :readonly="readOnly"
-          />
+          /> -->
         </div>
         <div class="contact">
           <img
@@ -205,7 +195,7 @@ onBeforeUpdate(() => {
             alt="email"
           />
           <input
-            :placeholder="user.username"
+            :value="user.username"
             class="contactsName"
             :readonly="true"
           />
@@ -294,8 +284,10 @@ onBeforeUpdate(() => {
           color: white;
           border: 0;
           outline: none;
-          &::placeholder {
-            color: white;
+          &:read-write {
+          background-color: #FEF0DC;
+           color: black;
+           border-radius: 10px;
           }
         }
       }

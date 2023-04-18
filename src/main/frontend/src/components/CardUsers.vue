@@ -1,4 +1,5 @@
 <script setup>
+    import axios from 'axios';
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
 </script>

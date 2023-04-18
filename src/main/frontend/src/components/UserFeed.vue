@@ -1,17 +1,21 @@
 <script setup>
 import axios from 'axios'
-import { ref, reactive, computed, onBeforeMount } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import { useAuthStore } from "@/stores/authStore";
-	const auth = useAuthStore();
-    console.log(auth.username)
-    let userAvatar = ref();
+	
+const auth = useAuthStore();
+
+let userAvatar = ref();
 let userAvatarComputed =  computed(() => userAvatar.value);
 
 onBeforeMount(() => {
-axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res) => {
-    userAvatar.value = res.data.image
+    axios.get("http://localhost:8080/api/users/" + auth.id).then((res) => {
+        userAvatar.value = res.data.image
+        console.log(auth)
 });
 })
+
+
 </script>
 
 <template>
@@ -23,14 +27,20 @@ axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res
     </div>
     <div class="user">
       <div class="userData">
-        <h2 class="name">Marco Polo</h2>
+        <h2 class="name">{{ auth.name }}</h2>
         <div class="contacts">
             <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="Imagen de un logo de localización geográfica">
-            <p class="contactsName">Castropol</p>
+            <p class="contactsName">{{ auth.location }}</p>
         </div>  
       </div>
       <div class="photoUser">
-        <img class="imgProfile" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
+        <img class="imgProfile" v-if="userAvatarComputed != null" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
+        <img
+        class="imgProfile"
+        v-else
+        src="../assets/images/perfilVacio.png"
+        alt="Imagen del perfil del usuario"
+      />
       </div>
     </div>
 </div>
