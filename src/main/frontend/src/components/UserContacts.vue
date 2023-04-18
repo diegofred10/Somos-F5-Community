@@ -31,7 +31,14 @@ userAvatar.value =res.data.image
         </div>  
       </div>
       <div class="photoUser-c">
-        <img class="imgProfile-c" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
+        <img class="imgProfile-c" v-if="userAvatarComputed != null" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
+        <img
+        class="imgProfile-c"
+        v-else
+        src="../assets/images/perfilVacio.png"
+        alt="Imagen del perfil del usuario"
+      />
+        
       </div>
     </section>
 </section>

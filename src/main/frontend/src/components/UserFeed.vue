@@ -34,7 +34,13 @@ onBeforeMount(() => {
         </div>  
       </div>
       <div class="photoUser">
-        <img class="imgProfile" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
+        <img class="imgProfile" v-if="userAvatarComputed != null" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
+        <img
+        class="imgProfile"
+        v-else
+        src="../assets/images/perfilVacio.png"
+        alt="Imagen del perfil del usuario"
+      />
       </div>
     </div>
 </div>
