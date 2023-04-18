@@ -14,6 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	buttonEdit.addEventListener("click", () => {
 		title.contentEditable = true;
 		text.contentEditable = true;
+		file.contentEditable = true;
 		buttonEdit.style.display = "none";
 		const buttonSave = document.createElement("button");
 		buttonSave.textContent = "Guardar";
@@ -84,11 +85,11 @@ const props = defineProps({
 			width: 100%;
 
 			.userNamePost{
-				background-image: url("franjaMorada 2.png");
-				background-color: red;
+				background-image: url("../assets/images/svgPics/blueTriangle.svg");
+				// background-color: red;
 				// width: fit-content;
-				width: 40vw;
-				height: 10vh;
+				// width: 40vw;
+				// height: 10vh;
 			}
 
 			.date {

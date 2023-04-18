@@ -7,7 +7,7 @@ const titleModel = ref()
 const descriptionModel = ref()
 const post = reactive({
   title: titleModel,
-  description: descriptionModel
+  description: descriptionModel,
 })
 const submitData = () => {
   postService.submitPost(post)
