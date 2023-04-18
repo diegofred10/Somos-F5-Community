@@ -17,22 +17,20 @@ axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res
 <template>
 <div class="info">
     <div class="design">
-        <img class="pigeon" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bc61fe6a1ce2b9ac31_shape-3.svg" alt="">
+        <img class="pigeon" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bc61fe6a1ce2b9ac31_shape-3.svg" alt="Imagen de una mancha azul.">
         <h1 class="title">El muro</h1>
-        <img class="circle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/63b343dabc1dc0a6d0215d46_shape-3.svg" alt="">       
+        <img class="circle" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/63b343dabc1dc0a6d0215d46_shape-3.svg" alt="Imagen de un círculo rojo.">       
     </div>
     <div class="user">
       <div class="userData">
         <h2 class="name">Marco Polo</h2>
         <div class="contacts">
-            <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="geo">
+            <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="Imagen de un logo de localización geográfica">
             <p class="contactsName">Castropol</p>
         </div>  
       </div>
       <div class="photoUser">
-        <img class="imgProfile" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="img">
-        
-        <img class="imgProfile" src="https://uploads-ssl.webflow.com/62e2b7b9c42bdda27c83d493/6329c1bc61fe6a1ce2b9ac31_shape-3.svg" alt="">
+        <img class="imgProfile" :src="'http://localhost:8080/media/' + userAvatarComputed" alt="Imagen del perfil del usuario">
       </div>
     </div>
 </div>
@@ -43,8 +41,6 @@ axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res
 
 .info{
 background-color: map-get(c.$colors,"orange");
-height: 22vh;
-width: 94vw;
 display: flex;
 justify-content: space-between;
 justify-content: center;

@@ -1,40 +1,248 @@
 <script setup>
+import { ref, reactive, onBeforeMount } from "vue";
+import axios from "axios";
 
+import PostService from "@/services/PostService.js"
+const onFileChange = event => {
+  file.value = event.target.files[0];
+};
+const file = ref(null);
+const postService = new PostService()
+const titleModel = ref()
+const descriptionModel = ref()
+const post = reactive({
+  title: titleModel,
+  description: descriptionModel
+})
+const submitData = async () => {
+  try {
+    const formData = new FormData();
+    formData.append("title", titleModel.value);
+    formData.append("description", descriptionModel.value);
+    if (file.value != null) {
+      formData.append("file", file.value);
+
+      await axios({
+        method: "POST",
+        url: "http://localhost:8080/media/upload/post",
+        data: formData,
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    } else {
+      await axios({
+        method: "POST",
+        url: "http://localhost:8080/api/posts/add",
+        data: post,
+        withCredentials: true,
+      });
+    }
+    console.log("Enviado")
+  } catch (error) {
+    console.log(error);
+  }
+}
 </script>
 
 <template>
-<div class="add">
-<h1 class="title">Añadir publicación</h1> 
-<p class="icon">+</p>
-</div>
+  <div class="formBody">
+    <form @submit.prevent="submitData">
+      <h1 class="addYourPubli">¡Añade una nueva publicación!</h1>
+      <input v-model="titleModel" class="title" type="text" placeholder="Titulo de tu publicación" />
+      <textarea v-model="descriptionModel" class="description" placeholder="Cuentanos algo interesante..." rows="5"
+        cols="46">
+      </textarea>
+      <input class="resources" type="file" @change="onFileChange" ref="fileInput">
+      <div class="buttonsContainer">
+        <button class="cancelButton">Cancelar</button>
+        <button class="sendButton">Publicar</button>
+      </div>
+      <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="triangulo morado">
+      <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="splash verde">
+
+    </form>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
 
-.add{
- width: 60vw;
- height: 7vh;
- margin-top: 2vw;
- display: flex;
- justify-content: space-between;
- justify-self: center;
- align-items: center;
- background-color: map-get(c.$colors,"white");
- border: 3px solid map-get(c.$colors,"grey");
-    .title{
-        font-size: 1.8vw;
-        color: map-get(c.$colors,"grey");
-        font-family: 'Open Sans', sans-serif ;
-        margin-left: 1vw;
+.formBody {
+  background: map-get(c.$colors, "orange");
+
+  @media(min-width: 1023px) and (max-width: 1438px) {
+    width: 1000px;
+  }
+
+  @media(min-width: 1439px) {
+    width: 1000px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1em;
+    height: 35em;
+
+    .title {
+      background: white;
+      font-weight: bold;
+      border-radius: 5px;
+      z-index: 5;
+
+      @media(min-width: 426px) {
+        width: 55%;
+      }
     }
-    .icon{
-        font-size: 3vw;
-        color: map-get(c.$colors,"black");
-        font-family: 'Open Sans', sans-serif ;
-        font-weight: bold;
-        margin-right: 2vw;
-        margin-bottom: 1%;
+
+    .description {
+      background: white;
+      font-weight: bold;
+      border-radius: 5px;
+      z-index: 5;
+
+      @media(min-width: 426px) {
+        width: 55%;
+      }
     }
+
+    .resources {
+      background: white;
+      font-weight: bold;
+      border-radius: 5px;
+      z-index: 5;
+
+      @media(min-width: 426px) {
+        width: 55%;
+      }
+    }
+
+    .addYourPubli {
+      color: white;
+      font-size: xx-large;
+      font-weight: bold;
+    }
+
+    .description {
+      height: 10em;
+    }
+
+    .buttonsContainer {
+      display: flex;
+      align-items: space-between;
+      z-index: 5;
+
+      .cancelButton {
+        background-color: map-get(c.$colors, "light-purple");
+        border-radius: 2%;
+        color: map-get(c.$colors, "light-grayish");
+        margin-right: 5vw;
+      }
+
+      .sendButton {
+        background-color: map-get(c.$colors, "purple");
+        border-radius: 2%;
+        color: map-get(c.$colors, "light-grayish");
+        margin-left: 5vw;
+      }
+    }
+
+    .purpleTriangle {
+      position: absolute;
+      bottom: 0;
+      right: 1em;
+      width: 9em;
+    }
+
+    .greenSplash {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 9em;
+    }
+
+    @media(max-width: 650px) {
+      .purpleTriangle {
+        position: absolute;
+        bottom: 0;
+        right: 0em;
+        width: 0em;
+      }
+
+      .greenSplash {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0em;
+      }
+    }
+  }
+}
+
+@media(max-width: 426px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1em;
+    height: 35em;
+    background: map-get(c.$colors, "orange");
+
+    .title {
+      width: 100%;
+      border: 2px solid grey;
+      background: white;
+      font-weight: bold;
+    }
+
+    .description {
+      width: 100%;
+      border: 2px solid grey;
+      background: white;
+      font-weight: bold;
+    }
+
+    .resources {
+      width: 100%;
+      border: 2px solid grey;
+      background: white;
+      font-weight: bold;
+    }
+
+    .addYourPubli {
+      color: white;
+      font-size: 4vh;
+      font-weight: bold;
+    }
+
+    .description {
+      height: 10em;
+    }
+
+    .buttonsContainer {
+      width: 90vw;
+      display: flex;
+      justify-content: space-between;
+      z-index: 2;
+
+      .cancelButton {
+        background-color: map-get(c.$colors, "light-purple");
+        border-radius: 5px;
+        color: map-get(c.$colors, "light-grayish");
+      }
+
+      .sendButton {
+        background-color: map-get(c.$colors, "purple");
+        border-radius: 5px;
+        color: map-get(c.$colors, "light-grayish");
+      }
+    }
+  }
 }
 </style>
