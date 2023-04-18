@@ -5,7 +5,6 @@
 </script>
 
 <template>
-<div class="center">
  <section class="card-u">
     <div class="info-u">
         <img class="img-u" src="../assets/images/imagesSomosF5/Alicia.jpeg" alt="">
@@ -28,7 +27,6 @@
         ELIMINAR DE MIS CONTACTOS
     </button>
  </section>
- </div>
  <div class="separator-u" id="separator">
         <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
  </div> 
@@ -38,10 +36,6 @@
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
-.center{
-display: flex;
-align-items: center;
-justify-content: center;
 
 .card-u{
     background-color: #FEF0DC;
@@ -104,7 +98,7 @@ justify-content: center;
         }
     }
 }
-}
+
 .separator-u{
     display: flex;
     justify-content: center;

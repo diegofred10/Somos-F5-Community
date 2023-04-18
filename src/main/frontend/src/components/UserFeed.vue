@@ -55,14 +55,13 @@ display: flex;
 justify-content: space-between;
 justify-content: center;
 align-items: center;
-margin-top: 2vw;
+width: 100%;
     .design{
     display: flex;
     align-items: center;
         .pigeon{
         position: relative;
         width: 12vw;
-        margin-left: 2vw;
         }
         .title{
         font-size: 4vw;
