@@ -214,17 +214,15 @@ onBeforeUpdate(() => {
           v-if="readOnly == true"
           @click="readOnly = false"
           class="buttonEdit"
-          style="color: white"
         >
-          Editar perfil
+          EDITAR PERFIL
         </button>
         <button
           v-if="readOnly == false"
           @click="submit"
           class="buttonSave"
-          style="color: #ff4700"
         >
-          Guardar cambios
+          GUARDAR CAMBIOS
         </button>
       </div>
     </div>
@@ -302,16 +300,40 @@ onBeforeUpdate(() => {
         }
       }
       .buttonEdit {
-        width: 70%;
-        border: 1px solid white;
-        border-radius: 30px;
+        width: 20%;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        border-color: map-get(c.$colors, "white");
+        color: map-get(c.$colors, "orange");
+        background-color: map-get(c.$colors, "white");
+        font-family: "openSans";
+        font-weight: bold;
+        font-size: 70%;
+        text-align: center;
+        margin-bottom: 1%;
+        &:hover {
+            background-color: map-get(c.$colors, "orange");
+            color: map-get(c.$colors, "white");
+        }
       }
       .buttonSave {
-        width: 70%;
-        height: fit-content;
-        border: 1px solid white;
-        border-radius: 30px;
-        background-color: black;
+        width: 20%;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        color: map-get(c.$colors, "white");
+        // background-color: map-get(c.$colors, "grey-blue");
+        background-color: rgb(102, 102, 102);
+        font-family: "openSans";
+        font-weight: bold;
+        font-size: 70%;
+        text-align: center;
+        margin-bottom: 1%;
+        &:hover {
+            background-color: map-get(c.$colors, "white");
+            color: map-get(c.$colors, "black");
+        }
       }
     }
   }
