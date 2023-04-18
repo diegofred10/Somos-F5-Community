@@ -1,4 +1,19 @@
 <script setup>
+import axios from 'axios';
+import { ref, computed, onBeforeMount } from 'vue'
+import { useAuthStore } from '@/stores/authStore';
+
+
+const auth =useAuthStore();
+
+let userAvatar = ref();
+let userAvatarComputed = computed(() => userAvatar.value);
+onBeforeMount(() => {
+axios.get("http://localhost:8080/api/users/" + auth.id).then((res) => {
+userAvatar.value =res.data.image
+
+});
+})
 
 </script>
 <template>
@@ -9,10 +24,10 @@
     </div>
     <section class="user-c">   
       <div class="userData-c">
-        <h2 class="name-c">Marco Polo</h2>
+        <h2 class="name-c">{{ auth.name }}</h2>
         <div class="contacts-c">
             <img class="logo-c" src="../assets/images/imagesSomosF5/geo-alt.png" alt="Imagen de un logo de localización geográfica">
-            <p class="contactsName-c">Castropol</p>
+            <p class="contactsName-c">{{ auth.location }}</p>
         </div>  
       </div>
       <div class="photoUser-c">
