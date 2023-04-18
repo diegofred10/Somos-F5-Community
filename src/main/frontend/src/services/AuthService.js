@@ -1,17 +1,17 @@
 import AuthConnection from "./AuthConnection";
 import AuthRegister from "./AuthRegister";
-// import AuthLogout from "./AuthLogout";
+import AuthLogOut from "./AuthLogOut";
 
 export default class AuthService {
 
   #conn;
   #reg;
-//   #logout;
+  #logout;
 
   constructor() {
     this.#conn = new AuthConnection();
     this.#reg = new AuthRegister();
-    // this.#logout = new AuthLogout();
+    this.#logout = new AuthLogOut();
   }
 
   async login(username, password) {
@@ -24,8 +24,8 @@ export default class AuthService {
      await this.#reg.register(username, password);
   }
 
-//   async logout() {
-//     await this.#logout.logout();
-//   }
+  async logout() {
+    await this.#logout.logout();
+  }
 
 }
