@@ -52,7 +52,7 @@ onBeforeMount(() => {
 .info{
 background-color: map-get(c.$colors,"orange");
 display: flex;
-justify-content: space-between;
+justify-content: space-evenly;
 justify-content: center;
 align-items: center;
 width: 100%;
@@ -95,11 +95,13 @@ width: 100%;
             }
             .contacts{
             display: flex;
+            align-items: center;
+            justify-content: flex-end;
             float:left;
             margin-top: 2%;
             font-family: 'Open Sans', sans-serif ;
                 .logo{
-                width: 18%;
+                  width: 12%;
                 }
                 .contactsName{
                 color: white;

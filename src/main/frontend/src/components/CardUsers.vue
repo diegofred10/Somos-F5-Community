@@ -91,7 +91,7 @@
         border: solid;
         box-sizing: border-box;
         border-radius: 50px;
-        margin: 2%;
+        margin: 1%;
             &:hover {
             background-color: map-get(c.$colors, "white");
             color: map-get(c.$colors, "orange");
