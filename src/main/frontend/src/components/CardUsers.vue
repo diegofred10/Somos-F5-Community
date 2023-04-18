@@ -20,8 +20,11 @@
            </div>
         </div>
     </div>
-    <button>
+    <!-- <button>
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
+    </button> -->
+    <button class="btn-u">
+        ELIMINAR DE MIS CONTACTOS
     </button>
  </section>
  </div>
@@ -44,16 +47,17 @@ justify-content: center;
     width: 80%;
     margin-top: 2%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-around;
 
     .info-u{
         display: flex;
+        align-items: center;
 
         .img-u{
             border-radius: 100%;
             width: 15%;
-            margin: 1% 2% 1% 1%;
+            margin: 1% 3% 1% 5%;
         }
         .date-u{
             margin-top: 1%;
@@ -75,12 +79,29 @@ justify-content: center;
         }
     }
     
-    button{
-        display: flex;
-        justify-content: flex-end;
-        width: 6%;
-        height: 10%;
-    } 
+    // button{
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     width: 6%;
+    //     height: 10%;
+    // } 
+
+    .btn-u{
+        background-color: map-get(c.$colors, "orange");
+        color: map-get(c.$colors, "white");
+        font-family: 'Open Sans', sans-serif ;
+        font-size: 60%;
+        width: 22%;
+        height: 90%;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        margin: 2%;
+            &:hover {
+            background-color: map-get(c.$colors, "white");
+            color: map-get(c.$colors, "orange");
+        }
+    }
 }
 }
 .separator-u{
