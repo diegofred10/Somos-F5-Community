@@ -54,19 +54,19 @@ const deletePost = () => {
 		<div class="card">
 			<div class="info">
 				<div class="headerCard">
+					<h3 class="userNamePost"> Rick Sanchez</h3>
 					<p class="date">{{ date }}</p>
 				</div>
 				<div class="publication">
 					<div class="text">
 						<h2 class="titlePubli">{{ post.title }}</h2>
-						<p class="textPubli">
-							{{ post.description }}
-						</p>
-						<p>Ver mas</p>
+						<p class="textPubli">{{ post.description }}</p>
 					</div>
-					<img class="filePubli" v-if="post.image" :src="'http://localhost:8080/media/' + post.image" alt="imagen post" />
+					<img class="filePubli" v-if="post.image" :src="'http://localhost:8080/media/' + post.image"
+						alt="imagen post" />
 				</div>
 				<div class="buttons">
+					<button class="verMasButton">Ver mas</button>
 					<button class="button-edit">
 						<i class="fa-solid fa-pen btn btn-edit"></i>
 					</button>
@@ -76,9 +76,6 @@ const deletePost = () => {
 				</div>
 			</div>
 		</div>
-		<!-- <div class="separator">
-				<img class="stripe" src="../assets/images/imagesSomosF5/franjaMorada 2.png" alt="Imagen de una franja morada." />
-			</div> -->
 	</div>
 </template>
 
@@ -91,7 +88,6 @@ const deletePost = () => {
 }
 
 .card {
-	// min-width: 100%;
 	display: flex;
 	flex-direction: column;
 
@@ -103,10 +99,9 @@ const deletePost = () => {
 
 		.userNamePost {
 			background-image: url("../assets/images/svgPics/blueTriangle.svg");
-			// background-color: red;
-			// width: fit-content;
-			// width: 40vw;
-			// height: 10vh;
+			font-size: 3vh;
+			font-weight: bolder;
+			margin-left: 1vw;
 		}
 
 		.date {
@@ -124,18 +119,22 @@ const deletePost = () => {
 	border: 3px solid map-get(c.$colors, "grey");
 	width: 80vw;
 
-	.titlePubli {
-		margin-left: 1vw;
-		font-size: 1.5vw;
-		color: map-get(c.$colors, "black");
-		font-family: "openSans";
-		font-weight: 600;
+	.text {
+		.titlePubli {
+			margin-left: 1vw;
+			font-size: 1.5vw;
+			color: map-get(c.$colors, "black");
+			font-family: "openSans";
+			font-weight: 600;
+		}
+
+		.textPubli {
+			font-family: "openSans";
+			padding: 0.5em;
+		}
 	}
 
-	.textPubli {
-		font-family: "openSans";
-		padding: 0.5em;
-	}
+
 
 	.filePubli {
 		width: 10%;
@@ -151,15 +150,22 @@ const deletePost = () => {
 	align-items: center;
 	justify-content: flex-end;
 
+	.verMasButton {
+		width: 10vw;
+		margin-right: 2vw;
+
+		&:hover {
+			background-color: map-get(c.$colors, "light-purple");
+			border-radius: 5px;
+		}
+
+		&:active {
+			background-color: purple;
+			border-radius: 5px;
+		}
+	}
+
 	.button-edit {
-		background-color: map-get(c.$colors, "light-purple");
-	}
-
-	.button-delete {
-		background-color: map-get(c.$colors, "light-purple");
-	}
-
-	button {
 		margin: 0.3em;
 		width: 2em;
 		height: 2em;
@@ -168,8 +174,32 @@ const deletePost = () => {
 		justify-content: center;
 
 		&:hover {
-			opacity: 0.9;
+			background-color: map-get(c.$colors, "light-purple");
+			border-radius: 5px;
+		}
+
+		&:active {
 			background-color: purple;
+			border-radius: 5px;
+		}
+	}
+
+	.button-delete {
+		margin: 0.3em;
+		width: 2em;
+		height: 2em;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+
+		&:hover {
+			background-color: map-get(c.$colors, "light-purple");
+			border-radius: 5px;
+		}
+
+		&:active {
+			background-color: purple;
+			border-radius: 5px;
 		}
 	}
 
@@ -181,5 +211,4 @@ const deletePost = () => {
 .separator {
 	height: 5%;
 	width: 80vw;
-}
-</style>
+}</style>

@@ -58,7 +58,7 @@ const submitData = async () => {
       <input class="resources" type="file" @change="onFileChange" ref="fileInput">
       <div class="buttonsContainer">
         <button class="cancelButton">Cancelar</button>
-        <button class="sendButton" @click="">Publicar</button>
+        <button class="sendButton">Publicar</button>
       </div>
       <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="triangulo morado">
       <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="splash verde">
