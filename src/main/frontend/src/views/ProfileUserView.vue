@@ -50,57 +50,57 @@ function cardModal() {
 </template>
 
 <style lang="scss" scoped>
-@use "@/scss/colors" as c;
-@use "@/scss/fonts";
+	@use "@/scss/colors" as c;
+	@use "@/scss/fonts";
+	
+	.title {
+  width: 46vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
 
-.title {
-	width: 46vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 1em;
+  .text {
+   font-size: xx-large;
+   color: map-get(c.$colors, "black");
+   font-family: "Open Sans", sans-serif;
+   font-weight: bold;
+   z-index: 1;
+  }
 
-	.text {
-		font-size: xx-large;
-		color: map-get(c.$colors, "black");
-		font-family: "Open Sans", sans-serif;
-		font-weight: bold;
-		z-index: 1;
-	}
+  .star {
+   position: relative;
+   width: 5%;
+   right: 3%;
+  }
+ }
 
-	.star {
-		position: relative;
-		width: 5%;
-		right: 3%;
-	}
-}
+ main {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ }
 
-main {
-	margin: 0 auto;
-	width: 80%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-}
+ .modal-container {
+        align-self: start;
+ 
+ .modal {
+  background: map-get(c.$colors, "white");
 
-.modal-container {
-	align-self: start;
+  display: flex;
+  border: 2px solid black;
+  width: 100%;
+        // padding: 2em;
+        font-size: 1.2em;
+  color: black;
+  height: 2em;
 
-	.modal {
-		background: map-get(c.$colors, "white");
-
-		display: flex;
-		border: 2px solid black;
-		width: 100%;
-		// padding: 2em;
-		font-size: 1.2em;
-		color: black;
-		height: 2em;
-
-		.btn-add {
-			margin-left: 1em;
-		}
-	}
-}
+        .btn-add {
+            margin-left: 1em;
+        }
+    }
+ }
 </style>

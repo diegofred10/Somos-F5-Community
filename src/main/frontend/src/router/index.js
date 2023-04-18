@@ -29,16 +29,9 @@ const router = createRouter({
 
     },
     {
-      path: '/MisContactos',
-      name: 'MisContactos',
+      path: '/Miscontactos',
+      name: 'Miscontactos',
       component: () => import('../views/MisContactosView.vue')
-
-    },
-    {
-      path: '/Users',
-      name: 'Users',
-      component: () => import('../views/UsersView.vue')
-
     }
     
    ]

@@ -3,7 +3,7 @@ import { ref, reactive } from "vue";
 import AuthService from "../services/AuthService";
 import { useRouter } from "vue-router";
 
-let checkCodeVar = "bienvenidos a la secta";
+let checkCodeVar = "F51234";
 
 const router = useRouter();
 
@@ -97,6 +97,9 @@ const submitData = async () => {
     margin-top: 2vh;
 
     .headerForm {
+        background: url("../assets/images/separator1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
         color: map-get(c.$colors, "white");
         font-family: 'openSans';
         font-weight: bold;

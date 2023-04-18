@@ -1,5 +1,5 @@
 
-INSERT INTO profiles VALUES (1, 'Github', 'LinkedIn', 'Ubicacion', 'Nombre', 'Apellido')
+INSERT INTO profiles VALUES (1, 'MIMIMI', 'LinkedIn', 'Ubicacion', 'Nombre', 'Apellido')
 -- INSERT INTO profiles VALUES (default, 'Giiiii', 'Liiiii', 'Ubiiiii', 'Nomiiiii', 'Apiiiiii')
 INSERT INTO users VALUES (default, null, '$2a$10$GesR/t2ldE7wtXwh93Brd.txPEvLVbtE02LOwWmI9Rq40YWKWi4Ra', 'saul@gmail.com', 1)
 -- INSERT INTO posts VALUES (default, '2023-02-01','Recurso de prueba', 'Titulo de prueba', 1)

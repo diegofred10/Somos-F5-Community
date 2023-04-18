@@ -1,5 +1,7 @@
 <script setup>
+import axios from 'axios';
 import { defineProps } from 'vue';
+let date = new Date().toLocaleDateString();
 window.addEventListener("DOMContentLoaded", () => {
 	const buttonDelete = document.querySelector(".button-delete");
 	const buttonEdit = document.querySelector(".button-edit");
@@ -34,8 +36,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const props = defineProps({
 	post: Object,
-
 })
+
+const deletePost = () => {
+	const idPost = props.post.id;
+	axios({
+		method: "DELETE",
+		url: "http://localhost:8080/api/posts/" + idPost,
+		withCredentials: true,
+	});
+	location.reload()
+};
 </script>
 
 <template>
@@ -43,26 +54,31 @@ const props = defineProps({
 		<div class="card">
 			<div class="info">
 				<div class="headerCard">
-					<h2 class="userNamePost"> Wala Laba Dub Dub </h2>
-					<p class="date">24-06-2022</p>
+					<p class="date">{{ date }}</p>
 				</div>
 				<div class="publication">
-					<h2 class="titlePubli">{{ post.title }}</h2>
-					<p class="textPubli">{{ post.description }}</p>
+					<div class="text">
+						<h2 class="titlePubli">{{ post.title }}</h2>
+						<p class="textPubli">
+							{{ post.description }}
+						</p>
+						<p>Ver mas</p>
+					</div>
+					<img v-if="post.image" :src="'http://localhost:8080/media/' + post.image" alt="imagen post" />
 				</div>
 				<div class="buttons">
 					<button class="button-edit">
 						<i class="fa-solid fa-pen btn btn-edit"></i>
 					</button>
 					<button class="button-delete">
-						<i class="fa-solid fa-trash btn btn-delete"></i>
+						<i @click="deletePost" class="fa-solid fa-trash btn btn-delete"></i>
 					</button>
 				</div>
 			</div>
 		</div>
 		<!-- <div class="separator">
-			<img class="stripe" src="../assets/images/imagesSomosF5/franjaMorada 2.png" alt="Imagen de una franja morada." />
-		</div> -->
+				<img class="stripe" src="../assets/images/imagesSomosF5/franjaMorada 2.png" alt="Imagen de una franja morada." />
+			</div> -->
 	</div>
 </template>
 
@@ -70,52 +86,60 @@ const props = defineProps({
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
+.cards {
+	width: 100%;
+}
+
 .card {
+	// min-width: 100%;
 	display: flex;
 	flex-direction: column;
 
-	.info {
+	.headerCard {
 		display: flex;
-		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		width: 100%;
 
-		.headerCard {
-			display: flex;
-			justify-content: space-between;
-			align-items: flex-end;
-			width: 100%;
+		.userNamePost {
+			background-image: url("../assets/images/svgPics/blueTriangle.svg");
+			// background-color: red;
+			// width: fit-content;
+			// width: 40vw;
+			// height: 10vh;
+		}
 
-			.userNamePost{
-				background-image: url("../assets/images/svgPics/blueTriangle.svg");
-				// background-color: red;
-				// width: fit-content;
-				// width: 40vw;
-				// height: 10vh;
-			}
-
-			.date {
-				align-self: flex-end;
-				color: map-get(c.$colors, "grey");
-				font-family: "openSans";
-			}
+		.date {
+			align-self: flex-end;
+			color: map-get(c.$colors, "grey");
+			font-family: "openSans";
 		}
 	}
+}
 
-	.publication {
-		background-color: map-get(c.$colors, "white");
-		border: 3px solid map-get(c.$colors, "grey");
-		width: 80vw;
+.publication {
+	background-color: map-get(c.$colors, "white");
+	border: 3px solid map-get(c.$colors, "grey");
+	width: 80vw;
 
-		.titlePubli {
-				margin-left: 1vw;
-				font-size: 1.5vw;
-				color: map-get(c.$colors, "black");
-				font-family: "openSans";
-				font-weight: 600;
-			}
+	.titlePubli {
+		margin-left: 1vw;
+		font-size: 1.5vw;
+		color: map-get(c.$colors, "black");
+		font-family: "openSans";
+		font-weight: 600;
+	}
 
-		.textPubli {
-			font-family: "openSans";
-			padding: 0.5em;
+	.textPubli {
+		font-family: "openSans";
+		padding: 0.5em;
+	}
+
+	img {
+		width: 10%;
+
+		&:active {
+			width: 50%;
 		}
 	}
 }
