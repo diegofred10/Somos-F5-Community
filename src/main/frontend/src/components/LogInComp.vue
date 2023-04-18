@@ -3,7 +3,7 @@ import { ref, reactive } from "vue";
 
 import { useRouter } from "vue-router";
 import AuthService from "../services/AuthService";
-import { useAuthStore } from "../stores/authStore";
+import { useAuthStore } from "../stores/AuthStore";
 const auth = useAuthStore();
 const router = useRouter();
 
@@ -22,12 +22,18 @@ const email = ref(""),
 const submitData = async () => {
   const authService = new AuthService();
   try {
-    const role = await authService.login(email.value, password.value);
-    auth.setRole(role);
-    auth.setUsername(email.value);
+    const user = await authService.login(email.value, password.value);
+    auth.setRole(user.role);
+    auth.setUsername(user.email);
+    auth.setId(user.id);
+    auth.setName(user.name);
+    auth.setSurname(user.surname);
+    auth.setLocation(user.location);
+    auth.setGithub(user.github);
+    auth.setLinkedin(user.linkedin);
     auth.setIsAuthenticated();
-    router.push("/ProfileUser");
-    console.log(auth.isAuthenticate, auth.roles, auth.username);
+    router.push("/ProfileUser/");
+    console.log(user);
   } catch (error) {
     console.error(error);
     alert("No te conozco")
