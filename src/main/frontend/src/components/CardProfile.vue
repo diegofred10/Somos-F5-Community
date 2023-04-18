@@ -64,7 +64,7 @@ const deletePost = () => {
 						</p>
 						<p>Ver mas</p>
 					</div>
-					<img v-if="post.image" :src="'http://localhost:8080/media/' + post.image" alt="imagen post" />
+					<img class="filePubli" v-if="post.image" :src="'http://localhost:8080/media/' + post.image" alt="imagen post" />
 				</div>
 				<div class="buttons">
 					<button class="button-edit">
@@ -118,6 +118,8 @@ const deletePost = () => {
 }
 
 .publication {
+	display: flex;
+	justify-content: space-between;
 	background-color: map-get(c.$colors, "white");
 	border: 3px solid map-get(c.$colors, "grey");
 	width: 80vw;
@@ -135,7 +137,7 @@ const deletePost = () => {
 		padding: 0.5em;
 	}
 
-	img {
+	.filePubli {
 		width: 10%;
 
 		&:active {
