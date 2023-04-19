@@ -18,7 +18,8 @@ const postService = new PostService();
 </script>
 
 <template>
-    <Header/>
+<main>
+<Header/>
 <UserFeed/>
 <div class="tools">
     <!-- <AddPublication/>    -->
@@ -28,19 +29,20 @@ const postService = new PostService();
     <CardProfile
 			v-for= "post in posts" :post="post"/>
 </div>
+</main>
 </template>
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
 
 main {
-    margin: 0 auto;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 
 .tools {
     display: flex;
@@ -67,5 +69,6 @@ main {
             }
         }
     }
+}
 }
 </style>

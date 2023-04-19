@@ -47,5 +47,5 @@ public class Profile {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile")
     private List<Post> posts; 
 
-    private Set<Long> contacts;
+    // private Set<Long> contacts;
 }
