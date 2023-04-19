@@ -8,7 +8,8 @@ import PostComp from '../components/PostComponent.vue'
 </script>
 
 <template>
-    <Header/>
+<main>
+<Header/>
 <UserFeed/>
 <div class="tools">
     <!-- <AddPublication/>    -->
@@ -17,19 +18,20 @@ import PostComp from '../components/PostComponent.vue'
 <div class="publi">
     <PostComp/>
 </div>
+</main>
 </template>
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
 
 main {
-    margin: 0 auto;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 
 .tools {
     display: flex;
@@ -56,5 +58,6 @@ main {
             }
         }
     }
+}
 }
 </style>

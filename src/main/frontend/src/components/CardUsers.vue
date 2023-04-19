@@ -5,7 +5,6 @@
 </script>
 
 <template>
-<div class="center">
  <section class="card-u">
     <div class="info-u">
         <img class="img-u" src="../assets/images/imagesSomosF5/Alicia.jpeg" alt="">
@@ -24,11 +23,8 @@
     <!-- <button>
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
     </button> -->
-    <button class="btn-u">
-        ELIMINAR DE MIS CONTACTOS
-    </button>
+    <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
- </div>
  <div class="separator-u" id="separator">
         <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
  </div> 
@@ -38,10 +34,6 @@
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
-.center{
-display: flex;
-align-items: center;
-justify-content: center;
 
 .card-u{
     background-color: #FEF0DC;
@@ -97,14 +89,14 @@ justify-content: center;
         border: solid;
         box-sizing: border-box;
         border-radius: 50px;
-        margin: 2%;
+        margin: 1%;
             &:hover {
             background-color: map-get(c.$colors, "white");
             color: map-get(c.$colors, "orange");
         }
     }
 }
-}
+
 .separator-u{
     display: flex;
     justify-content: center;

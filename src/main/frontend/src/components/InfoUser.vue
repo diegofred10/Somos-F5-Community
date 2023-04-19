@@ -280,7 +280,11 @@ onBeforeUpdate(() => {
 
     .photoUser {
       border-radius: 100%;
-      width: 20%;
+      max-width: 120px;
+      max-height: 120px;
+      object-fit: cover;
+      width: 120px;
+      height: 120px;
       margin: 2%;
       cursor: pointer;
     }
@@ -380,14 +384,14 @@ onBeforeUpdate(() => {
       width: 100%;
     }
     .addContacts {
-      width: 40%;
+      width: 50%;
       border: solid;
       box-sizing: border-box;
       border-radius: 50px;
       color: map-get(c.$colors, "white");
       font-family: "openSans";
       font-weight: bold;
-      font-size: 70%;
+      font-size: 55%;
       text-align: center;
       margin-bottom: 1%;
       &:hover {

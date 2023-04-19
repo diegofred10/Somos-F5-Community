@@ -56,16 +56,16 @@ axios.get("http://localhost:8080/api/users/" + auth.id).then((res) => {
 .banner{
 background-color: map-get(c.$colors,"orange");
 display: flex;
-justify-content: space-between;
-justify-content: center;
-align-items: center;
+justify-content: space-evenly;
+width: 100%;
+
     .design-c{
     display: flex;
     align-items: center;
         .pigeon-c{
         position: relative;
         width: 12vw;
-        margin-left: 2vw;
+        margin: 1% 0 1% 0;
         }
         .title-c{
         font-size: 4vw;
