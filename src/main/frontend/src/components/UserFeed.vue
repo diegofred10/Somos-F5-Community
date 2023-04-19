@@ -52,17 +52,16 @@ onBeforeMount(() => {
 .info{
 background-color: map-get(c.$colors,"orange");
 display: flex;
-justify-content: space-between;
+justify-content: space-evenly;
 justify-content: center;
 align-items: center;
-margin-top: 2vw;
+width: 100%;
     .design{
     display: flex;
     align-items: center;
         .pigeon{
         position: relative;
         width: 12vw;
-        margin-left: 2vw;
         }
         .title{
         font-size: 4vw;
@@ -96,11 +95,13 @@ margin-top: 2vw;
             }
             .contacts{
             display: flex;
+            align-items: center;
+            justify-content: flex-end;
             float:left;
             margin-top: 2%;
             font-family: 'Open Sans', sans-serif ;
                 .logo{
-                width: 18%;
+                  width: 12%;
                 }
                 .contactsName{
                 color: white;
