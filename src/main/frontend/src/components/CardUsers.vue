@@ -23,9 +23,7 @@
     <!-- <button>
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
     </button> -->
-    <button class="btn-u">
-        ELIMINAR DE MIS CONTACTOS
-    </button>
+    <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
  <div class="separator-u" id="separator">
         <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
