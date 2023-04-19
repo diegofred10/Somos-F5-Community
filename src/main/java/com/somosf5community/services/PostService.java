@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.somosf5community.exception.PostNotFoundException;
 import com.somosf5community.models.Post;
+import com.somosf5community.models.User;
 import com.somosf5community.repositories.PostRepository;
 
 import jakarta.transaction.Transactional;
@@ -18,7 +21,8 @@ import lombok.AllArgsConstructor;
 public class PostService implements BaseService<Post> {
     
     private PostRepository postRepository;
-    
+    private UserService userService;
+
     @Override
     @Transactional
     public List<Post> findAll() {
@@ -42,6 +46,10 @@ public class PostService implements BaseService<Post> {
     @Override
     @Transactional
     public Post save(Post post) {
+        // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        // String currentUsername = authentication.getName();
+        // User user = userService.findByUsername(currentUsername);
+        // post.getProfile().setId(user.getId());
         return postRepository.save(post);
     }
 
@@ -61,5 +69,7 @@ public class PostService implements BaseService<Post> {
         post.setProfile(postDetails.getProfile());
         return save(post);
     }
+
+    
     
 }

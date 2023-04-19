@@ -30,11 +30,14 @@ export default class PostService {
 
     }
 }
-async fetchAllPost(){
+
+
+
+async fetchAllPost(id_profile){
     try {
         await axios({
             method: "GET",
-            url: this.#url,
+            url: "http://localhost:8080/api/posts/" + id_profile,
             withCredentials: true,
         }).then(response =>{
             this.post.value=response.data

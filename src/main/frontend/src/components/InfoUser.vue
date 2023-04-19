@@ -84,6 +84,19 @@ const submit = async () => {
         console.log("submit error" + error);
     }
 }
+
+const addContact = async () => {
+    try {
+        await axios({
+            method: "POST",
+            url: 'http://localhost:8080/api/profiles/addContact/' + userId,
+            data: profile,
+            withCredentials: true
+        })
+    } catch (error) {
+        console.log("submit error" + error);
+    }
+}
 </script>
 
 <template>
@@ -156,8 +169,12 @@ const submit = async () => {
     align-items: center;
 
     .photoUser{
+        max-height: 100px;
+        object-fit: cover;
         border-radius: 100%;
-        width: 20%;
+        max-width: 100px;
+        width: 100px;
+        height: 100px;
         margin: 2%;
         cursor: pointer;
     }

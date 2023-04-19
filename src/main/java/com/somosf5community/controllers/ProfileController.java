@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.somosf5community.models.Profile;
+import com.somosf5community.models.User;
 import com.somosf5community.services.ProfileService;
 
 import lombok.AllArgsConstructor;
@@ -51,4 +52,11 @@ public class ProfileController {
         profileService.deleteById(id);
         return ResponseEntity.ok("Profile deleted successfully");
     }
+
+    // @GetMapping("addContact/{id}")
+    // public Profile addContact(@PathVariable Long id){
+    //     profileService.addContact(id);
+    //     return null;
+    // }
+
 }

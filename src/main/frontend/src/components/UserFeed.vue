@@ -3,12 +3,12 @@ import axios from 'axios'
 import { ref, reactive, computed, onBeforeMount } from 'vue'
 import { useAuthStore } from "@/stores/authStore";
 	const auth = useAuthStore();
-    console.log(auth.username)
+    console.log(auth.id)
     let userAvatar = ref();
 let userAvatarComputed =  computed(() => userAvatar.value);
 
 onBeforeMount(() => {
-axios.get("http://localhost:8080/api/users/username/" + auth.username).then((res) => {
+axios.get("http://localhost:8080/api/users/" + auth.id).then((res) => {
     userAvatar.value = res.data.image
 });
 })
@@ -106,6 +106,14 @@ margin-top: 2vw;
         margin-right: 3%;
         .imgProfile{
             border-radius: 100%;
+            max-height: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+        max-width: 100px;
+        width: 100px;
+        height: 100px;
+        margin: 2%;
+        cursor: pointer;
         }
 
         }
