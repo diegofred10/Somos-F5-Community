@@ -126,6 +126,16 @@ onBeforeUpdate(() => {
         <div class="contact">
           <input
             v-model="nameModel"
+            v-if="modelvalue != null"
+            modelvalue="name"
+            @update:modelValue="newValue => name = newValue"
+            class="name"
+            :readonly="readOnly"
+          />
+          <input
+            v-model="nameModel"
+            v-else
+            placeholder="Nombre"
             modelvalue="name"
             @update:modelValue="newValue => name = newValue"
             class="name"
@@ -133,67 +143,91 @@ onBeforeUpdate(() => {
           />
         </div>
         <div class="contact">
+          <a class="contactUrl" :href="'https://github.com/' + store.github" >
           <img
             class="logo"
             src="../assets/images/imagesSomosF5/github.png"
             alt="gitHub"
+            />
+          </a>
+          <input 
+          v-model="githubModel"
+          v-if="modelvalue != null"
+          modelvalue="github"
+          @update:modelValue="newValue => github = newValue"
+          class="contactsName"
+          :readonly="readOnly"
           />
           <input
-            v-model="githubModel"
-            modelvalue="github"
-            @update:modelValue="newValue => github = newValue"
-            class="contactsName"
-            :readonly="readOnly"
+          v-model="githubModel"
+          v-else
+          placeholder="Github"
+          modelvalue="github"
+          @update:modelValue="newValue => github = newValue"
+          class="contactsName"
+          :readonly="readOnly"
           />
         </div>
         <div class="contact">
+          <a class="contactUrl" :href="'https://www.linkedin.com/in/' + store.linkedin" >
           <img
             class="logo"
             src="../assets/images/imagesSomosF5/linkedin.png"
             alt="linkedin"
-          />
+            />
+          </a>
           <input
             v-model="linkedinModel"
+            v-if="modelvalue != null"
             modelvalue="linkedin"
             @update:modelValue="newValue => linkedin = newValue"
             class="contactsName"
             :readonly="readOnly"
           />
-          <!-- <input
+          <input
             v-model="linkedinModel"
             v-else
-            :placeholder="store.linkedin"
+            placeholder="LinkedIn"
+            modelvalue="linkedin"
+            @update:modelValue="newValue => linkedin = newValue"
             class="contactsName"
             :readonly="readOnly"
-          /> -->
+          />
         </div>
         <div class="contact">
+          <div class="contactUrl">
           <img
             class="logo"
             src="../assets/images/imagesSomosF5/geo-alt.png"
             alt="geo"
-          />
+            />
+          </div>
           <input
             v-model="locationModel"
+            v-if="modelvalue != null"
             modelvalue="location"
             @update:modelValue="newValue => location = newValue"
             class="contactsName"
             :readonly="readOnly"
           />
-          <!-- <input
+          <input
             v-model="locationModel"
             v-else
-            :placeholder="store.location"
+            placeholder="Location"
+            modelvalue="location"
+            @update:modelValue="newValue => location = newValue"
             class="contactsName"
             :readonly="readOnly"
-          /> -->
+          />
         </div>
         <div class="contact">
+          <div class="contactUrl">
           <img
             class="logo"
             src="../assets/images/imagesSomosF5/Vector.png"
             alt="email"
-          />
+            />
+          </div>
           <input
             :value="user.username"
             class="contactsName"
@@ -256,7 +290,7 @@ onBeforeUpdate(() => {
       flex-direction: column;
       .name {
         width: 100%;
-        font-size: 2em;
+        font-size: 1.5em;
         color: map-get(c.$colors, "white");
         font-family: "openSans";
         font-weight: bold;
@@ -269,9 +303,14 @@ onBeforeUpdate(() => {
         align-items: center;
         font-family: "openSans";
         margin-bottom: 0.5em;
+        margin-top: 1vh;
 
+        .contactUrl{
+          display: flex;
+          flex-direction: row;
+        }
         .logo {
-          width: 5%;
+          width: 70%;
           margin-right: 1%;
         }
         .contactsName {
@@ -292,7 +331,7 @@ onBeforeUpdate(() => {
         }
       }
       .buttonEdit {
-        width: 20%;
+        width: 22%;
         border: solid;
         box-sizing: border-box;
         border-radius: 50px;
@@ -310,7 +349,7 @@ onBeforeUpdate(() => {
         }
       }
       .buttonSave {
-        width: 20%;
+        width: 22%;
         border: solid;
         box-sizing: border-box;
         border-radius: 50px;

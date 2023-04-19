@@ -1,5 +1,17 @@
 <script setup>
+import axios from 'axios'
+import { ref, reactive, computed, onBeforeMount } from 'vue'
+import { useAuthStore } from "@/stores/authStore";
+	const auth = useAuthStore();
+    console.log("holaaa" + auth.id)
+    let userAvatar = ref();
+let userAvatarComputed =  computed(() => userAvatar.value);
 
+onBeforeMount(() => {
+axios.get("http://localhost:8080/api/users/" + auth.id).then((res) => {
+    userAvatar.value = res.data.image
+});
+})
 </script>
 <template>
 <section class="banner">
