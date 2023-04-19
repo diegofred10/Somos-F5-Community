@@ -102,6 +102,7 @@ onBeforeUpdate(() => {
 <template>
   <div class="infoUser">
     <div class="photoAndContact">
+      <div class="photoAndButton">
       <input
         type="file"
         @change="onFileChange"
@@ -122,6 +123,21 @@ onBeforeUpdate(() => {
         src="../assets/images/perfilVacio.png"
         alt="img"
       />
+      <button
+          v-if="readOnly == true"
+          @click="readOnly = false"
+          class="buttonEdit"
+        >
+          EDITAR
+        </button>
+        <button
+          v-if="readOnly == false"
+          @click="submit"
+          class="buttonSave"
+        >
+          GUARDAR
+        </button>
+      </div>
       <div class="contacts">
         <div class="contact">
           <input
@@ -143,7 +159,7 @@ onBeforeUpdate(() => {
           />
         </div>
         <div class="contact">
-          <a class="contactUrl" :href="'https://github.com/' + store.github" >
+          <a class="contactUrl" target="_blank" :href="'https://github.com/' + store.github" >
           <img
             class="logo"
             src="../assets/images/imagesSomosF5/github.png"
@@ -169,7 +185,7 @@ onBeforeUpdate(() => {
           />
         </div>
         <div class="contact">
-          <a class="contactUrl" :href="'https://www.linkedin.com/in/' + store.linkedin" >
+          <a class="contactUrl" target="_blank" :href="'https://www.linkedin.com/in/' + store.linkedin" >
           <img
             class="logo"
             src="../assets/images/imagesSomosF5/linkedin.png"
@@ -234,20 +250,6 @@ onBeforeUpdate(() => {
             :readonly="true"
           />
         </div>
-        <button
-          v-if="readOnly == true"
-          @click="readOnly = false"
-          class="buttonEdit"
-        >
-          EDITAR PERFIL
-        </button>
-        <button
-          v-if="readOnly == false"
-          @click="submit"
-          class="buttonSave"
-        >
-          GUARDAR CAMBIOS
-        </button>
       </div>
     </div>
 
@@ -277,16 +279,69 @@ onBeforeUpdate(() => {
     display: flex;
     width: 70%;
     align-items: center;
+    justify-items: right;
+    margin-left: 1%;
 
-    .photoUser {
+    .photoAndButton{
+      margin-right: 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .photoUser {
       border-radius: 100%;
       max-width: 120px;
       max-height: 120px;
       object-fit: cover;
       width: 120px;
       height: 120px;
-      margin: 2%;
+      // margin: 2%;
       cursor: pointer;
+    }
+      .buttonEdit {
+        display: flex;
+        width: 70%;
+        height: 3vh;
+        align-items: center;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        border-color: map-get(c.$colors, "white");
+        color: map-get(c.$colors, "orange");
+        background-color: map-get(c.$colors, "white");
+        font-family: "openSans";
+        font-weight: bold;
+        font-size: 70%;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10%;
+        &:hover {
+            background-color: map-get(c.$colors, "orange");
+            color: map-get(c.$colors, "white");
+        }
+      }
+      .buttonSave {
+        display: flex;
+        width: 70%;
+        height: 3vh;
+        align-items: center;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        color: map-get(c.$colors, "white");
+        // background-color: map-get(c.$colors, "grey-blue");
+        background-color: rgb(102, 102, 102);
+        font-family: "openSans";
+        font-weight: bold;
+        font-size: 70%;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10%;
+        &:hover {
+            background-color: map-get(c.$colors, "white");
+            color: map-get(c.$colors, "black");
+        }
+      }
     }
     .contacts {
       width: 80%;
@@ -294,7 +349,7 @@ onBeforeUpdate(() => {
       flex-direction: column;
       .name {
         width: 100%;
-        font-size: 1.5em;
+        font-size: 1.8em;
         color: map-get(c.$colors, "white");
         font-family: "openSans";
         font-weight: bold;
@@ -307,21 +362,18 @@ onBeforeUpdate(() => {
         align-items: center;
         font-family: "openSans";
         margin-bottom: 0.5em;
-        margin-top: 1vh;
 
         .contactUrl{
           display: flex;
           flex-direction: row;
         }
         .logo {
-          width: 70%;
-          margin-right: 1%;
+          width: 50%;
         }
         .contactsName {
           color: white;
           width: 100%;
           font-size: 1em;
-          margin-left: 2%;
         }
         input {
           color: white;
@@ -334,43 +386,8 @@ onBeforeUpdate(() => {
           }
         }
       }
-      .buttonEdit {
-        width: 22%;
-        border: solid;
-        box-sizing: border-box;
-        border-radius: 50px;
-        border-color: map-get(c.$colors, "white");
-        color: map-get(c.$colors, "orange");
-        background-color: map-get(c.$colors, "white");
-        font-family: "openSans";
-        font-weight: bold;
-        font-size: 70%;
-        text-align: center;
-        margin-bottom: 1%;
-        &:hover {
-            background-color: map-get(c.$colors, "orange");
-            color: map-get(c.$colors, "white");
-        }
-      }
-      .buttonSave {
-        width: 22%;
-        border: solid;
-        box-sizing: border-box;
-        border-radius: 50px;
-        color: map-get(c.$colors, "white");
-        // background-color: map-get(c.$colors, "grey-blue");
-        background-color: rgb(102, 102, 102);
-        font-family: "openSans";
-        font-weight: bold;
-        font-size: 70%;
-        text-align: center;
-        margin-bottom: 1%;
-        &:hover {
-            background-color: map-get(c.$colors, "white");
-            color: map-get(c.$colors, "black");
-        }
-      }
     }
+    
   }
   .design {
     width: 30%;
@@ -381,7 +398,7 @@ onBeforeUpdate(() => {
     align-items: center;
 
     .bannerDesing {
-      width: 100%;
+      width: 80%;
     }
     .addContacts {
       width: 50%;
@@ -391,7 +408,7 @@ onBeforeUpdate(() => {
       color: map-get(c.$colors, "white");
       font-family: "openSans";
       font-weight: bold;
-      font-size: 55%;
+      font-size: 0.7em;
       text-align: center;
       margin-bottom: 1%;
       &:hover {

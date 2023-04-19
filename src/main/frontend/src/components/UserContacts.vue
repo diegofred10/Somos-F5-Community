@@ -56,12 +56,13 @@ axios.get("http://localhost:8080/api/users/" + auth.id).then((res) => {
 .banner{
 background-color: map-get(c.$colors,"orange");
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 width: 100%;
 
     .design-c{
     display: flex;
     align-items: center;
+    margin-left: 1%;
         .pigeon-c{
         position: relative;
         width: 12vw;
@@ -107,7 +108,7 @@ width: 100%;
             }
         }
         .photoUser-c{
-        width: 18vh;
+        width: 20vh;
         margin-left: 3%;
         margin-right: 3%;
         .imgProfile-c{
