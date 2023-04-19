@@ -52,16 +52,19 @@ onBeforeMount(() => {
 .info{
 background-color: map-get(c.$colors,"orange");
 display: flex;
-justify-content: space-evenly;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
 width: 100%;
     .design{
     display: flex;
     align-items: center;
+    margin-left: 1%;
+
         .pigeon{
         position: relative;
         width: 12vw;
+        margin-top: 1%;
+        margin-bottom: 1%;
         }
         .title{
         font-size: 4vw;
@@ -73,8 +76,8 @@ width: 100%;
         }
         .circle{
         position: relative;
-        width: 21vw; 
-        right: 22vw;   
+        width: 20vw; 
+        right: 21vw;   
         -webkit-filter: grayscale(1);
         filter: grayscale(1);
         }
@@ -88,7 +91,7 @@ width: 100%;
             flex-wrap: wrap;
             justify-content: flex-end;
             .name{
-            font-size: 3vw;
+            font-size: 2.6vw;
             color: map-get(c.$colors,"white");
             font-family: 'Open Sans', sans-serif ;
             font-weight: bold;
@@ -112,7 +115,7 @@ width: 100%;
 
         }
         .photoUser{
-        width: 18vh;
+        width: 20vh;
         margin-left: 3%;
         margin-right: 3%;
         .imgProfile{
