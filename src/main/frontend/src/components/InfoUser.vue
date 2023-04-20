@@ -8,6 +8,7 @@ const url = ref("");
 const user = ref("");
 const profile = ref("");
 const nameModel = ref(store.name);
+const surnameModel = ref(store.surname);
 const githubModel = ref(store.github);
 const linkedinModel = ref(store.linkedin);
 const locationModel = ref(store.location);
@@ -57,17 +58,8 @@ const submit = async () => {
   readOnly.value = true;
   console.log(readOnly.value);
   try {
-    // const profile = {
-    //   name: nameModel.value,
-    //   github: githubModel.value,
-    //   linkedin: linkedinModel.value,
-    //   location: locationModel.value,
-    // };
-    //     store.name = profile.name,
-    //   store.github = profile.github,
-    //   store.linkedin = profile.linkedin,
-    //   store.location = profile.location,
     store.name =  nameModel.value,
+    store.surname = surnameModel.value,
     store.github = githubModel.value,
     store.linkedin = linkedinModel.value,
     store.location = locationModel.value
@@ -140,14 +132,17 @@ onBeforeUpdate(() => {
       </div>
       <div class="contacts">
         <div class="contact">
+          <div class="nameAndSurname">
+            <h1 class="text">{{ nameModel + " " + surnameModel}}</h1>
           <input
             v-model="nameModel"
             v-if="modelvalue != null"
-            modelvalue="name"
+            modelvalue= "name"
             @update:modelValue="newValue => name = newValue"
             class="name"
             :readonly="readOnly"
           />
+          
           <input
             v-model="nameModel"
             v-else
@@ -157,7 +152,27 @@ onBeforeUpdate(() => {
             class="name"
             :readonly="readOnly"
           />
+         
+          <input 
+          v-model="surnameModel"
+          v-if="modelvalue != null"
+          modelvalue="surname"
+          @update:modelValue="newValue => surname = newValue"
+          class="name"
+          contenteditable="true"
+            :readonly="readOnly"
+          />
+          <input
+            v-model="surnameModel"
+            v-else
+            placeholder="Apellido"
+            modelvalue="surname"
+            @update:modelValue="newValue => surname = newValue"
+            class="surname"
+            :readonly="readOnly"
+          />
         </div>
+      </div>
         <div class="contact">
           <a class="contactUrl" target="_blank" :href="'https://github.com/' + store.github" >
           <img
@@ -274,6 +289,7 @@ onBeforeUpdate(() => {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  border-radius: 5px;
 
 
   .photoAndContact {
@@ -348,22 +364,57 @@ onBeforeUpdate(() => {
       width: 80%;
       display: flex;
       flex-direction: column;
-      .name {
-        width: 100%;
-        font-size: 1.8em;
-        color: map-get(c.$colors, "white");
-        font-family: "openSans";
-        font-weight: bold;
-        margin-left: 1%;
-      }
+      
       .contact {
-        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         font-family: "openSans";
         margin-bottom: 0.5em;
 
+        .nameAndSurname{
+          width: fit-content;
+          display: inline-block;
+          
+          .text{
+            color: white;
+            font-size: xx-large;
+            font-weight: bold;
+          }
+          .name {
+            &:read-only{
+            display: inline-block;
+            width: fit-content;
+            font-size: 1.8em;
+            color: map-get(c.$colors, "white");
+            font-family: "openSans";
+            font-weight: bold;
+            margin-left: 1%;
+            display: none;
+            }
+            &:read-write{
+              background-color: #FEF0DC;
+              color: black;
+              margin-bottom: 2%;
+            }
+          }
+          .surname{
+            &:read-only{
+            display: inline-block;
+            width: fit-content;
+            font-size: 1.8em;
+            color: map-get(c.$colors, "white");
+            font-family: "openSans";
+            font-weight: bold;
+            margin-left: 1%;
+            display: none;
+            }
+            &:read-write{
+              background-color: #FEF0DC;
+              color: black;
+            }
+          }
+        }
         .contactUrl{
           display: flex;
           flex-direction: row;
@@ -373,17 +424,19 @@ onBeforeUpdate(() => {
         }
         .contactsName {
           color: white;
-          width: 100%;
+
           font-size: 1em;
         }
         input {
+          width: 100%;
           color: white;
           border: 0;
           outline: none;
           &:read-write {
-          background-color: #FEF0DC;
-           color: black;
-           border-radius: 10px;
+            background-color: #FEF0DC;
+            color: black;
+            padding-left: 1%;
+            border-radius: 5px;
           }
         }
       }
