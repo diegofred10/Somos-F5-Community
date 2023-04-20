@@ -56,6 +56,7 @@ justify-content: space-evenly;
 justify-content: center;
 align-items: center;
 width: 100%;
+border-radius: 5px;
     .design{
     display: flex;
     align-items: center;

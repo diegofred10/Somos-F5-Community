@@ -29,6 +29,7 @@
  display: flex;
  justify-content: space-between;
  align-items: center;
+ border-radius: 5px;
 
     .infoAdmin{
     display: flex;

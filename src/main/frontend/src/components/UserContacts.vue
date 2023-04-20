@@ -53,6 +53,7 @@ background-color: map-get(c.$colors,"orange");
 display: flex;
 justify-content: space-evenly;
 width: 100%;
+border-radius: 5px;
 
     .design-c{
     display: flex;
