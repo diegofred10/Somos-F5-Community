@@ -2,11 +2,6 @@ package com.somosf5community.models;
 
 import java.util.List;
 import java.util.Set;
-<<<<<<< HEAD
-
-import org.hibernate.annotations.ManyToAny;
-=======
->>>>>>> a4d833f927184e068f9900677c7b43172ecd2048
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
