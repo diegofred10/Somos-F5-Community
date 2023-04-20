@@ -1,9 +1,19 @@
 <script setup>
+import { ref , onBeforeMount } from 'vue';
 import Header from '../components/Header.vue';
 import UserFeed from '../components/UserFeed.vue';
 import AddPublication from '../components/AddPublication.vue';
 import Search from '../components/Search.vue'
-import PostComp from '../components/PostComponent.vue'
+import PostService from '../services/PostService';
+import CardProfile from '../components/CardProfile.vue';
+
+const postService = new PostService();
+	let posts = ref([]);
+ 	onBeforeMount(async()=>{
+	await postService.fetchAllPost()
+	posts.value = postService.getPost()
+	console.log(posts.value)
+	});
 
 </script>
 
@@ -16,7 +26,8 @@ import PostComp from '../components/PostComponent.vue'
     <Search/>
 </div>
 <div class="publi">
-    <PostComp/>
+    <CardProfile
+			v-for= "post in posts" :post="post"/>
 </div>
 </main>
 </template>
