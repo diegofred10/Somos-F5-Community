@@ -1,7 +1,8 @@
 <script setup>
-    import axios from 'axios';
-    let random = Math.round(Math.random()*2+1);
-    let image = "src/assets/images/separator" + random + ".png";
+let random = Math.round(Math.random()*2+1);
+let image = "src/assets/images/separator" + random + ".png";
+
+
 </script>
 
 <template>
@@ -22,7 +23,7 @@
     </div>
     <!-- <button>
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
-    </button> -->
+    </button>  -->
     <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
  <div class="separator-u" id="separator">
