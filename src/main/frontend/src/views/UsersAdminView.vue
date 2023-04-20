@@ -1,15 +1,20 @@
 <script setup>
+import { ref, onBeforeMount } from 'vue';
 import HeaderAdmin from '../components/HeaderAdmin.vue';
 import BannerAdmin from '../components/BannerAdmin.vue';
-import AddPublication from "../components/AddPublication.vue";
+// import AddPublication from "../components/AddPublication.vue";
 import Search from '../components/Search.vue';
+
+
+
 </script>
 
 <template>
 <main>
 <HeaderAdmin/>
 <BannerAdmin/>
-<AddPublication/>
+
+<!-- <AddPublication/> -->
 <Search/>
 </main>
 </template>

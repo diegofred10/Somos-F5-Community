@@ -1,14 +1,28 @@
 <script setup>
+import { ref, onBeforeMount } from 'vue';
 import HeaderAdmin from '../components/HeaderAdmin.vue';
 import BannerAdmin from '../components/BannerAdmin.vue';
 import Search from '../components/Search.vue';
+import CardProfile from '../components/CardProfile.vue';
+import PostService from '../services/PostService';
+
+
+const postService = new PostService();
+	let posts = ref([]);
+ 	onBeforeMount(async()=>{
+	await postService.fetchAllPost()
+	posts.value = postService.getPost()
+	console.log(posts.value)
+	});
 </script>
 
 <template>
 <main>
-<HeaderAdmin/>
-<BannerAdmin/>
-<Search/>
+  <HeaderAdmin/>
+  <BannerAdmin/>
+  <Search/>
+<CardProfile
+v-for= "post in posts" :post="post"/>
 </main>
 
 </template>
