@@ -32,7 +32,17 @@ const router = createRouter({
       path: '/Miscontactos',
       name: 'Miscontactos',
       component: () => import('../views/MisContactosView.vue')
-    }
+    },
+    {
+      path:'/MuroAdmin',
+      name: 'MuroAdmin',
+      component: () => import('../views/MuroAdminView.vue')
+    },
+    {
+      path:'/UsersAdmin',
+      name: 'UsersAdmin',
+      component: () => import('../views/UsersAdminView.vue')   
+    },
     
    ]
 })
