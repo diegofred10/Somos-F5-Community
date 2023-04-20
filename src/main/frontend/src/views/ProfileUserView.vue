@@ -6,16 +6,26 @@
 	import Header from "../components/Header.vue";
 	import AddPublication from "../components/AddPublication.vue";
 	import PostService from "../services/PostService";
-	
+
+	let input = ref("");
 	
 	const postService = new PostService();
+
 	let posts = ref([]);
+
  	onBeforeMount(async()=>{
 	await postService.fetchAllPost()
 	posts.value = postService.getPost()
 	console.log(posts.value)
-	});
+});
 
+function filteredList() {
+	return posts.value.filter((post) =>
+		post.title.toLowerCase().includes(input.value.toLowerCase())||
+		post.description.toLowerCase().includes(input.value.toLowerCase())
+		// ||profile.name.toLowerCase().includes(input.value.toLowerCase())
+	);
+}
 
 
 	const trapFocus = ref(false);
@@ -27,6 +37,7 @@
 			trapFocus: true,
 		});
 	}
+
 </script>
 
 <template>
@@ -55,8 +66,13 @@
 				<i class="fa-solid fa-plus btn-add"></i>
 			</o-button>
 		</section>
+		<input type="text" v-model="input" placeholder="Buscar publicaciones..." />
 			<CardProfile
-			v-for= "post in posts" :post="post"/>
+			v-for= "post in filteredList()" :post="post"/>
+			
+			<div class="itemError" v-if="input&&!filteredList().length">
+    <p>No results found!</p>
+</div>
 
 		
 	</main>
