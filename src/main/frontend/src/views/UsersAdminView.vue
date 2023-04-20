@@ -1,12 +1,16 @@
 <script setup>
 import HeaderAdmin from '../components/HeaderAdmin.vue';
 import BannerAdmin from '../components/BannerAdmin.vue';
+import AddPublication from "../components/AddPublication.vue";
+import Search from '../components/Search.vue';
 </script>
 
 <template>
 <main>
 <HeaderAdmin/>
 <BannerAdmin/>
+<AddPublication/>
+<Search/>
 </main>
 </template>
 
