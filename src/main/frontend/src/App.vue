@@ -4,10 +4,7 @@
 
 <template>
   <RouterView />
-<<<<<<< HEAD
-=======
-  <LogInViewVue/>
->>>>>>> origin/develop
+
 </template>
 
 <style scoped lang="scss">

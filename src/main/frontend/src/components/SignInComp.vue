@@ -1,72 +1,64 @@
 <script setup>
 import { ref, reactive } from "vue";
+
 import AuthService from "../services/AuthService";
+
 import { useRouter } from "vue-router";
 
-<<<<<<< HEAD
-let checkCodeVar = "bienvenidos a la secta";
-=======
 let checkCodeVar = "F51234";
->>>>>>> origin/develop
 
 const router = useRouter();
 
 const email = ref(""),
   emailRules = reactive([
     (v) => !!v || "Es necesario introducir un e-mail",
+
     (v) => /.+@.+/.test(v) || "El e-mail debe ser en el formato correcto",
   ]),
   password = ref(""),
   passwordRules = reactive([
     (v) => !!v || "Es necesario introducir una contraseña",
+
     (v) => v.length >= 8 || "Introduzca un e-mail válido",
   ]),
   confirmPassword = ref(""),
   confirmPasswordRules = reactive([
     (v) => !!v || "Confirme su contraseña",
+
     (v) => v === password.value || "Las contraseñas no coinciden",
   ]),
   checkCode = ref(""),
   checkCodeRules = reactive([(v) => v === checkCodeVar || "¡Alerta, intruso!"]);
 
 const submitData = async () => {
-<<<<<<< HEAD
   const authService = new AuthService();
-  if (email.value == "" && password.value == "") return 
+
+  if (email.value && password.value != null) {
     try {
       const response = await authService.register(email.value, password.value);
-      alert("Registrado con exito");
-      router.push("/login");
-    } catch (error) {
-      alert("mete bien los datos")
-    } 
-=======
-    const authService = new AuthService();
-    if (email.value && password.value != null) {
-        try {
-        const response = await authService.register(email.value, password.value);
-        alert("Registrado con éxito");
-        router.push("/");
+
+      alert("Registrado con éxito");
+
+      router.push("/");
     } catch (error) {
       console.error(error);
     }
   } else {
     alert("Debes rellenar todos los campos");
   }
->>>>>>> origin/develop
 };
 </script>
 
 <template>
-<<<<<<< HEAD
-  <div class="logIn">
+  <div class="signIn">
     <h1 class="headerForm">Bienvenido a SomosF5</h1>
+
     <v-sheet class="mx-auto">
       <v-form v-model="valid" @submit.prevent="submitData">
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="Correo Electronico"
+          label="Correo Electrónico"
           required
         ></v-text-field>
 
@@ -89,25 +81,15 @@ const submitData = async () => {
           required
         >
         </v-text-field>
-=======
-    <div class="signIn">
-        <h1 class="headerForm">Bienvenido a SomosF5</h1>
-        <v-sheet class="mx-auto">
-            <v-form v-model="valid" @submit.prevent="submitData">
-                <v-text-field v-model="email" :rules="emailRules" label="Correo Electrónico" required></v-text-field>
->>>>>>> origin/develop
 
         <v-text-field
-          v-model="password"
-          :rules="passwordRules"
-          :type="show1 ? 'text' : 'password'"
-          name="input-10-1"
-          label="Contraseña"
+          v-model="checkCode"
+          :rules="checkCodeRules"
+          label="Codigo de verificacion"
           required
         >
         </v-text-field>
 
-<<<<<<< HEAD
         <div class="d-flex flex-column">
           <v-btn type="submit" class="mt-4" block @click="validate">
             Registrarse
@@ -115,106 +97,62 @@ const submitData = async () => {
         </div>
       </v-form>
     </v-sheet>
-    <img class="stringsPic" src="../assets/images/imagesSomosF5/rayas 1.png" />
-    <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
-    <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-    <img class="pinkTriangle" src="../assets/images/svgPics/pinkTriangle.svg" />
-    <img
-      class="greenTriangle"
-      src="../assets/images/svgPics/greenTriangle.svg"
-    />
-    <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
+
+    <div class="design">
+      <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
+
+      <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
+
+      <img
+        class="blueTriangle"
+        src="../assets/images/svgPics/blueTriangle.svg"
+      />
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-.logIn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3vh;
-
-  .headerForm {
-    font-size: 7vh;
-    color: white;
-  }
-
-  .v-sheet {
-    width: 40vw;
-
-    .v-form {
-      background-color: #ff4700;
-=======
-        <v-text-field
-          v-model="confirmPassword"
-          :rules="confirmPasswordRules"
-          :type="show1 ? 'text' : 'password'"
-          name="input-10-1"
-          label="Repetir contraseña"
-          required
-        >
-        </v-text-field>
-
-                <v-text-field v-model="checkCode" :rules="checkCodeRules" label="Codigo de verificacion" required>
-                </v-text-field>
-
-                <div class="d-flex flex-column">
-                    <v-btn type="submit" class="mt-4" block @click="validate">
-                        Registrarse
-                    </v-btn>
-                </div>
-            </v-form>
-        </v-sheet>
-        <div class="design">
-            <img class="blueSplash" src="../assets/images/svgPics/blueSplash.svg" />
-            <img class="littleStar" src="../assets/images/svgPics/littleStar.svg" />
-            <img class="blueTriangle" src="../assets/images/svgPics/blueTriangle.svg" />
-        </div>
-    </div>
-</template>
-
-<style lang="scss">
 @use "@/scss/colors" as c;
+
 @use "@/scss/fonts";
 
 .signIn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2vh;
 
-    .headerForm {
-        background: url("../assets/images/separator1.png");
+  .headerForm {
+    background: url("../assets/images/separator1.png");
     background-size: cover;
     background-repeat: no-repeat;
-        color: map-get(c.$colors, "white");
-        font-family: 'openSans';
-        font-weight: bold;
-        font-size: 6vh;
+    color: map-get(c.$colors, "white");
+    font-family: "openSans";
+    font-weight: bold;
+    font-size: 6vh;
+  }
+
+  @media (max-width: 599px) {
+    .headerForm {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: map-get(c.$colors, "white");
+      font-family: "openSans";
+      font-weight: bold;
+      font-size: 4vh;
     }
+  }
 
-    @media(max-width: 599px) {
-        .headerForm {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: map-get(c.$colors, "white");
-            font-family: 'openSans';
-            font-weight: bold;
-            font-size: 4vh;
-        }
-    }
+  .v-sheet {
+    width: 35vw;
+    margin-top: 1%;
 
-    .v-sheet {
-        width: 35vw;
-        margin-top: 1%;
-
-        .v-form {
-            background-color: map-get(c.$colors, "orange");
-            display: flex;
-            flex-direction: column;
-            height: 50%;
->>>>>>> origin/develop
+    .v-form {
+      background-color: map-get(c.$colors, "orange");
+      display: flex;
+      flex-direction: column;
+      height: 50%;
 
       .v-input__control {
         background-color: white;
@@ -225,46 +163,11 @@ const submitData = async () => {
       .v-input__details {
         z-index: 5;
 
-<<<<<<< HEAD
         .v-messages__message {
           color: #fed2c0;
-=======
-                .v-messages__message {
-                    color: #FED2C0;
-                }
-            }
-
-            .passwordLink {
-                color: white;
-                display: flex;
-                justify-content: center;
-                z-index: 2;
-            }
-
-            .d-flex.flex-column {
-                width: fit-content;
-                margin: auto;
-
-                .v-btn {
-                    color: white;
-                    background-color: black;
-                    z-index: 2;
-                    margin-bottom: 5vh;
-                }
-
-                .v-btn--size-default {
-                    width: 27vw;
-
-                    .v-btn__content {
-                        font-size: 2vh;
-                    }
-                }
-            }
->>>>>>> origin/develop
         }
       }
 
-<<<<<<< HEAD
       .passwordLink {
         color: white;
         display: flex;
@@ -280,152 +183,105 @@ const submitData = async () => {
           color: white;
           background-color: black;
           z-index: 2;
+          margin-bottom: 5vh;
         }
 
         .v-btn--size-default {
-          min-width: 25vw;
+          width: 27vw;
+
+          .v-btn__content {
+            font-size: 2vh;
+          }
         }
       }
     }
   }
 
-  .stringsPic {
-    position: absolute;
-    right: 31vw;
-    top: 15.5vh;
-    height: 5vh;
-    width: 5vw;
-  }
+  @media (max-width: 599px) {
+    .v-sheet {
+      width: 70vw;
+      margin-top: 1%;
 
-  .blueTriangle {
-    position: absolute;
-    right: 1vw;
-    height: 55vh;
-    width: 25vw;
-  }
-
-  .littleStar {
-    position: absolute;
-    right: 17vw;
-    height: 20vh;
-    width: 12vw;
-  }
-
-  .pinkTriangle {
-    position: absolute;
-    transform: rotate(90deg);
-    right: 30vw;
-    height: 80vh;
-    width: 12vw;
-  }
-
-  .greenTriangle {
-    position: absolute;
-    transform: rotate(-90deg);
-    right: 55vw;
-    height: 70vh;
-    width: 10vw;
-    z-index: 1;
-  }
-
-  .blueSplash {
-    position: absolute;
-    left: 0vw;
-    height: 40vh;
-    width: 22vw;
-  }
-=======
-    @media(max-width: 599px) {
-
-        .v-sheet {
-            width: 70vw;
-            margin-top: 1%;
-
-            .v-form {
-                background-color: map-get(c.$colors, "orange");
-                display: flex;
-                flex-direction: column;
-                margin: auto;
-                height: 50%;
-                width: 70vw;
-            }
-        }
-    }
-
-    @media(min-width: 1440px) {
-
-        .v-sheet {
-            width: 50vw;
-            margin-top: 1%;
-
-            .v-form {
-                background-color: map-get(c.$colors, "orange");
-                display: flex;
-                flex-direction: column;
-                margin: auto;
-                height: 70vh;
-                width: 50vw;
-
-                .v-btn--size-default {
-                    height: 7vh;
-                    width: 27vw;
-
-                    .v-btn__content {
-                        font-size: 10vh;
-                    }
-                }
-            }
-        }
-    }
-
-    .design {
+      .v-form {
+        background-color: map-get(c.$colors, "orange");
         display: flex;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+        flex-direction: column;
+        margin: auto;
         height: 50%;
-        justify-content: space-between;
-        align-items: flex-end;
-
-        @media (min-width: 600px) {
-            .blueTriangle {
-                height: 100%;
-                width: 18%;
-            }
-
-            .littleStar {
-                position: relative;
-                left: 30%;
-                bottom: 35%;
-                width: 12%;
-            }
-
-            .blueSplash {
-                height: 85%;
-                width: 25%;
-            }
-        }
-
-        @media (max-width: 599px) {
-
-            .blueTriangle {
-                height: 0%;
-                width: 0%;
-            }
-
-            .littleStar {
-                bottom: 0%;
-                width: 0%;
-            }
-
-            .blueSplash {
-                height: 0%;
-                width: 0%;
-            }
-        }
-
-
+        width: 70vw;
+      }
     }
->>>>>>> origin/develop
+  }
+
+  @media (min-width: 1440px) {
+    .v-sheet {
+      width: 50vw;
+      margin-top: 1%;
+
+      .v-form {
+        background-color: map-get(c.$colors, "orange");
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        height: 70vh;
+        width: 50vw;
+
+        .v-btn--size-default {
+          height: 7vh;
+          width: 27vw;
+
+          .v-btn__content {
+            font-size: 10vh;
+          }
+        }
+      }
+    }
+  }
+
+  .design {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @media (min-width: 600px) {
+      .blueTriangle {
+        height: 100%;
+        width: 18%;
+      }
+
+      .littleStar {
+        position: relative;
+        left: 30%;
+        bottom: 35%;
+        width: 12%;
+      }
+
+      .blueSplash {
+        height: 85%;
+        width: 25%;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .blueTriangle {
+        height: 0%;
+        width: 0%;
+      }
+
+      .littleStar {
+        bottom: 0%;
+        width: 0%;
+      }
+
+      .blueSplash {
+        height: 0%;
+        width: 0%;
+      }
+    }
+  }
 }
 </style>
