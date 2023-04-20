@@ -27,13 +27,14 @@ function filterList() {
   <div class="searcher">
     <input class="text" type="text" v-model="input" placeholder= "  buscar.." />
 
+    <!-- <div class="itemPost" v-for="post in filterList()" :post="post">
+    <p>{{ post }}</p>
+  </div> -->
     <div class="itemError" v-if="search && !filter().length">
       <p>No hay resultados</p>
     </div>
   </div>
-  <!-- <div class="itemWord" v-for="post in filterList()" :post="post">
-    <p>{{ post }}</p>
-  </div> -->
+  
 </template>
 
 <style lang="scss" scoped>
