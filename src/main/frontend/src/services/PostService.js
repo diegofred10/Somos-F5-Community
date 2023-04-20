@@ -46,6 +46,23 @@ async fetchAllPost(){
         console.log(error)
     }
 }
+
+// async fetchAllPost(){
+//     try {
+//         await axios({
+//             method: "GET",
+//             url: this.#url,
+//             withCredentials: true,
+//         }).then(response =>{
+//             this.post.value=response.data
+//             console.log(response.data)
+           
+//         });
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 }
 
 

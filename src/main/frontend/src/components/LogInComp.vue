@@ -8,6 +8,7 @@ const auth = useAuthStore();
 const router = useRouter();
 
 const email = ref(""),
+
   emailRules = reactive([
     (v) => !!v || "Es necesario introducir un e-mail",
     (v) => /.+@.+/.test(v) || "Introduzca un e-mail válido",
