@@ -50,24 +50,6 @@ const deletePost = () => {
 
 const dialog = ref(false);
 
-// export default {
-//     data () {
-//       return {
-//         dialog: false,
-//       }
-//     },
-//   }
-
-// const popUp = {
-// 	setup() {
-// 		const dialog = ref(false);
-// 		return {
-// 			dialog,
-// 		};
-// 	},
-// };
-
-
 </script>
 
 <template>
@@ -89,35 +71,28 @@ const dialog = ref(false);
 						alt="imagen post" />
 				</div>
 				<div class="buttons">
-					<v-row justify="end">
-						<v-dialog v-model="dialog" width="800">
+					<v-row class="mr-1" justify="end">
+						<v-dialog class="popUp" v-model="dialog">
 							<template v-slot:activator="{ props }">
-								<v-btn class="verMasButton" v-bind="props">
+								<v-btn class="verMasButton" variant="text" v-bind="props">
 									Ver mas
 								</v-btn>
 							</template>
 							<v-card>
 								<v-card-title>
-									<span class="text-h5">Use Google's location service?</span>
+									<h2 class="titlePubliBigger">{{ post.title }}</h2>
 								</v-card-title>
 								<v-card-text>
-									Lorem ipsum dolor sit amet, semper quis, sapien id natoque elit. Nostra urna at, magna
-									at neque sed sed ante imperdiet, dolor mauris cursus velit, velit non, sem nec. Volutpat
-									sem ridiculus placerat leo, augue in, duis erat proin condimentum in a eget, sed
-									fermentum sed vestibulum varius ac, vestibulum volutpat orci ut elit eget tortor.
-									Ultrices nascetur nulla gravida ante arcu. Pharetra rhoncus morbi ipsum, nunc tempor
-									debitis, ipsum pellentesque, vitae id quam ut mauris dui tempor, aptent non. Quisque
-									turpis. Phasellus quis lectus luctus orci eget rhoncus. Amet donec vestibulum mattis
-									commodo, nulla aliquet, nibh praesent, elementum nulla. Sit lacus pharetra tempus magna
-									neque pellentesque, nulla vel erat.
+									<p class="textPubliBigger">{{ post.description }}</p>
+									<img v-if="post.image" :src="'http://localhost:8080/media/' + post.image"
+										alt="imagen post" />
+									<p class="datePopUp">{{ date }}</p>
+
 								</v-card-text>
 								<v-card-actions>
 									<v-spacer></v-spacer>
-									<v-btn color="green-darken-1" variant="text" @click="dialog = false">
-										Disagree
-									</v-btn>
-									<v-btn color="green-darken-1" variant="text" @click="dialog = false">
-										Agree
+									<v-btn class="cerrarButton" variant="text" @click="dialog = false">
+										Cerrar
 									</v-btn>
 								</v-card-actions>
 							</v-card>
@@ -125,8 +100,8 @@ const dialog = ref(false);
 					</v-row>
 
 					<!-- <button class="verMasButton">
-							Ver mas
-						</button> -->
+															Ver mas
+														</button> -->
 					<button class="button-edit">
 						<i class="fa-solid fa-pen btn btn-edit"></i>
 					</button>
@@ -160,7 +135,6 @@ const dialog = ref(false);
 
 		.backgroundUserName {
 			display: flex;
-			// background-image: url("../assets/images/UserNamePostBackground/manchaLila.png");
 			background-image: url("../assets/images/UserNamePostBackground/manchaAzul.png");
 			background-size: contain;
 			width: 40vw;
@@ -216,12 +190,31 @@ const dialog = ref(false);
 	}
 }
 
-.buttons {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+.popUp {
+	width: 90vw;
 
-	.verMasButton {
+	.titlePubliBigger {
+		margin-left: 1vw;
+		font-size: 1.5vw;
+		color: map-get(c.$colors, "black");
+		font-family: "openSans";
+		font-weight: 600;
+	}
+
+	.textPubliBigger {
+		font-family: "openSans";
+		padding: 0.5em;
+	}
+
+	.datePopUp {
+		display: flex;
+		justify-content: flex-end;
+		margin-right: 2vw;
+		color: map-get(c.$colors, "grey");
+		font-family: "openSans";
+	}
+
+	.cerrarButton{
 		width: 10vw;
 		margin-right: 2vw;
 
@@ -235,6 +228,30 @@ const dialog = ref(false);
 			border-radius: 5px;
 		}
 	}
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+
+	.verMasButton {
+		// background-color: ;
+		width: 10vw;
+		margin-right: 2vw;
+
+		&:hover {
+			background-color: map-get(c.$colors, "light-purple");
+			border-radius: 5px;
+		}
+
+		&:active {
+			background-color: purple;
+			border-radius: 5px;
+		}
+	}
+
 
 	.button-edit {
 		margin: 0.3em;
