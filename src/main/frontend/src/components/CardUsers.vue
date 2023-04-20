@@ -2,21 +2,30 @@
     import axios from 'axios';
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
+
+    const props = defineProps({
+		user: Object,
+        profile:Array,
+	})
+
 </script>
 
 <template>
  <section class="card-u">
     <div class="info-u">
-        <img class="img-u" src="../assets/images/imagesSomosF5/Alicia.jpeg" alt="">
+        <img class="img-u" 
+        v-if="user.image != null" :src="'http://localhost:8080/media/' + user.image">
+        <img
+        v-else class="img-u" src="../assets/images/perfilVacio.png" alt="img"/>
         <div class="date-u">
-           <h1 class="name-u">Alicia Fernández</h1>
+           <h1 class="name-u">{{ profile[user.id -1].name + profile[user.id -1].surname }}</h1>
            <div class="contact-u">
                 <i class="fa-regular fa-envelope logo-u" style="color: #000000;"></i>
-                <p class="text-u">alicia_fernandez@gmail.com</p>
+                <p class="text-u">{{ user.username }}</p>
            </div>
            <div class="contact-u">
                 <i class="fa-solid fa-location-dot" style="color: #000000;"></i>
-                <p class="text-u">Gijón, Asturias</p>
+                <p class="text-u">{{ profile[user.id -1].location }}</p>
            </div>
         </div>
     </div>
@@ -41,7 +50,7 @@
     margin-top: 2%;
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content: space-between;
 
     .info-u{
         display: flex;
@@ -49,8 +58,8 @@
 
         .img-u{
             border-radius: 100%;
-            width: 15%;
-            margin: 1% 3% 1% 5%;
+            width: 15vh;
+            margin: 1vh 3vh 1vh 5vh;
         }
         .date-u{
             margin-top: 1%;
