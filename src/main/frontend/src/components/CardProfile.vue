@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios';
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 let date = new Date().toLocaleDateString();
 window.addEventListener("DOMContentLoaded", () => {
 	const buttonDelete = document.querySelector(".button-delete");
@@ -47,6 +47,27 @@ const deletePost = () => {
 	});
 	location.reload()
 };
+
+const dialog = ref(false);
+
+// export default {
+//     data () {
+//       return {
+//         dialog: false,
+//       }
+//     },
+//   }
+
+// const popUp = {
+// 	setup() {
+// 		const dialog = ref(false);
+// 		return {
+// 			dialog,
+// 		};
+// 	},
+// };
+
+
 </script>
 
 <template>
@@ -54,7 +75,9 @@ const deletePost = () => {
 		<div class="card">
 			<div class="info">
 				<div class="headerCard">
-					<h3 class="userNamePost"> Rick Sanchez</h3>
+					<div class="backgroundUserName">
+						<h3 class="userNamePost"> Rick Sanchez</h3>
+					</div>
 					<p class="date">{{ date }}</p>
 				</div>
 				<div class="publication">
@@ -66,7 +89,44 @@ const deletePost = () => {
 						alt="imagen post" />
 				</div>
 				<div class="buttons">
-					<button class="verMasButton">Ver mas</button>
+					<v-row justify="end">
+						<v-dialog v-model="dialog" width="800">
+							<template v-slot:activator="{ props }">
+								<v-btn class="verMasButton" v-bind="props">
+									Ver mas
+								</v-btn>
+							</template>
+							<v-card>
+								<v-card-title>
+									<span class="text-h5">Use Google's location service?</span>
+								</v-card-title>
+								<v-card-text>
+									Lorem ipsum dolor sit amet, semper quis, sapien id natoque elit. Nostra urna at, magna
+									at neque sed sed ante imperdiet, dolor mauris cursus velit, velit non, sem nec. Volutpat
+									sem ridiculus placerat leo, augue in, duis erat proin condimentum in a eget, sed
+									fermentum sed vestibulum varius ac, vestibulum volutpat orci ut elit eget tortor.
+									Ultrices nascetur nulla gravida ante arcu. Pharetra rhoncus morbi ipsum, nunc tempor
+									debitis, ipsum pellentesque, vitae id quam ut mauris dui tempor, aptent non. Quisque
+									turpis. Phasellus quis lectus luctus orci eget rhoncus. Amet donec vestibulum mattis
+									commodo, nulla aliquet, nibh praesent, elementum nulla. Sit lacus pharetra tempus magna
+									neque pellentesque, nulla vel erat.
+								</v-card-text>
+								<v-card-actions>
+									<v-spacer></v-spacer>
+									<v-btn color="green-darken-1" variant="text" @click="dialog = false">
+										Disagree
+									</v-btn>
+									<v-btn color="green-darken-1" variant="text" @click="dialog = false">
+										Agree
+									</v-btn>
+								</v-card-actions>
+							</v-card>
+						</v-dialog>
+					</v-row>
+
+					<!-- <button class="verMasButton">
+							Ver mas
+						</button> -->
 					<button class="button-edit">
 						<i class="fa-solid fa-pen btn btn-edit"></i>
 					</button>
@@ -74,6 +134,7 @@ const deletePost = () => {
 						<i @click="deletePost" class="fa-solid fa-trash btn btn-delete"></i>
 					</button>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -97,15 +158,27 @@ const deletePost = () => {
 		align-items: flex-end;
 		width: 100%;
 
-		.userNamePost {
-			background-image: url("../assets/images/svgPics/blueTriangle.svg");
-			font-size: 3vh;
-			font-weight: bolder;
-			margin-left: 1vw;
+		.backgroundUserName {
+			display: flex;
+			// background-image: url("../assets/images/UserNamePostBackground/manchaLila.png");
+			background-image: url("../assets/images/UserNamePostBackground/manchaAzul.png");
+			background-size: contain;
+			width: 40vw;
+			height: 5vh;
+
+			.userNamePost {
+				display: flex;
+				align-items: center;
+				font-size: 3vh;
+				font-weight: bolder;
+				margin-left: 1vw;
+				color: white;
+			}
 		}
 
 		.date {
 			align-self: flex-end;
+			margin-right: 2vw;
 			color: map-get(c.$colors, "grey");
 			font-family: "openSans";
 		}
@@ -133,8 +206,6 @@ const deletePost = () => {
 			padding: 0.5em;
 		}
 	}
-
-
 
 	.filePubli {
 		width: 10%;
@@ -211,4 +282,5 @@ const deletePost = () => {
 .separator {
 	height: 5%;
 	width: 80vw;
-}</style>
+}
+</style>
