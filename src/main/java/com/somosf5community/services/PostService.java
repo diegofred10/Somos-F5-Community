@@ -46,10 +46,11 @@ public class PostService implements BaseService<Post> {
     @Override
     @Transactional
     public Post save(Post post) {
-        // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        // String currentUsername = authentication.getName();
-        // User user = userService.findByUsername(currentUsername);
-        // post.getProfile().setId(user.getId());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUsername = authentication.getName();
+        User user = userService.findByUsername(currentUsername);
+        // post.getProfile().setId(1L);
+        post.setProfile(user.getProfile());
         return postRepository.save(post);
     }
 
