@@ -43,12 +43,16 @@ const submitData = async () => {
   } catch (error) {
     console.log(error);
   }
+  location.reload()
 }
+const reload = () =>{
+  location.reload()
+} 
 </script>
 
 <template>
   <div class="formBody">
-    <form @submit.prevent="submitData">
+    <form @submit.prevent>
       <h1 class="addYourPubli">¡Añade una nueva publicación!</h1>
       <input v-model="titleModel" class="title" type="text" placeholder="Titulo de tu publicación" />
       <textarea v-model="descriptionModel" class="description" placeholder="Cuentanos algo interesante..." rows="5"
@@ -56,8 +60,8 @@ const submitData = async () => {
       </textarea>
       <input class="resources" type="file" @change="onFileChange" ref="fileInput">
       <div class="buttonsContainer">
-        <button class="cancelButton">Cancelar</button>
-        <button class="sendButton">Publicar</button>
+        <button @click="reload" class="cancelButton">Cancelar</button>
+        <button @click="submitData" class="sendButton">Publicar</button>
       </div>
       <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="triangulo morado">
       <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="splash verde">

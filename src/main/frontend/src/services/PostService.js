@@ -30,14 +30,11 @@ export default class PostService {
 
     }
 }
-
-
-
-async fetchAllPost(id_profile){
+async fetchAllPost(){
     try {
         await axios({
             method: "GET",
-            url: "http://localhost:8080/api/posts/" + id_profile,
+            url: this.#url,
             withCredentials: true,
         }).then(response =>{
             this.post.value=response.data
@@ -49,6 +46,23 @@ async fetchAllPost(id_profile){
         console.log(error)
     }
 }
+
+// async fetchAllPost(){
+//     try {
+//         await axios({
+//             method: "GET",
+//             url: this.#url,
+//             withCredentials: true,
+//         }).then(response =>{
+//             this.post.value=response.data
+//             console.log(response.data)
+           
+//         });
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 }
 
 
