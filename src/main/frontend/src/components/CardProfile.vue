@@ -1,7 +1,41 @@
+<!-- <script setup>
+    	let random = Math.round(Math.random()*2+1);
+    	let image = "src/assets/images/separator" + random + ".png";
+	</script>
+-->
+<!-- <div class="separator-u" id="separator">
+        <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
+ 	</div> 
+-->
+
 <script setup>
 import axios from 'axios';
 import { defineProps, ref } from 'vue';
+
+let random = Math.round(Math.random() * 2 + 1);
+// let image = "src/assets/images/UserNamePostBackground/background"+ random + ".png";
+let image;
+function changeBackground(){
+	if(random === 1){
+		image = "src/assets/images/UserNamePostBackground/background1.png"
+		return image;
+	}
+	if(random === 2){
+		image = "src/assets/images/UserNamePostBackground/background2.png";
+		return image;
+	}
+	if(random === 3){
+		image = "src/assets/images/UserNamePostBackground/background3.png";
+		return image;
+	}
+}
+changeBackground();
+
+console.log(random);
+console.log(changeBackground());
+
 let date = new Date().toLocaleDateString();
+
 window.addEventListener("DOMContentLoaded", () => {
 	const buttonDelete = document.querySelector(".button-delete");
 	const buttonEdit = document.querySelector(".button-edit");
@@ -58,7 +92,7 @@ const dialog = ref(false);
 			<div class="info">
 				<div class="headerCard">
 					<div class="backgroundUserName">
-						<h3 class="userNamePost"> Rick Sanchez</h3>
+						<h3 class="userNamePost">Rick Sanchez</h3>
 					</div>
 					<p class="date">{{ date }}</p>
 				</div>
@@ -98,10 +132,6 @@ const dialog = ref(false);
 							</v-card>
 						</v-dialog>
 					</v-row>
-
-					<!-- <button class="verMasButton">
-															Ver mas
-														</button> -->
 					<button class="button-edit">
 						<i class="fa-solid fa-pen btn btn-edit"></i>
 					</button>
@@ -118,6 +148,9 @@ const dialog = ref(false);
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
+:root{
+	--backgroundImage: image;
+}
 
 .cards {
 	width: 100%;
@@ -135,7 +168,7 @@ const dialog = ref(false);
 
 		.backgroundUserName {
 			display: flex;
-			background-image: url("../assets/images/UserNamePostBackground/manchaAzul.png");
+			background-image: var(--backgroundImage);
 			background-size: contain;
 			width: 40vw;
 			height: 5vh;
@@ -214,7 +247,7 @@ const dialog = ref(false);
 		font-family: "openSans";
 	}
 
-	.cerrarButton{
+	.cerrarButton {
 		width: 10vw;
 		margin-right: 2vw;
 
