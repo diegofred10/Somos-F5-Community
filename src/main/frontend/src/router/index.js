@@ -43,6 +43,11 @@ const router = createRouter({
       name: 'UsersAdmin',
       component: () => import('../views/UsersAdminView.vue')   
     },
+    {
+      path:'/ProfileCoder',
+      name: 'ProfileCoder',
+      component: () => import('../views/ProfileCoderView.vue')   
+    },
     
    ]
 })
