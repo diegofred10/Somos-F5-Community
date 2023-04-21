@@ -25,20 +25,6 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 
-app.directive("changeBackground", {
-  beforeMount: (el, binding) => {
-    if(el.random === 1){
-      el.style.color = "yellow"
-    }
-  }
-})
-
-
-
-// bg1 = purple
-// bg2 = orange
-// bg3 = blue
-
 app.use(createPinia())
 app.use(router)
 app.use(vuetify)
