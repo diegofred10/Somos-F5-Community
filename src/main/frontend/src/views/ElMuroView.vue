@@ -6,9 +6,13 @@ import AddPublication from '../components/AddPublication.vue';
 import Search from '../components/Search.vue'
 import PostService from '../services/PostService';
 import CardProfile from '../components/CardProfile.vue';
+
+
 const postService = new PostService();
-	let posts = ref([]);
- 	onBeforeMount(async()=>{
+
+let posts = ref([]);
+
+onBeforeMount(async()=>{
 	await postService.fetchAllPost()
 	posts.value = postService.getPost()
 	console.log(posts.value)
@@ -20,7 +24,7 @@ const postService = new PostService();
 <Header/>
 <UserFeed/>
 <div class="tools">
-    <!-- <AddPublication/>    -->
+ 
     <Search/>
 </div>
 <div class="publi">
