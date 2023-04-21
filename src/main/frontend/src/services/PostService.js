@@ -8,8 +8,8 @@ export default class PostService {
     constructor() {
         this.post = ref([]);
     }
-    
-    getPost(){
+
+    getPost() {
         return this.post.value
     }
 
@@ -24,26 +24,27 @@ export default class PostService {
             }).then(response => {
                 console.log(response)
             });
-        
-        } catch(error) {
-        console.log(error);
 
+        } catch (error) {
+            console.log(error);
+
+        }
     }
-}
-async fetchAllPost(){
-    try {
-        await axios({
-            method: "GET",
-            url: this.#url,
-            withCredentials: true,
-        }).then(response =>{
-            this.post.value=response.data
-            console.log(response.data)
-           
-        });
+
+    async fetchAllPost(){
+        try {
+            await axios({
+                method: "GET",
+                url: this.#url,
+                withCredentials: true,
+            }).then(response =>{
+                this.post.value=response.data
+                console.log(response.data) 
+            });
         
-    } catch (error) {
-        console.log(error)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
@@ -63,11 +64,26 @@ async fetchAllPost(){
 //         console.log(error)
 //     }
 // }
-}
+// }
 
 
    
 
     
-   
+    // async fetchAllPost() {
+    //     try {
+    //         await axios({
+    //             method: "GET",
+    //             url: this.#url,
+    //             withCredentials: true,
+    //         }).then(response => {
+    //             this.post.value = response.data
+    //             console.log(response.data)
 
+    //         });
+
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+// }

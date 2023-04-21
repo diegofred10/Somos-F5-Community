@@ -12,7 +12,7 @@ const titleModel = ref()
 const descriptionModel = ref()
 const post = reactive({
   title: titleModel,
-  description: descriptionModel
+  description: descriptionModel,
 })
 const submitData = async () => {
   try {
@@ -40,6 +40,7 @@ const submitData = async () => {
       });
     }
     console.log("Enviado")
+    location.reload();
   } catch (error) {
     console.log(error);
   }
