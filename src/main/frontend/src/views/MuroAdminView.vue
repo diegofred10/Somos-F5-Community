@@ -13,7 +13,6 @@ const postService = new PostService();
 	posts.value = postService.getPost()
 	console.log(posts.value)
 	});
-
 </script>
 
 <template>
