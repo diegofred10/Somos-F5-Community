@@ -40,6 +40,7 @@ const submitData = async () => {
       });
     }
     console.log("Enviado")
+    location.reload();
   } catch (error) {
     console.log(error);
   }
