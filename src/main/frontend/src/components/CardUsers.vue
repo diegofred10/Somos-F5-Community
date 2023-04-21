@@ -1,7 +1,11 @@
 <script setup>
+import { useAuthStore } from '../stores/AuthStore';
     import axios from 'axios';
+
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
+
+    const auth = useAuthStore();
 
     const props = defineProps({
 		user: Object,
@@ -29,10 +33,10 @@
            </div>
         </div>
     </div>
-    <!-- <button>
+    <button v-if="auth.role === 'ROLE_ADMIN'"> 
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
-    </button> -->
-    <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
+    </button>
+    <button v-else  @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
  <div class="separator-u" id="separator">
         <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
@@ -81,12 +85,10 @@
         }
     }
     
-    // button{
-    //     display: flex;
-    //     justify-content: flex-end;
-    //     width: 6%;
-    //     height: 10%;
-    // } 
+    button{
+        align-self: center;
+        width: 6%;
+    } 
 
     .btn-u{
         background-color: map-get(c.$colors, "orange");

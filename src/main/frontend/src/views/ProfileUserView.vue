@@ -19,13 +19,13 @@
 	console.log(posts.value)
 });
 
-function filteredList() {
-	return posts.value.filter((post) =>
-		post.title.toLowerCase().includes(input.value.toLowerCase())||
-		post.description.toLowerCase().includes(input.value.toLowerCase())
-		// ||profile.name.toLowerCase().includes(input.value.toLowerCase())
-	);
-}
+// function filteredList() {
+// 	return posts.value.filter((post) =>
+// 		post.title.toLowerCase().includes(input.value.toLowerCase())||
+// 		post.description.toLowerCase().includes(input.value.toLowerCase())
+// 		// ||profile.name.toLowerCase().includes(input.value.toLowerCase())
+// 	);
+// }
 
 
 	const trapFocus = ref(false);
@@ -68,7 +68,7 @@ function filteredList() {
 		</section>
 		<input type="text" v-model="input" placeholder="Buscar publicaciones..." />
 			<CardProfile
-			v-for= "post in filteredList()" :post="post"/>
+			v-for= "post in posts" :post="post"/>
 			
 			<div class="itemError" v-if="input&&!filteredList().length">
     <p>No results found!</p>
