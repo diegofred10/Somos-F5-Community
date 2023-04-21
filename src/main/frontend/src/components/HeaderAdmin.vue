@@ -5,8 +5,8 @@
 
     <div class="menuContainer">
       <nav role="navigation" class="menuNav">
-        <router-link to="/ElMuro" class="nav-bar__link" href="">El Muro</router-link>
-        <router-link to="/User" class="nav-bar__link" href=""
+        <router-link to="/MuroAdmin" class="nav-bar__link" href="">El Muro</router-link>
+        <router-link to="/UsersAdmin" class="nav-bar__link" href=""
           >Usuarios</router-link
         >
         <router-link to="/" href="">Log Out</router-link>

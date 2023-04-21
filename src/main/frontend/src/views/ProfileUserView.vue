@@ -1,29 +1,43 @@
 <script setup>
-import { ref, onBeforeMount } from "vue";
-import { useProgrammatic } from "@oruga-ui/oruga-next";
-import InfoUser from "../components/InfoUser.vue";
-import CardProfile from "../components/CardProfile.vue";
-import Header from "../components/Header.vue";
-import AddPublication from "../components/AddPublication.vue";
-import PostService from "../services/PostService";
+	import { ref, onBeforeMount } from "vue";
+	import { useProgrammatic } from "@oruga-ui/oruga-next";
+	import InfoUser from "../components/InfoUser.vue";
+	import CardProfile from "../components/CardProfile.vue";
+	import Header from "../components/Header.vue";
+	import AddPublication from "../components/AddPublication.vue";
+	import PostService from "../services/PostService";
 
-const postService = new PostService();
-let posts = ref([]);
-onBeforeMount(async () => {
+	let input = ref("");
+	
+	const postService = new PostService();
+
+	let posts = ref([]);
+
+ 	onBeforeMount(async()=>{
 	await postService.fetchAllPost()
 	posts.value = postService.getPost()
 	console.log(posts.value)
 });
 
-const trapFocus = ref(false);
-const { oruga } = useProgrammatic();
-
-function cardModal() {
-	oruga.modal.open({
-		component: AddPublication,
-		trapFocus: true,
-	});
+function filteredList() {
+	return posts.value.filter((post) =>
+		post.title.toLowerCase().includes(input.value.toLowerCase())||
+		post.description.toLowerCase().includes(input.value.toLowerCase())
+		// ||profile.name.toLowerCase().includes(input.value.toLowerCase())
+	);
 }
+
+
+	const trapFocus = ref(false);
+	const { oruga } = useProgrammatic();
+
+	function cardModal() {
+		oruga.modal.open({
+			component: AddPublication,
+			trapFocus: true,
+		});
+	}
+
 </script>
 
 <template>
@@ -45,7 +59,15 @@ function cardModal() {
 				<i class="fa-solid fa-plus btn-add"></i>
 			</o-button>
 		</section>
-		<CardProfile v-for="post in posts" :post="post" />
+		<input type="text" v-model="input" placeholder="Buscar publicaciones..." />
+			<CardProfile
+			v-for= "post in filteredList()" :post="post"/>
+			
+			<div class="itemError" v-if="input&&!filteredList().length">
+    <p>No results found!</p>
+</div>
+
+		
 	</main>
 </template>
 

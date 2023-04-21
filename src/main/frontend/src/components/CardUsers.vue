@@ -1,30 +1,39 @@
 <script setup>
+    import axios from 'axios';
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
+
+    const props = defineProps({
+		user: Object,
+        profile:Array,
+	})
+
 </script>
 
 <template>
-<div class="center">
  <section class="card-u">
     <div class="info-u">
-        <img class="img-u" src="../assets/images/imagesSomosF5/Alicia.jpeg" alt="">
+        <img class="img-u" 
+        v-if="user.image != null" :src="'http://localhost:8080/media/' + user.image">
+        <img
+        v-else class="img-u" src="../assets/images/perfilVacio.png" alt="img"/>
         <div class="date-u">
-           <h1 class="name-u">Alicia Fernández</h1>
+           <h1 class="name-u">{{ profile[user.id -1].name + profile[user.id -1].surname }}</h1>
            <div class="contact-u">
                 <i class="fa-regular fa-envelope logo-u" style="color: #000000;"></i>
-                <p class="text-u">alicia_fernandez@gmail.com</p>
+                <p class="text-u">{{ user.username }}</p>
            </div>
            <div class="contact-u">
                 <i class="fa-solid fa-location-dot" style="color: #000000;"></i>
-                <p class="text-u">Gijón, Asturias</p>
+                <p class="text-u">{{ profile[user.id -1].location }}</p>
            </div>
         </div>
     </div>
-    <button>
+    <!-- <button>
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
-    </button>
+    </button> -->
+    <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
- </div>
  <div class="separator-u" id="separator">
         <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
  </div> 
@@ -34,26 +43,23 @@
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
-.center{
-display: flex;
-align-items: center;
-justify-content: center;
 
 .card-u{
     background-color: #FEF0DC;
     width: 80%;
     margin-top: 2%;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: flex-end;
+    justify-content: space-between;
 
     .info-u{
         display: flex;
+        align-items: center;
 
         .img-u{
             border-radius: 100%;
-            width: 15%;
-            margin: 1% 2% 1% 1%;
+            width: 15vh;
+            margin: 1vh 3vh 1vh 5vh;
         }
         .date-u{
             margin-top: 1%;
@@ -75,14 +81,31 @@ justify-content: center;
         }
     }
     
-    button{
-        display: flex;
-        justify-content: flex-end;
-        width: 6%;
-        height: 10%;
-    } 
+    // button{
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     width: 6%;
+    //     height: 10%;
+    // } 
+
+    .btn-u{
+        background-color: map-get(c.$colors, "orange");
+        color: map-get(c.$colors, "white");
+        font-family: 'Open Sans', sans-serif ;
+        font-size: 60%;
+        width: 22%;
+        height: 90%;
+        border: solid;
+        box-sizing: border-box;
+        border-radius: 50px;
+        margin: 1%;
+            &:hover {
+            background-color: map-get(c.$colors, "white");
+            color: map-get(c.$colors, "orange");
+        }
+    }
 }
-}
+
 .separator-u{
     display: flex;
     justify-content: center;
