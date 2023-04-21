@@ -7,14 +7,16 @@ import Search from '../components/Search.vue'
 import PostService from '../services/PostService';
 import CardProfile from '../components/CardProfile.vue';
 
+
 const postService = new PostService();
-	let posts = ref([]);
- 	onBeforeMount(async()=>{
+
+let posts = ref([]);
+
+onBeforeMount(async()=>{
 	await postService.fetchAllPost()
 	posts.value = postService.getPost()
 	console.log(posts.value)
 	});
-
 </script>
 
 <template>
@@ -22,7 +24,7 @@ const postService = new PostService();
 <Header/>
 <UserFeed/>
 <div class="tools">
-    <!-- <AddPublication/>    -->
+ 
     <Search/>
 </div>
 <div class="publi">
@@ -34,7 +36,6 @@ const postService = new PostService();
 
 <style lang="scss" scoped>
 @use "@/scss/colors" as c;
-
 main {
   margin: 0 auto;
   width: 80%;
@@ -42,20 +43,15 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-
 .tools {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90vw;
-
     .modal-container {
         align-self: start;
-
         .modal {
             background: map-get(c.$colors, "white");
-
             display: flex;
             border: 2px solid black;
             width: 100%;
@@ -63,7 +59,6 @@ main {
             font-size: 1.2em;
             color: black;
             height: 2em;
-
             .btn-add {
                 margin-left: 1em;
             }
