@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 
-import { useRouter } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 import AuthService from "../services/AuthService";
 import { useAuthStore } from "../stores/AuthStore";
 const auth = useAuthStore();
@@ -33,7 +33,13 @@ const submitData = async () => {
     auth.setGithub(user.github);
     auth.setLinkedin(user.linkedin);
     auth.setIsAuthenticated();
-    router.push("/ProfileUser/");
+    
+    if(user.role == "ROLE_ADMIN"){
+      router.push("/MuroAdmin/")
+    }
+    else{
+      router.push("/ProfileUser/");
+    }
     console.log(user);
   } catch (error) {
     console.error(error);

@@ -274,7 +274,6 @@ onBeforeUpdate(() => {
         src="../assets/images/imagesSomosF5/banner.png"
         alt=""
       />
-      <button class="addContacts">AÑADIR A MIS CONTACTOS</button>
     </div>
   </div>
 </template>
@@ -312,7 +311,6 @@ onBeforeUpdate(() => {
       object-fit: cover;
       width: 120px;
       height: 120px;
-      // margin: 2%;
       cursor: pointer;
     }
       .buttonEdit {
@@ -346,7 +344,6 @@ onBeforeUpdate(() => {
         box-sizing: border-box;
         border-radius: 50px;
         color: map-get(c.$colors, "white");
-        // background-color: map-get(c.$colors, "grey-blue");
         background-color: rgb(102, 102, 102);
         font-family: "openSans";
         font-weight: bold;
@@ -424,7 +421,6 @@ onBeforeUpdate(() => {
         }
         .contactsName {
           color: white;
-
           font-size: 1em;
         }
         input {
@@ -453,23 +449,16 @@ onBeforeUpdate(() => {
     
 
     .bannerDesing {
-      width: 80%;
+      width: 100%;
     }
-    .addContacts {
-      width: 50%;
-      border: solid;
-      box-sizing: border-box;
-      border-radius: 50px;
-      color: map-get(c.$colors, "white");
-      font-family: "openSans";
-      font-weight: bold;
-      font-size: 0.7em;
-      text-align: center;
-      margin-bottom: 1%;
-      &:hover {
-        background-color: map-get(c.$colors, "white");
-        color: map-get(c.$colors, "orange");
-      }
+  }
+}
+@media(max-width: 599px){
+  .infoUser{
+    align-items: normal;
+    justify-content: normal;
+    .design{
+      display: none;
     }
   }
 }

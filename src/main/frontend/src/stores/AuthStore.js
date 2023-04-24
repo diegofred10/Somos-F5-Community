@@ -8,8 +8,8 @@ export const useAuthStore = defineStore("auth", () => {
   const username = ref(initialState.username || "");
   const roles = ref(initialState.roles || []);
   const id = ref(initialState.id || "");
-  const name = ref(initialState.name || "");
-  const surname = ref(initialState.surname || "");
+  const name = ref(initialState.name || "Nombre");
+  const surname = ref(initialState.surname || "Apellido");
   const location = ref(initialState.location || "");
   const github = ref(initialState.github || "");
   const linkedin = ref(initialState.linkedin || "");

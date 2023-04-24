@@ -21,7 +21,6 @@ const postService = new PostService();
 	// console.log(profiles.value);
 	// console.log(posts.value)
 	});
-
 </script>
 
 <template>
