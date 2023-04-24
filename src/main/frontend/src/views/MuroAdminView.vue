@@ -5,13 +5,21 @@ import BannerAdmin from '../components/BannerAdmin.vue';
 import Search from '../components/Search.vue';
 import PostService from "../services/PostService";
 import CardProfile from "../components/CardProfile.vue";
+// import ProfileService from '../services/ProfileService';
 
 const postService = new PostService();
+// const profileService = new ProfileService();
 	let posts = ref([]);
+	// let profiles = ref([]);
  	onBeforeMount(async()=>{
 	await postService.fetchAllPost()
+	// await profileService.fetchAllProfiles();
 	posts.value = postService.getPost()
-	console.log(posts.value)
+	console.log(posts.value.idProfile);
+	console.log(posts.profile_id);
+	// profiles.value = profileService.getProfile();
+	// console.log(profiles.value);
+	// console.log(posts.value)
 	});
 
 </script>

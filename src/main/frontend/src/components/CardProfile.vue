@@ -1,6 +1,10 @@
 <script setup>
 import axios from 'axios';
-import { defineProps } from 'vue';
+import { defineProps, onBeforeMount, ref } from 'vue';
+
+let random = Math.round(Math.random()*2+1);
+// let image = "src/assets/images/separator" + random + ".png";
+
 let date = new Date().toLocaleDateString();
 	window.addEventListener("DOMContentLoaded", () => {
 		const buttonDelete = document.querySelector(".button-delete");
@@ -35,8 +39,27 @@ let date = new Date().toLocaleDateString();
 
 	const props = defineProps({
 		post: Object,
-
 	})
+	
+	let profiles = ref()
+	onBeforeMount(() => {
+		axios({
+			method: "GET",
+			url: "http://localhost:8080/api/profiles/" + props.post.idProfile,
+			withCredentials: true,
+		})
+			.then((response) => {
+			profiles.value = response.data.name;
+			console.log(profiles.value);
+			})
+			.catch((e) => {
+			console.log(e);
+			console.log(props.post.idProfile);
+			console.log("Catch error profiles");
+			});
+});
+
+
 	const deletePost = () => {
 		const idPost = props.post.id;
 		axios({
@@ -54,10 +77,12 @@ let date = new Date().toLocaleDateString();
 			<div class="info">
 				<div class="headerCard">
 					<p class="date">{{ date }}</p>
+				
 				</div>
-				<div class="publication">
-					<div class="text">
-						<h2 class="titlePubli">{{ post.title }}</h2>
+				<h1 :class="{ 'backcyan': random===1,'backpurple': random === 2, 'backorange': random === 3 }">{{ profiles }}</h1>
+				<div class="publication" :class="{ 'cyan': random===1,'purple': random === 2, 'orange': random === 3 }">
+					<div class="text" >
+						<h2 class="titlePubli" >{{ post.title }}</h2>
 						<p class="textPubli">
 							{{ post.description }}
 						</p>
@@ -79,13 +104,13 @@ let date = new Date().toLocaleDateString();
 				</div>
 			</div>
 		</div>
-		<div class="separator">
+		<!-- <div class="separator">
 			<img
 				class="stripe"
 				src="../assets/images/imagesSomosF5/franjaMorada 2.png"
 				alt="Imagen de una franja morada."
 			/>
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -93,6 +118,28 @@ let date = new Date().toLocaleDateString();
 	@use "@/scss/colors" as c;
 	@use "@/scss/fonts";
 	
+	.cyan {
+    background-color: map-get(c.$colors, "light-green-tr" );
+ }
+ .backcyan {
+    background-image:url("../assets/images/separator1.png");
+	background-size: contain;
+ }
+ .orange {
+    background-color: map-get(c.$colors, "orange-tr" );
+ }
+ .backorange {
+    background-image:url("../assets/images/separator3.png");
+	background-size: contain;
+}
+ .purple{
+    background-color: map-get(c.$colors, "light-purple-tr" );
+}
+.backpurple {
+	background-image:url("../assets/images/separator2.png");
+	background-size: contain;
+ }
+
 	.cards{
 		width: 100%;
 	}
@@ -118,7 +165,6 @@ let date = new Date().toLocaleDateString();
 			}
 		}
 		.publication {
-			background-color: map-get(c.$colors, "white");
 			border: 3px solid map-get(c.$colors, "grey");
 			width: 100%;
 			.titlePubli {
@@ -169,14 +215,10 @@ let date = new Date().toLocaleDateString();
 		}
 	}
 
-.separator{
-  height: 5%;
-			width: 20%;
+// .separator{
+//   height: 5%;
+// 			width: 20%;
 
-}
-		// .stripe {
-		// 	width: 70vw;
-    //   height: 10%;
-		// }
+// }
 
 </style>

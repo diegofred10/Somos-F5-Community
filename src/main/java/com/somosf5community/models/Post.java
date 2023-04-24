@@ -37,4 +37,13 @@ public class Post {
     @ManyToOne(fetch = FetchType.EAGER)    
     @JoinColumn(name= "profile_id" , nullable = true, referencedColumnName = "id")
     Profile profile;
+
+    private Long idProfile;
+
+    // public Long getIdProfile(){
+    //     return idProfile;
+    // }
+    // public void setIdProfile2() {
+    //     this.idProfile = profile.getId();
+    // }
 }

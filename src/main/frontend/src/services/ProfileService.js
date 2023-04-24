@@ -21,7 +21,7 @@ async fetchAllProfiles(){
             withCredentials: true,
         }).then(response =>{
             this.profile.value=response.data
-            console.log(response.data)
+            console.log(response.data.profile_id)
            
         });
         
@@ -38,7 +38,7 @@ async fetchOneProfile(id){
             withCredentials: true,
         }).then(response =>{
             this.profile.value=response.data
-            console.log(response.data)
+            console.log(response.data.name)
            
         });
         
