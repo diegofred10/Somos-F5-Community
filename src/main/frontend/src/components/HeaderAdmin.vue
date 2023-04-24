@@ -84,6 +84,7 @@
         margin:auto;
         margin-right: 1vw;
         display: block;
+        c
         ul {
           display: none;
         }
