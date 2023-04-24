@@ -95,11 +95,17 @@ const logout = async()=>{
     .menuMobile {
       display: none;
       @include m.mv(500px) {
-        margin:auto;
-        margin-right: 1vw;
+        margin-top: 5%;
+       width: 100%;
         display: block;
+       
         ul {
+          background-color: map-get(c.$colors, "light-orange");
           display: none;
+        height: 100vh;
+        width: 100%;
+        padding-left: 3px;
+
         }
         
         input:checked ~ ul {
