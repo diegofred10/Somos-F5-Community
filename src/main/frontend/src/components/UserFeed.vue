@@ -134,5 +134,40 @@ border-radius: 5px;
         }
     }
 }
+@media(max-width: 599px){
+ .info{
+  .design{
+    width: 100%;
+
+    .pigeon{
+      width: 40%;
+      margin: 0;
+    }
+    .title{
+      width: 100%;
+      font-size: 5vw;
+      
+    }
+    .circle{
+    display: none;
+    }
+}  
+ .userData{
+
+  .name{
+    font-size: none;
+  }
+ }
+  .photoUser{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0%;
+    .imgProfile{
+      width: 70%;
+    }
+  }
+}
+
+}
 
 </style>
