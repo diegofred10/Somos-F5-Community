@@ -2,7 +2,7 @@
     import axios from 'axios';
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
-
+  
     const props = defineProps({
 		user: Object,
         profile:Array,
@@ -11,8 +11,10 @@
 </script>
 
 <template>
- <section class="card-u">
+ <section class="card-u" :class="{ 'cyan': random===1,'purple': random === 2, 'orange': random === 3 }">
+        <!-- <section v-if="random==3" class="card-u" style="background-color: orange;"> -->
     <div class="info-u">
+
         <img class="img-u" 
         v-if="user.image != null" :src="'http://localhost:8080/media/' + user.image">
         <img
@@ -34,6 +36,8 @@
     </button>  -->
     <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
+
+
  <div class="separator-u" id="separator">
         <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
  </div> 
@@ -43,9 +47,18 @@
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
+.cyan {
+    background-color: map-get(c.$colors, "light-green-tr" );
+ }
 
+ .orange {
+    background-color: map-get(c.$colors, "orange-tr" );
+ }
+
+ .purple{
+    background-color: map-get(c.$colors, "light-purple-tr" );
+ }
 .card-u{
-    background-color: #FEF0DC;
     width: 80%;
     margin-top: 2%;
     display: flex;
@@ -80,16 +93,9 @@
             }
         }
     }
-    
-    // button{
-    //     display: flex;
-    //     justify-content: flex-end;
-    //     width: 6%;
-    //     height: 10%;
-    // } 
 
     .btn-u{
-        background-color: map-get(c.$colors, "orange");
+        background-color: map-get(c.$colors, "dark-red");
         color: map-get(c.$colors, "white");
         font-family: 'Open Sans', sans-serif ;
         font-size: 60%;

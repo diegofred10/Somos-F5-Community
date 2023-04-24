@@ -1,9 +1,9 @@
 <script setup>
 import axios from 'axios';
-import { defineProps, ref } from 'vue';
+import { defineProps, onBeforeMount, ref } from 'vue';
 
-let random = Math.round(Math.random() * 2 + 1);
-// let image = "src/assets/images/UserNamePostBackground/background"+ random + ".png";
+let random = Math.round(Math.random()*2+1);
+// let image = "src/assets/images/separator" + random + ".png";
 
 let date = new Date().toLocaleDateString();
 
@@ -39,6 +39,25 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
+	
+	let profiles = ref()
+	onBeforeMount(() => {
+		axios({
+			method: "GET",
+			url: "http://localhost:8080/api/profiles/" + props.post.idProfile,
+			withCredentials: true,
+		})
+			.then((response) => {
+			profiles.value = response.data.name;
+			console.log(profiles.value);
+			})
+			.catch((e) => {
+			console.log(e);
+			console.log(props.post.idProfile);
+			console.log("Catch error profiles");
+			});
+});
+
 const props = defineProps({
 	post: Object,
 })
@@ -65,15 +84,20 @@ const dialog = ref(false);
 					<div class="backgroundUserName"
 						:class="{ 'backcyan': random === 1, 'backpurple': random === 2, 'backorange': random === 3 }">
 						<h3 class="userNamePost">
-							Rick Sanchez
+							{{ profiles }}
 						</h3>
 					</div>
 					<p class="date">{{ date }}</p>
+				
 				</div>
-				<div class="publication" :class="{ 'cyan': random === 1, 'purple': random === 2, 'orange': random === 3 }">
-					<div class="text">
-						<h2 class="titlePubli">{{ post.title }}</h2>
-						<p class="textPubli">{{ post.description }}</p>
+				<!-- <h1 :class="{ 'backcyan': random===1,'backpurple': random === 2, 'backorange': random === 3 }">{{ profiles }}</h1> -->
+				<div class="publication" :class="{ 'cyan': random===1,'purple': random === 2, 'orange': random === 3 }">
+					<div class="text" >
+						<h2 class="titlePubli" >{{ post.title }}</h2>
+						<p class="textPubli">
+							{{ post.description }}
+						</p>
+						<p>Ver mas</p>
 					</div>
 					<img class="filePubli" v-if="post.image" :src="'http://localhost:8080/media/' + post.image" alt="imagen post" />
 				</div>

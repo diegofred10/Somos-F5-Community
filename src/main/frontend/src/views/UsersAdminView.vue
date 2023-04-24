@@ -14,7 +14,7 @@ const profileService = new ProfileService();
 	let profile = ref([]);
  	onBeforeMount(async()=>{
 	await userService.fetchAllUsers()
-	user = userService.getUser();
+	// user = userService.getUser();
 	await profileService.fetchAllProfiles()
 	profile.value = profileService.getProfile();
 	users.value = userService.getUser()

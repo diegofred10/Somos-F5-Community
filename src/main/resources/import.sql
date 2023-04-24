@@ -16,9 +16,9 @@ INSERT INTO roles (id, role_name) VALUES (default, "ROLE_USER")
 INSERT INTO user_roles (user_id, role_id) VALUES (1,1)
 INSERT INTO profiles_contacts (profile_id, contact_id) VALUES (1,1)
 
+-- INSERT INTO posts (id_post, title, date, description, profile_id) VALUES (default, 'publicacion', null, 'aplicacion java', 1)
+-- INSERT INTO posts (id_post, title, date, description, profile_id) VALUES (default, 'Titulo', null, 'Descripcion', 2)
+-- INSERT INTO posts (id_post, title, date, description, profile_id) VALUES (default, 'Titulo', null, 'Descripcion', 1)
 
 
--- INSERT INTO posts VALUES (default, '2023-02-01','Recurso de prueba', 'Titulo de prueba', 1)
-INSERT INTO posts (id_post, title, date, description, image, profile_id) VALUES (default, 'publicacion', null, 'aplicacion java', 'null', 1)
-INSERT INTO posts (id_post, title, date, description, image, profile_id) VALUES (default, 'VUE', null, 'aplicacion VUETIFY', 'null', 1)
-INSERT INTO posts (id_post, title, date, description, image, profile_id) VALUES (default, 'mysql', null, 'aplicacion workbench', 'null', 1)
+
