@@ -290,6 +290,7 @@ onBeforeUpdate(() => {
   justify-content: space-evenly;
   border-radius: 5px;
 
+
   .photoAndContact {
     display: flex;
     width: 70%;
@@ -445,6 +446,7 @@ onBeforeUpdate(() => {
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
+    
 
     .bannerDesing {
       width: 100%;

@@ -121,6 +121,14 @@ border-radius: 5px;
         margin-right: 3%;
         .imgProfile{
             border-radius: 100%;
+            max-height: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+        max-width: 100px;
+        width: 100px;
+        height: 100px;
+        margin: 2%;
+        cursor: pointer;
         }
 
         }
