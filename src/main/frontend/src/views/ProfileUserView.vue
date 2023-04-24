@@ -116,4 +116,26 @@
         }
     }
  }
+
+ @media(max-width: 599px){
+.title{
+width: 80%;
+display: flex;
+align-items: center;
+justify-content: center;
+	.text{
+		font-size: 1.2rem;
+	}
+
+	.star{
+		width: 12%;
+		right: 7%;
+	}
+}
+.modal-container{
+	margin-top: 2%;
+	width: 60%;
+	font-size: 50%;
+ }
+}
 </style>

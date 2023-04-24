@@ -453,7 +453,8 @@ onBeforeUpdate(() => {
 }
 @media(max-width: 599px){
   .infoUser{
-    justify-content: space-between;
+    align-items: normal;
+    justify-content: normal;
     .design{
       display: none;
     }
