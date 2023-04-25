@@ -20,6 +20,10 @@ onBeforeMount(async () => {
   console.log(users);
   console.log(profile.value);
 });
+
+
+
+
 </script>
 
 
