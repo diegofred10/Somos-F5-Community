@@ -49,7 +49,7 @@ public class PostService implements BaseService<Post> {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
         User user = userService.findByUsername(currentUsername);
-        // post.getProfile().setId(1L);
+        post.setIdProfile(user.getId());
         post.setProfile(user.getProfile());
         return postRepository.save(post);
     }

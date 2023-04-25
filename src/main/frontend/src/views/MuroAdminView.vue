@@ -21,11 +21,18 @@ const trapFocus = ref(false);
 	}
 
 const postService = new PostService();
+// const profileService = new ProfileService();
 	let posts = ref([]);
+	// let profiles = ref([]);
  	onBeforeMount(async()=>{
 	await postService.fetchAllPost()
+	// await profileService.fetchAllProfiles();
 	posts.value = postService.getPost()
-	console.log(posts.value)
+	console.log(posts.value.idProfile);
+	console.log(posts.profile_id);
+	// profiles.value = profileService.getProfile();
+	// console.log(profiles.value);
+	// console.log(posts.value)
 	});
 </script>
 

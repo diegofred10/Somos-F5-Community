@@ -4,9 +4,7 @@ import { useAuthStore } from '../stores/AuthStore';
 
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
-
-    const auth = useAuthStore();
-
+  
     const props = defineProps({
 		user: Object,
         profile:Array,
@@ -15,8 +13,10 @@ import { useAuthStore } from '../stores/AuthStore';
 </script>
 
 <template>
- <section class="card-u">
+ <section class="card-u" :class="{ 'cyan': random===1,'purple': random === 2, 'orange': random === 3 }">
+        <!-- <section v-if="random==3" class="card-u" style="background-color: orange;"> -->
     <div class="info-u">
+
         <img class="img-u" 
         v-if="user.image != null" :src="'http://localhost:8080/media/' + user.image">
         <img
@@ -35,9 +35,11 @@ import { useAuthStore } from '../stores/AuthStore';
     </div>
     <button v-if="auth.role === 'ROLE_ADMIN'"> 
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
-    </button>
-    <button v-else  @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
+    </button> 
+    <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
+
+
  <div class="separator-u" id="separator">
         <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
  </div> 
@@ -47,9 +49,18 @@ import { useAuthStore } from '../stores/AuthStore';
 @use "@/scss/colors" as c;
 @use "@/scss/fonts";
 
+.cyan {
+    background-color: map-get(c.$colors, "light-green-tr" );
+ }
 
+ .orange {
+    background-color: map-get(c.$colors, "orange-tr" );
+ }
+
+ .purple{
+    background-color: map-get(c.$colors, "light-purple-tr" );
+ }
 .card-u{
-    background-color: #FEF0DC;
     width: 80%;
     margin-top: 2%;
     display: flex;
@@ -84,14 +95,9 @@ import { useAuthStore } from '../stores/AuthStore';
             }
         }
     }
-    
-    button{
-        align-self: center;
-        width: 6%;
-    } 
 
     .btn-u{
-        background-color: map-get(c.$colors, "orange");
+        background-color: map-get(c.$colors, "dark-red");
         color: map-get(c.$colors, "white");
         font-family: 'Open Sans', sans-serif ;
         font-size: 60%;

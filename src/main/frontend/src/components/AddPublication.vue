@@ -12,7 +12,7 @@ const titleModel = ref()
 const descriptionModel = ref()
 const post = reactive({
   title: titleModel,
-  description: descriptionModel
+  description: descriptionModel,
 })
 const submitData = async () => {
   try {
@@ -40,6 +40,7 @@ const submitData = async () => {
       });
     }
     console.log("Enviado")
+    location.reload();
   } catch (error) {
     console.log(error);
   }
@@ -54,8 +55,8 @@ const reload = () =>{
   <div class="formBody">
     <form @submit.prevent>
       <h1 class="addYourPubli">¡Añade una nueva publicación!</h1>
-      <input v-model="titleModel" class="title" type="text" placeholder="Titulo de tu publicación" />
-      <textarea v-model="descriptionModel" class="description" placeholder="Cuentanos algo interesante..." rows="5"
+      <input v-model="titleModel" class="title" type="text" placeholder="Título de tu publicación" />
+      <textarea v-model="descriptionModel" class="description" placeholder="Cuéntanos algo interesante..." rows="5"
         cols="46">
       </textarea>
       <input class="resources" type="file" @change="onFileChange" ref="fileInput">
@@ -63,7 +64,7 @@ const reload = () =>{
         <button @click="reload" class="cancelButton">Cancelar</button>
         <button @click="submitData" class="sendButton">Publicar</button>
       </div>
-      <img class="purpleTriangle" src="../assets/images/imagesSomosF5/trianguloAzul 1.png" alt="triangulo morado">
+      <img class="purpleTriangle" src="../assets/images/svgPics/blueTriangle.svg" alt="triangulo morado">
       <img class="greenSplash" src="../assets/images/imagesSomosF5/manchaAzul 1.png" alt="splash verde">
 
     </form>
@@ -75,27 +76,39 @@ const reload = () =>{
 
 .formBody {
   background: map-get(c.$colors, "orange");
+  overflow: hidden;
+  
+  
+
 
   @media(min-width: 1023px) and (max-width: 1438px) {
-    width: 1000px;
+    width: 800px;
   }
 
   @media(min-width: 1439px) {
-    width: 1000px;
+    width: 900px;
   }
-
+  
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
+   
     padding: 1em;
     height: 35em;
-
-    .title {
-      background: white;
+    
+    .addYourPubli {
+      margin: 0.5em;
+      color: white;
+      font-size: xx-large;
       font-weight: bold;
+    }
+    .title {
+      margin: 0.5em;
+      background: white;
+      height: 3em;
+      font-weight: bold;
+      padding-left: 1em;
       border-radius: 5px;
       z-index: 5;
 
@@ -105,8 +118,12 @@ const reload = () =>{
     }
 
     .description {
+      margin: 0.5em;
+      height: 10em;
       background: white;
       font-weight: bold;
+      padding-left: 1em;
+      padding-top: 1em;
       border-radius: 5px;
       z-index: 5;
 
@@ -116,50 +133,47 @@ const reload = () =>{
     }
 
     .resources {
+      margin: 0.5em;
       background: white;
       font-weight: bold;
       border-radius: 5px;
       z-index: 5;
+      align-items: center;
 
+      
       @media(min-width: 426px) {
         width: 55%;
       }
     }
 
-    .addYourPubli {
-      color: white;
-      font-size: xx-large;
-      font-weight: bold;
-    }
-
-    .description {
-      height: 10em;
-    }
 
     .buttonsContainer {
+      margin: 0.5em;
       display: flex;
-      align-items: space-between;
+      align-items: space-around;
       z-index: 5;
 
       .cancelButton {
         background-color: map-get(c.$colors, "light-purple");
-        border-radius: 2%;
+        border-radius: 5%;
         color: map-get(c.$colors, "light-grayish");
-        margin-right: 5vw;
+        font-weight: bold;
+        margin-right: 4vw;
       }
 
       .sendButton {
         background-color: map-get(c.$colors, "purple");
-        border-radius: 2%;
+        border-radius: 5%;
         color: map-get(c.$colors, "light-grayish");
-        margin-left: 5vw;
+        font-weight: bold;
+        margin-left: 4vw;
       }
     }
 
     .purpleTriangle {
       position: absolute;
       bottom: 0;
-      right: 1em;
+      right: 1.5em;
       width: 9em;
     }
 

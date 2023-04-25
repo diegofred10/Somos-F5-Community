@@ -37,8 +37,8 @@
     width: 30%;
     justify-content: space-evenly;
         .imgBanner{
-            width: 9vw;
-            height: 17vh;
+            width: 120px;
+            height: 120px;
             background-color: map-get(c.$colors, "white");
             border-radius: 100%;
             display: flex;
