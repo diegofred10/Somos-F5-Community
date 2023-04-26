@@ -2,7 +2,6 @@
 	import { ref, onBeforeMount } from "vue";
 import HeaderAdmin from '../components/HeaderAdmin.vue';
 import BannerAdmin from '../components/BannerAdmin.vue';
-import Search from '../components/Search.vue';
 import UserService from "../services/UserService";
 import CardUsers from "../components/CardUsers.vue";
 import ProfileService from "../services/ProfileService";

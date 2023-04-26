@@ -14,13 +14,16 @@ import { useAuthStore } from '../stores/AuthStore';
             router.push(`username/${props.user.username}`)
     }
 
+
 </script>
 
 <template>
- <section class="card-u" :class="{ 'cyan': random===1,'purple': random === 2, 'orange': random === 3 }">
-        <!-- <section v-if="random==3" class="card-u" style="background-color: orange;"> -->
+  <section
+    class="card-u"
+    :class="{ cyan: random === 1, purple: random === 2, orange: random === 3 }"
+  >
+    <!-- <section v-if="random==3" class="card-u" style="background-color: orange;"> -->
     <div class="info-u">
-
         <img class="img-u" 
         v-if="user.image != null" :src="'http://localhost:8080/media/' + user.image">
         <img
@@ -36,6 +39,11 @@ import { useAuthStore } from '../stores/AuthStore';
                 <p class="text-u">{{ profile[user.id -1].location }}</p>
            </div>
         </div>
+        <div class="contact-u">
+          <i class="fa-solid fa-location-dot" style="color: #000000"></i>
+          <p class="text-u">{{ profile[user.id - 1].location }}</p>
+        </div>
+      </div>
     </div>
     <!-- <button v-if="auth.role === 'ROLE_ADMIN'"> 
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
@@ -44,9 +52,14 @@ import { useAuthStore } from '../stores/AuthStore';
  </section>
 
 
- <div class="separator-u" id="separator">
-        <img class="stripe-u" :src="image" alt="Línea separadora de color morado.">
- </div> 
+
+  <div class="separator-u" id="separator">
+    <img
+      class="stripe-u"
+      :src="image"
+      alt="Línea separadora de color morado."
+    />
+  </div>
 </template>
 
 <style lang="scss">
@@ -54,79 +67,78 @@ import { useAuthStore } from '../stores/AuthStore';
 @use "@/scss/fonts";
 
 .cyan {
-    background-color: map-get(c.$colors, "light-green-tr" );
- }
+  background-color: map-get(c.$colors, "light-green-tr");
+}
 
- .orange {
-    background-color: map-get(c.$colors, "orange-tr" );
- }
+.orange {
+  background-color: map-get(c.$colors, "orange-tr");
+}
 
- .purple{
-    background-color: map-get(c.$colors, "light-purple-tr" );
- }
-.card-u{
-    width: 80%;
-    margin-top: 2%;
+.purple {
+  background-color: map-get(c.$colors, "light-purple-tr");
+}
+.card-u {
+  width: 80%;
+  margin-top: 2%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  .info-u {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    align-items: center;
 
-    .info-u{
+    .img-u {
+      border-radius: 100%;
+      width: 15vh;
+      margin: 1vh 3vh 1vh 5vh;
+    }
+    .date-u {
+      margin-top: 1%;
+
+      .name-u {
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        font-size: 1.8vw;
+      }
+      .contact-u {
         display: flex;
         align-items: center;
 
-        .img-u{
-            border-radius: 100%;
-            width: 15vh;
-            margin: 1vh 3vh 1vh 5vh;
+        i {
+          margin: 1%;
         }
-        .date-u{
-            margin-top: 1%;
-            
-            .name-u{
-             font-family: 'Open Sans', sans-serif ;
-             font-weight: bold;
-             font-size: 1.8vw;
-            }
-            .contact-u{
-                display: flex;
-                align-items: center;
-
-                i{
-                    margin: 1%;
-                    
-                }
-            }
-        }
+      }
     }
+  }
 
-    .btn-u{
-        background-color: map-get(c.$colors, "dark-red");
-        color: map-get(c.$colors, "white");
-        font-family: 'Open Sans', sans-serif ;
-        font-size: 60%;
-        width: 22%;
-        height: 90%;
-        border: solid;
-        box-sizing: border-box;
-        border-radius: 50px;
-        margin: 1%;
-            &:hover {
-            background-color: map-get(c.$colors, "white");
-            color: map-get(c.$colors, "orange");
-        }
+  .btn-u {
+    background-color: map-get(c.$colors, "dark-red");
+    color: map-get(c.$colors, "white");
+    font-family: "Open Sans", sans-serif;
+    font-size: 60%;
+    width: 22%;
+    height: 90%;
+    border: solid;
+    box-sizing: border-box;
+    border-radius: 50px;
+    margin: 1%;
+    &:hover {
+      background-color: map-get(c.$colors, "white");
+      color: map-get(c.$colors, "orange");
     }
+  }
 }
 
-.separator-u{
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    margin: 2vw;
+.separator-u {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin: 2vw;
 
-    .stripe-u{
-    width: 60vw; 
+  .stripe-u {
+    width: 60vw;
     height: 4vh;
-        }
-    }
+  }
+}
 </style>
