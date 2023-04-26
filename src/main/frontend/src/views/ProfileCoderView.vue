@@ -17,7 +17,7 @@ const route = useRoute();
   const user = ref()
 	onBeforeMount(async () => {
 		const id = route.params.username;
-    await service.fetchOneUser(3)
+    await service.fetchOneUser(id)
     user.value = service.getUser()
     console.log(user.value)
 		try {

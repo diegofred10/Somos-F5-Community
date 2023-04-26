@@ -2,21 +2,23 @@
 	import { ref, onBeforeMount } from "vue";
 	import { useProgrammatic } from "@oruga-ui/oruga-next";
 	import InfoUser from "../components/InfoUser.vue";
-	import CardProfile from "../components/CardProfile.vue";
 	import Header from "../components/Header.vue";
 	import AddPublication from "../components/AddPublication.vue";
-	import PostService from "../services/PostService";
+	import ProfileService from "../services/ProfileService";
+	import { useAuthStore } from "../stores/AuthStore";
+ 	import CardProfile from "../components/CardProfile.vue";
+	const store = useAuthStore()
 
 	let input = ref("");
 	
-	const postService = new PostService();
+	const profileService = new ProfileService();
 
-	let posts = ref([]);
+	let profile = ref();
 
  	onBeforeMount(async()=>{
-	await postService.fetchAllPost()
-	posts.value = postService.getPost()
-	console.log(posts.value)
+	await profileService.fetchOneProfile(store.id)
+	profile.value = profileService.getProfile()
+	console.log(profile.value)
 });
 
 // function filteredList() {
@@ -59,13 +61,11 @@
 				<i class="fa-solid fa-plus btn-add"></i>
 			</o-button>
 		</section>
-		<input type="text" v-model="input" placeholder="Buscar publicaciones..." />
+		
+
 			<CardProfile
-			v-for= "post in posts" :post="post"/>
-			
-			<div class="itemError" v-if="input&&!filteredList().length">
-    <p>No results found!</p>
-</div>
+			v-for= "post in profile.posts" :post="post"/>
+		
 
 		
 	</main>

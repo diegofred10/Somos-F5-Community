@@ -10,7 +10,7 @@ import ProfileService from "../services/ProfileService";
 const userService = new UserService();
 const profileService = new ProfileService();
 	let users = ref([]);
-	let user = ref("");
+	// let user = ref("");
 	let profile = ref([]);
  	onBeforeMount(async()=>{
 	await userService.fetchAllUsers()

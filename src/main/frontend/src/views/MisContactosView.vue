@@ -2,12 +2,37 @@
 import Header from '../components/Header.vue';
 import UserContacts from '../components/UserContacts.vue';
 import CardUsers from '../components/CardUsers.vue';
+import { ref, onBeforeMount } from 'vue';
+import UserService from '../services/UserService';
+
+const service = new UserService(); 
+
+
+	const profile = ref();
+  const user = ref()
+	onBeforeMount(async () => {
+	
+    await service.fetchOneUser(2)
+    user.value = service.getUser()
+    console.log(user.value)
+		try {
+      const response = await axios.get(
+				`http://localhost:8080/api/profiles/2`
+			);
+			console.log(response.data)
+      profile.value = response.data
+    } catch (error) {
+      console.log(error)
+    }
+			
+  })
 </script>
 <template>
 <main>
     <Header/>
     <UserContacts/>
-    <CardUsers/>
+    <CardUsers
+    :user = "user" :profile = "profile"/>
 </main>
 </template>
 <style lang="scss">
