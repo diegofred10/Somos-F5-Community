@@ -32,9 +32,9 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
     @Column(nullable = true)
-    private String name;
+    private String name = "Nombre";
     @Column(nullable = true)
-    private String surname;
+    private String surname = "Apellido";
     @Column(nullable = true)
     private String location;
     @Column(nullable = true)

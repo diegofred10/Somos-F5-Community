@@ -1,46 +1,44 @@
 <script setup>
+
 import axios from 'axios';
 import { defineProps, onBeforeMount, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-let random = Math.round(Math.random()*2+1);
+
+let random = Math.round(Math.random() * 2 + 1);
 // let image = "src/assets/images/separator" + random + ".png";
 
 let date = new Date().toLocaleDateString();
 
 window.addEventListener("DOMContentLoaded", () => {
-	const buttonDelete = document.querySelector(".button-delete");
-	const buttonEdit = document.querySelector(".button-edit");
-	const title = document.querySelector(".titlePubli");
-	const text = document.querySelector(".textPubli");
+  const buttonDelete = document.querySelector(".button-delete");
+  const buttonEdit = document.querySelector(".button-edit");
+  const title = document.querySelector(".titlePubli");
+  const text = document.querySelector(".textPubli");
 
-	buttonDelete.addEventListener("click", () => {
-		const publicacion = buttonDelete.closest(".card");
-		publicacion.remove();
-	});
+  buttonDelete.addEventListener("click", () => {
+    const publicacion = buttonDelete.closest(".card");
+    publicacion.remove();
+  });
 
-	buttonEdit.addEventListener("click", () => {
-		title.contentEditable = true;
-		text.contentEditable = true;
-		file.contentEditable = true;
-		buttonEdit.style.display = "none";
-		const buttonSave = document.createElement("button");
-		buttonSave.textContent = "Guardar";
-		buttonSave.classList.add("button-save");
-		buttonEdit.parentNode.insertBefore(
-			buttonSave,
-			buttonEdit.nextSibling
-		);
-		buttonSave.addEventListener("click", () => {
-			title.contentEditable = false;
-			text.contentEditable = false;
-			buttonSave.parentNode.removeChild(buttonSave);
-			buttonEdit.style.display = "block";
-		});
-	});
+  buttonEdit.addEventListener("click", () => {
+    title.contentEditable = true;
+    text.contentEditable = true;
+    file.contentEditable = true;
+    buttonEdit.style.display = "none";
+    const buttonSave = document.createElement("button");
+    buttonSave.textContent = "Guardar";
+    buttonSave.classList.add("button-save");
+    buttonEdit.parentNode.insertBefore(buttonSave, buttonEdit.nextSibling);
+    buttonSave.addEventListener("click", () => {
+      title.contentEditable = false;
+      text.contentEditable = false;
+      buttonSave.parentNode.removeChild(buttonSave);
+      buttonEdit.style.display = "block";
+    });
+  });
 });
 
-	
 	let profiles = ref()
 	onBeforeMount(() => {
 		axios({
@@ -53,25 +51,25 @@ window.addEventListener("DOMContentLoaded", () => {
 			console.log(profiles.value);
 			})
 			.catch((e) => {
-			
 			});
 });
 
 const props = defineProps({
-	post: Object,
-})
+  post: Object,
+});
 
 const deletePost = () => {
-	const idPost = props.post.id;
-	axios({
-		method: "DELETE",
-		url: "http://localhost:8080/api/posts/" + idPost,
-		withCredentials: true,
-	});
-	location.reload()
+  const idPost = props.post.id;
+  axios({
+    method: "DELETE",
+    url: "http://localhost:8080/api/posts/" + idPost,
+    withCredentials: true,
+  });
+  location.reload();
 };
 
 const dialog = ref(false);
+
 
 const router = useRouter()
 
@@ -135,17 +133,13 @@ const profileDescription = () => {
 							</v-card>
 						</v-dialog>
 					</v-row>
-					<!-- <button class="button-edit">
-						<i class="fa-solid fa-pen btn btn-edit"></i>
-					</button> -->
-					<button class="button-delete">
-						<i @click="deletePost" class="fa-solid fa-trash btn btn-delete"></i>
-					</button>
-				</div>
-
-			</div>
-		</div>
-	</div>
+          <button class="button-delete">
+            <i @click="deletePost" class="fa-solid fa-trash btn btn-delete"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -153,222 +147,220 @@ const profileDescription = () => {
 @use "@/scss/fonts";
 
 .cyan {
-	background-color: map-get(c.$colors, "light-green-tr");
+  background-color: map-get(c.$colors, "light-green-tr");
 }
 
-.cyanTitle{
-	background-color: map-get(c.$colors, "light-green");
+.cyanTitle {
+  background-color: map-get(c.$colors, "light-green");
 }
 
 .backcyan {
-	background-image: url("../assets/images/UserNamePostBackground/background3.png");
-	display: flex;
-	background-size: contain;
-	width: 40vw;
-	height: 5vh;
+  background-image: url("../assets/images/UserNamePostBackground/background3.png");
+  display: flex;
+  background-size: contain;
+  width: 40vw;
+  height: 5vh;
 }
 
 .orange {
-	background-color: map-get(c.$colors, "orange-tr");
+  background-color: map-get(c.$colors, "orange-tr");
 }
 
-.orangeTitle{
-	background-color: map-get(c.$colors, "orange");
+.orangeTitle {
+  background-color: map-get(c.$colors, "orange");
 }
 
 .backorange {
-	background-image: url("../assets/images/UserNamePostBackground/background2.png");
-	display: flex;
-	background-size: contain;
-	width: 40vw;
-	height: 5vh;
+  background-image: url("../assets/images/UserNamePostBackground/background2.png");
+  display: flex;
+  background-size: contain;
+  width: 40vw;
+  height: 5vh;
 }
 
 .purple {
-	background-color: map-get(c.$colors, "light-purple-tr");
+  background-color: map-get(c.$colors, "light-purple-tr");
 }
 
-.purpleTitle{
-	background-color: map-get(c.$colors, "light-purple");
-
+.purpleTitle {
+  background-color: map-get(c.$colors, "light-purple");
 }
 
 .backpurple {
-	background-image: url("../assets/images/UserNamePostBackground/background1.png");
-	display: flex;
-	background-size: contain;
-	width: 40vw;
-	height: 5vh;
+  background-image: url("../assets/images/UserNamePostBackground/background1.png");
+  display: flex;
+  background-size: contain;
+  width: 40vw;
+  height: 5vh;
 }
 
 .cards {
-	width: 100%;
+  width: 100%;
 }
 
 .card {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 3vh;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3vh;
 
-	.headerCard {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-		width: 100%;
+  .headerCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
 
-		.backgroundUserName {
-			.userNamePost {
-				display: flex;
-				align-items: center;
-				font-size: 3vh;
-				font-weight: bolder;
-				margin-left: 2vw;
-				color: white;
-			}
-		}
+    .backgroundUserName {
+      .userNamePost {
+        display: flex;
+        align-items: center;
+        font-size: 3vh;
+        font-weight: bolder;
+        margin-left: 2vw;
+        color: white;
+      }
+    }
 
-		.date {
-			align-self: flex-end;
-			margin-right: 2vw;
-			color: map-get(c.$colors, "grey");
-			font-family: "openSans";
-		}
-	}
+    .date {
+      align-self: flex-end;
+      margin-right: 2vw;
+      color: map-get(c.$colors, "grey");
+      font-family: "openSans";
+    }
+  }
 }
 
 .publication {
-	display: flex;
-	justify-content: space-between;
-	border-radius: 5px;
-	width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  width: 80vw;
 
-	.text {
-		.titlePubli {
-			margin-left: 1vw;
-			font-size: 1.5vw;
-			color: map-get(c.$colors, "black");
-			font-family: "openSans";
-			font-weight: 600;
-		}
+  .text {
+    .titlePubli {
+      margin-left: 1vw;
+      font-size: 1.5vw;
+      color: map-get(c.$colors, "black");
+      font-family: "openSans";
+      font-weight: 600;
+    }
 
-		.textPubli {
-			font-family: "openSans";
-			padding: 0.5em;
-		}
-	}
+    .textPubli {
+      font-family: "openSans";
+      padding: 0.5em;
+    }
+  }
 
-	.filePubli {
-		padding: 5px;
-		width: 10%;
+  .filePubli {
+    padding: 5px;
+    width: 10%;
 
-		&:active {
-			width: 50%;
-		}
-	}
+    &:active {
+      width: 50%;
+    }
+  }
 }
 
 .popUp {
-	width: 90vw;
-	.titlePubliBigger {
-		margin-left: 1vw;
-		font-size: 1.5vw;
-		color: map-get(c.$colors, "black");
-		font-family: "openSans";
-		font-weight: 600;
-	}
-	.textPubliBigger {
-		font-family: "openSans";
-		padding: 0.5em;
-	}
-	.datePopUp {
-		display: flex;
-		justify-content: flex-end;
-		margin-right: 2vw;
-		color: map-get(c.$colors, "grey");
-		font-family: "openSans";
-	}
+  width: 90vw;
+  .titlePubliBigger {
+    margin-left: 1vw;
+    font-size: 1.5vw;
+    color: map-get(c.$colors, "black");
+    font-family: "openSans";
+    font-weight: 600;
+  }
+  .textPubliBigger {
+    font-family: "openSans";
+    padding: 0.5em;
+  }
+  .datePopUp {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2vw;
+    color: map-get(c.$colors, "grey");
+    font-family: "openSans";
+  }
 
-	.cerrarButton {
-		width: 10vw;
-		margin-right: 2vw;
+  .cerrarButton {
+    width: 10vw;
+    margin-right: 2vw;
 
-		&:hover {
-			background-color: #9c93b6;
-			border-radius: 5px;
-		}
+    &:hover {
+      background-color: #9c93b6;
+      border-radius: 5px;
+    }
 
-		&:active {
-			background-color: purple;
-			border-radius: 5px;
-		}
-	}
+    &:active {
+      background-color: purple;
+      border-radius: 5px;
+    }
+  }
 }
 
 .buttons {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-	.verMasButton {
-		width: 10vw;
+  .verMasButton {
+    width: 10vw;
 
-		&:hover {
-			background-color: map-get(c.$colors, "light-purple");
-			border-radius: 5px;
-		}
+    &:hover {
+      background-color: map-get(c.$colors, "light-purple");
+      border-radius: 5px;
+    }
 
-		&:active {
-			background-color: purple;
-			border-radius: 5px;
-		}
-	}
+    &:active {
+      background-color: purple;
+      border-radius: 5px;
+    }
+  }
 
+  .button-edit {
+    margin: 0.3em;
+    width: 2em;
+    height: 2em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
-	.button-edit {
-		margin: 0.3em;
-		width: 2em;
-		height: 2em;
-		align-items: center;
-		display: flex;
-		justify-content: center;
+    &:hover {
+      background-color: map-get(c.$colors, "light-purple");
+      border-radius: 5px;
+    }
 
-		&:hover {
-			background-color: map-get(c.$colors, "light-purple");
-			border-radius: 5px;
-		}
+    &:active {
+      background-color: purple;
+      border-radius: 5px;
+    }
+  }
 
-		&:active {
-			background-color: purple;
-			border-radius: 5px;
-		}
-	}
+  .button-delete {
+    margin: 0.3em;
+    width: 2em;
+    height: 2em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
-	.button-delete {
-		margin: 0.3em;
-		width: 2em;
-		height: 2em;
-		align-items: center;
-		display: flex;
-		justify-content: center;
+    &:hover {
+      background-color: map-get(c.$colors, "light-purple");
+      border-radius: 5px;
+    }
 
-		&:hover {
-			background-color: map-get(c.$colors, "light-purple");
-			border-radius: 5px;
-		}
+    &:active {
+      background-color: purple;
+      border-radius: 5px;
+    }
+  }
 
-		&:active {
-			background-color: purple;
-			border-radius: 5px;
-		}
-	}
-
-	.btn {
-		font-size: 1em;
-	}
+  .btn {
+    font-size: 1em;
+  }
 }
 
 .separator {
-	height: 5%;
-	width: 80vw;
+  height: 5%;
+  width: 80vw;
 }
 </style>
