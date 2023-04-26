@@ -53,9 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			console.log(profiles.value);
 			})
 			.catch((e) => {
-			console.log(e);
-			console.log(props.post.idProfile);
-			console.log("Catch error profiles");
+			
 			});
 });
 

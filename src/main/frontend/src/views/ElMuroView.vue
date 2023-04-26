@@ -12,10 +12,10 @@ const postService = new PostService();
 
 let posts = ref([]);
 
-onBeforeMount(async()=>{
-	await postService.fetchAllPost()
-	posts.value = postService.getPost()
-	console.log(posts.value)
+onBeforeMount(async () => {
+		await postService.fetchAllPost();
+		posts.value = postService.getPost();
+		console.log(posts.value);
 	});
 </script>
 
@@ -25,12 +25,12 @@ onBeforeMount(async()=>{
 <UserFeed/>
 <div class="tools">
  
-    <Search/>
+    <!-- <Search/> -->
 </div>
-<div class="publi">
-    <CardProfile
-			v-for= "post in posts" :post="post"/>
-</div>
+   <CardProfile
+			v-for="post in posts"
+			:post="post"
+		/>
 </main>
 </template>
 
