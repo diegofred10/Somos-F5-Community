@@ -1,29 +1,36 @@
 <script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  profile: Object ,
+  user: Object
+})
 
 </script>
 <template>
 <section>
     <div class="infoProfile">
-        <img class="photoCoder" src="../assets/images/imagesSomosF5/Alicia.jpeg" alt="">
+        <!-- <img class="photoCoder" :src="'http://localhost:8080/media/'" + {{ user.image }} alt="imagen user"> -->
         <div class="contactsCoder">
             <div class="contactCoder">
-             <h1 class="nameCoder">Alicia Fernández</h1>
+             <h1 class="nameCoder">{{ profile.name }}
+            {{ profile.surname }}</h1>
             </div>
             <div class="contactCoder">
                 <img class="logo" src="../assets/images/imagesSomosF5/github.png" alt="gitHub"/>
-                <p class="contactText">alcfdez</p>         
+                <p class="contactText">{{ profile.github }}</p>         
             </div>
             <div class="contactCoder">
                 <img class="logo" src="../assets/images/imagesSomosF5/linkedin.png" alt="linkedin"/>
-                <p class="contactText">Alicefer</p>
+                <p class="contactText">{{ profile.linkedin }}</p>
             </div>
             <div class="contactCoder">
                 <img class="logo" src="../assets/images/imagesSomosF5/geo-alt.png" alt="geo"/>
-                <p class="contactText">Italia</p>
+                <p class="contactText">{{ profile.location }}</p>
             </div>
             <div class="contactCoder">
                 <img class="logo" src="../assets/images/imagesSomosF5/Vector.png" alt="email"/>
-                <p class="contactText">Ali@gmail.com</p>
+                <!-- <p class="contactText">{{ user.username }}</p> -->
             </div>
         </div>
     </div>

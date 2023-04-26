@@ -17,7 +17,7 @@ const profileService = new ProfileService();
 	// user = userService.getUser();
 	await profileService.fetchAllProfiles()
 	profile.value = profileService.getProfile();
-	users.value = userService.getUser()
+	users.value = userService.getUsers()
 	console.log( users);
 	console.log( profile.value);
 	});

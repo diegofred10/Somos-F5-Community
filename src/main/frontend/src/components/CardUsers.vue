@@ -1,5 +1,7 @@
 <script setup>
+import { useAuthStore } from '../stores/AuthStore';
     import axios from 'axios';
+
     let random = Math.round(Math.random()*2+1);
     let image = "src/assets/images/separator" + random + ".png";
   
@@ -7,6 +9,10 @@
 		user: Object,
         profile:Array,
 	})
+
+    const profileDescription = () => {
+            router.push(`username/${props.user.username}`)
+    }
 
 </script>
 
@@ -23,7 +29,7 @@
            <h1 class="name-u">{{ profile[user.id -1].name + profile[user.id -1].surname }}</h1>
            <div class="contact-u">
                 <i class="fa-regular fa-envelope logo-u" style="color: #000000;"></i>
-                <p class="text-u">{{ user.username }}</p>
+                <p @click="profileDescription" class="text-u">{{ user.username }}</p>
            </div>
            <div class="contact-u">
                 <i class="fa-solid fa-location-dot" style="color: #000000;"></i>
@@ -31,9 +37,9 @@
            </div>
         </div>
     </div>
-    <!-- <button>
+    <button v-if="auth.role === 'ROLE_ADMIN'"> 
         <i class="fa-regular fa-trash-can fa-2xl trash-u" style="color: #000000;"></i>
-    </button>  -->
+    </button> 
     <button @click="deleteUser" class="btn-u" >ELIMINAR DE MIS CONTACTOS</button>
  </section>
 

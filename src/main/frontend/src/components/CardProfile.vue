@@ -1,6 +1,7 @@
 <script setup>
 import axios from 'axios';
 import { defineProps, onBeforeMount, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 let random = Math.round(Math.random()*2+1);
 // let image = "src/assets/images/separator" + random + ".png";
@@ -74,6 +75,13 @@ const deletePost = () => {
 
 const dialog = ref(false);
 
+const router = useRouter()
+
+const profileDescription = () => {
+            router.push(`username/${props.post.idProfile}`)
+			console.log("hello")
+    }
+
 </script>
 
 <template>
@@ -83,7 +91,7 @@ const dialog = ref(false);
 				<div class="headerCard">
 					<div class="backgroundUserName"
 						:class="{ 'backcyan': random === 1, 'backpurple': random === 2, 'backorange': random === 3 }">
-						<h3 class="userNamePost">
+						<h3 @click="profileDescription" class="userNamePost">
 							{{ profiles }}
 						</h3>
 					</div>
